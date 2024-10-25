@@ -1,0 +1,62 @@
+[
+    {
+        "decision": "Leave repeating sums as they are",
+        "explanation": "Keep repetitive summations (e.g., 1 + 2 + 3 + ...) in their original form instead of adding them up to a simplified sum."
+    },
+    {
+        "decision": "Remove negative exponents",
+        "explanation": "Rewrite negative exponents as fractions (e.g., x^{-n} becomes 1/x^n)."
+    },
+    {
+        "decision": "Reduce the number of terms",
+        "explanation": "Combine like terms or factor expressions to minimize the total number of terms."
+    },
+    {
+        "decision": "Factor out terms",
+        "explanation": "Factor common terms from polynomials or other expressions to reduce complexity."
+    },
+    {
+        "decision": "Multiply through factored terms",
+        "explanation": "Expand factored expressions (e.g., (x + 2)(x - 3)) if it simplifies further manipulation."
+    },
+    {
+        "decision": "Reduce the number of fractions",
+        "explanation": "Combine fractions into a single expression when possible, or clear denominators by multiplying through."
+    },
+    {
+        "decision": "Reduce the number of parentheses",
+        "explanation": "Simplify nested parentheses where possible to make the expression cleaner."
+    },
+    {
+        "decision": "Keep prime factorizations decomposed",
+        "explanation": "Express numbers as their prime factorizations rather than as simple numbers (e.g., write 12 as 2^2 * 3)."
+    },
+    {
+        "decision": "Write reciprocal as x^{-1}",
+        "explanation": "Express reciprocals as negative exponents rather than as fractions."
+    },
+    {
+        "decision": "Prefer binomial expansions",
+        "explanation": "Use binomial expansions (e.g., (a + b)^n) instead of leaving terms in factored form for clarity in large expansions."
+    },
+    {
+        "decision": "Use standard form for polynomials",
+        "explanation": "Write polynomials in descending order of powers (e.g., ax^2 + bx + c)."
+    },
+    {
+        "decision": "Keep expressions rationalized",
+        "explanation": "Rationalize the denominator of any fractions involving radicals."
+    },
+    {
+        "decision": "Simplify powers of powers",
+        "explanation": "When dealing with expressions like (x^a)^b, reduce them to x^{ab} where possible."
+    },
+    {
+        "decision": "Avoid improper fractions",
+        "explanation": "Convert improper fractions to mixed numbers where clarity is more important than formality."
+    },
+    {
+        "decision": "Expand out complex fractions",
+        "explanation": "Break complex fractions (fractions within fractions) into simpler fractions or terms."
+    }
+]

@@ -1,0 +1,392 @@
+[
+    {
+        "decision": "Leave repeating sums as they are",
+        "explanation": "Keep repetitive summations (e.g., 1 + 2 + 3 + ...) in their original form instead of adding them up to a simplified sum.",
+        "examples": [
+            {
+                "before": "55 + 12 * x + y",
+                "after": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 12 * x + y"
+            },
+            {
+                "before": "15 + z * a + 7",
+                "after": "2 + 3 + 4 + 5 + 1 + z * a + 7"
+            },
+            {
+                "before": "21 + x + y^2",
+                "after": "7 + 6 + 5 + 3 + x + y^2"
+            },
+            {
+                "before": "45 + z + x",
+                "after": "10 + 9 + 8 + 7 + 6 + 5 + z + x"
+            },
+            {
+                "before": "28 + 3x + 7z",
+                "after": "4 + 8 + 6 + 10 + 28 + 3x + 7z"
+            }
+        ]
+    },
+    {
+        "decision": "Remove negative exponents",
+        "explanation": "Rewrite negative exponents as fractions (e.g., x^{-n} becomes 1/x^n).",
+        "examples": [
+            {
+                "before": "x^{-3} * y^{-2} * z^{-1} + 7 + 4x",
+                "after": "1/x^3 * 1/y^2 * 1/z + 7 + 4x"
+            },
+            {
+                "before": "a^{-2} * b^{-3} + c^{-1} + 2z^2 + 5",
+                "after": "1/a^2 * 1/b^3 + 1/c + 2z^2 + 5"
+            },
+            {
+                "before": "x^{-4} + y^{-2} * z^{-1} + a + b^2",
+                "after": "1/x^4 + 1/y^2 * 1/z + a + b^2"
+            },
+            {
+                "before": "a^{-3} * b^{-2} + z^3 + 2x + 7",
+                "after": "1/a^3 * 1/b^2 + z^3 + 2x + 7"
+            },
+            {
+                "before": "x^{-5} + y^{-3} * z^{-2} + 3z^2 + a",
+                "after": "1/x^5 + 1/y^3 * 1/z^2 + 3z^2 + a"
+            }
+        ]
+    },
+    {
+        "decision": "Reduce the number of terms",
+        "explanation": "Combine like terms or factor expressions to minimize the total number of terms.",
+        "examples": [
+            {
+                "before": "2x + 3x + 4x - 5y + y + z + z^2",
+                "after": "9x - 4y + z + z^2"
+            },
+            {
+                "before": "x^2 + 2x^2 + 3y - 3y + 4z + 5z^2 + x",
+                "after": "3x^2 + 4z + 5z^2 + x"
+            },
+            {
+                "before": "a + b + 2a - b + z + 3z^2",
+                "after": "3a + z + 3z^2"
+            },
+            {
+                "before": "4x + 3x - 2x + 6y - 3y + z",
+                "after": "5x + 3y + z"
+            },
+            {
+                "before": "2x^2 + 3x^2 + 2z + z + b",
+                "after": "5x^2 + 3z + b"
+            }
+        ]
+    },
+    {
+        "decision": "Factor out terms",
+        "explanation": "Factor common terms from polynomials or other expressions to reduce complexity.",
+        "examples": [
+            {
+                "before": "4x^3 + 8x^2 + 12x + z + 6z^2 + 5",
+                "after": "4x(x^2 + 2x + 3) + z + 6z^2 + 5"
+            },
+            {
+                "before": "6x^3 - 3x^2 + 9x + 2z + z^2 + 4z",
+                "after": "3x(2x^2 - x + 3) + 2z + z^2 + 4z"
+            },
+            {
+                "before": "5a^2 - 10a + 15b^2 + 2x + 3z^3",
+                "after": "5(a^2 - 2a + 3b^2) + 2x + 3z^3"
+            },
+            {
+                "before": "2x^2 + 4x + 6 + z^2 + 2z + a",
+                "after": "2(x^2 + 2x + 3) + z^2 + 2z + a"
+            },
+            {
+                "before": "3x^2 - 6x + 9z^3 + z + 2a + b^2",
+                "after": "3(x^2 - 2x + 3z^3) + z + 2a + b^2"
+            }
+        ]
+    },
+    {
+        "decision": "Multiply through factored terms",
+        "explanation": "Expand factored expressions (e.g., (x + 2)(x - 3)) if it simplifies further manipulation.",
+        "examples": [
+            {
+                "before": "(x + 3)(x^2 - x + 4) + z + 2y + 3a",
+                "after": "x^3 + 2x^2 + x + 12 + z + 2y + 3a"
+            },
+            {
+                "before": "(a - 2)(a^2 + a + 5) + b^2 + 4b + 7",
+                "after": "a^3 - a^2 - 5a + 10 + b^2 + 4b + 7"
+            },
+            {
+                "before": "(2x + 3)(x^2 - 4x + 2) + z + 3y^2",
+                "after": "2x^3 - 5x^2 + 2x + 6x^2 - 12x + 6 + z + 3y^2"
+            },
+            {
+                "before": "(x - 2)(x + 3)(x^2 - 1) + y + z^2",
+                "after": "x^4 + 3x^3 - 2x^2 - 6x + 2 + y + z^2"
+            },
+            {
+                "before": "(a + b)(a^2 - 2a + 4b) + 3z + x^2",
+                "after": "a^3 + ab^2 - 2a^2b + 4ab + 3z + x^2"
+            }
+        ]
+    },
+    {
+        "decision": "Reduce the number of fractions",
+        "explanation": "Combine fractions into a single expression when possible, or clear denominators by multiplying through.",
+        "examples": [
+            {
+                "before": "1/2 + 1/3 + 1/6 + z + x/y + a",
+                "after": "(3 + 2 + 1)/6 + z + x/y + a"
+            },
+            {
+                "before": "(x/y) + (y/x) + (z/x) + 1/3 + a + b^2",
+                "after": "(x^2 + y^2 + z)/(x y) + 1/3 + a + b^2"
+            },
+            {
+                "before": "1/a + 1/b + 1/c + 3z + y^2",
+                "after": "(bc + ac + ab)/(abc) + 3z + y^2"
+            },
+            {
+                "before": "(a/x) + (b/x) + (c/x) + z^2 + y",
+                "after": "(a + b + c)/x + z^2 + y"
+            },
+            {
+                "before": "1/2 + 1/4 + 1/8 + a + 3x + z",
+                "after": "(4 + 2 + 1)/8 + a + 3x + z"
+            }
+        ]
+    },
+    {
+        "decision": "Reduce the number of parentheses",
+        "explanation": "Simplify nested parentheses where possible to make the expression cleaner.",
+        "examples": [
+            {
+                "before": "((x + (y + z + 2))) + (3 + (a + b + z^2))",
+                "after": "x + y + z + 2 + 3 + a + b + z^2"
+            },
+            {
+                "before": "((x + y) + ((a + b) + c)) + z + x^3",
+                "after": "x + y + a + b + c + z + x^3"
+            },
+            {
+                "before": "(((a + b) + c) + (d + e + f)) + x^2 + z",
+                "after": "a + b + c + d + e + f + x^2 + z"
+            },
+            {
+                "before": "(((x + y) + z) + ((a + b))) + c + z^3",
+                "after": "x + y + z + a + b + c + z^3"
+            },
+            {
+                "before": "((x + a) + ((y + z) + (b + c))) + z^2 + 4x",
+                "after": "x + a + y + z + b + c + z^2 + 4x"
+            }
+        ]
+    },
+    {
+        "decision": "Keep prime factorizations decomposed",
+        "explanation": "Express numbers as their prime factorizations rather than as simple numbers (e.g., write 12 as 2^2 * 3).",
+        "examples": [
+            {
+                "before": "72 + z + 45 + a^2",
+                "after": "2^3 * 3^2 + z + 3^2 * 5 + a^2"
+            },
+            {
+                "before": "84 + z + 150 + b^3",
+                "after": "2^2 * 3 * 7 + z + 2 * 3 * 5^2 + b^3"
+            },
+            {
+                "before": "120 + z^2 + 54 + x + 15",
+                "after": "2^3 * 3 * 5 + z^2 + 2 * 3^3 + x + 3 * 5"
+            },
+            {
+                "before": "90 + z^2 + 64 + b^2 + 36",
+                "after": "2 * 3^2 * 5 + z^2 + 2^6 + b^2 + 2^2 * 3^2"
+            },
+            {
+                "before": "210 + 126 + x^2 + z + a",
+                "after": "2 * 3 * 5 * 7 + 2 * 3^2 * 7 + x^2 + z + a"
+            }
+        ]
+    },
+    {
+        "decision": "Write reciprocal as x^{-1}",
+        "explanation": "Express reciprocals as negative exponents rather than as fractions.",
+        "examples": [
+            {
+                "before": "1/(x*y*z) + 3x + z^2 + y",
+                "after": "(x * y * z)^{-1} + 3x + z^2 + y"
+            },
+            {
+                "before": "1/(2x) * 1/(3y) + z + b^2 + a",
+                "after": "(2x)^{-1} * (3y)^{-1} + z + b^2 + a"
+            },
+            {
+                "before": "1/a + 1/(b + c) + x^2 + y + z",
+                "after": "a^{-1} + (b + c)^{-1} + x^2 + y + z"
+            },
+            {
+                "before": "1/(a * b) + 3x + z + y^2",
+                "after": "(a * b)^{-1} + 3x + z + y^2"
+            },
+            {
+                "before": "1/(x^2 * y^2) + z^3 + x + b",
+                "after": "(x^2 * y^2)^{-1} + z^3 + x + b"
+            }
+        ]
+    },
+    {
+        "decision": "Prefer binomial expansions",
+        "explanation": "Use binomial expansions (e.g., (a + b)^n) instead of leaving terms in factored form for clarity in large expansions.",
+        "examples": [
+            {
+                "before": "(x + 1)^3 + z + a + b^2 + z^2",
+                "after": "x^3 + 3x^2 + 3x + 1 + z + a + b^2 + z^2"
+            },
+            {
+                "before": "(a - b)^2 + x^3 + 2a + z + y",
+                "after": "a^2 - 2ab + b^2 + x^3 + 2a + z + y"
+            },
+            {
+                "before": "(x + 2)^4 + z + 2a + b^2 + 7",
+                "after": "x^4 + 8x^3 + 24x^2 + 32x + 16 + z + 2a + b^2 + 7"
+            },
+            {
+                "before": "(x - y)^3 + z^2 + 3x + a + b",
+                "after": "x^3 - 3x^2y + 3xy^2 - y^3 + z^2 + 3x + a + b"
+            },
+            {
+                "before": "(a + b)^4 + z + 2x + z^2 + 3a",
+                "after": "a^4 + 4a^3b + 6a^2b^2 + 4ab^3 + b^4 + z + 2x + z^2 + 3a"
+            }
+        ]
+    },
+    {
+        "decision": "Use standard form for polynomials",
+        "explanation": "Write polynomials in descending order of powers (e.g., ax^2 + bx + c).",
+        "examples": [
+            {
+                "before": "5 + 2x + x^3 + x^2 + z^2 + a + b",
+                "after": "x^3 + x^2 + 2x + 5 + z^2 + a + b"
+            },
+            {
+                "before": "x + x^4 - 3x^3 + x^2 + 2z + z^3",
+                "after": "x^4 - 3x^3 + x^2 + x + z^3 + 2z"
+            },
+            {
+                "before": "a^2 + a^4 + 3a + 7 + b^2 + z + z^2",
+                "after": "a^4 + a^2 + 3a + 7 + z^2 + z + b^2"
+            },
+            {
+                "before": "x^2 + x^3 + z^4 + 3z + 5 + z + a",
+                "after": "x^3 + x^2 + z^4 + 3z + z + 5 + a"
+            },
+            {
+                "before": "5 + 3x + 2x^3 + z^2 + z + a^3 + b^2",
+                "after": "2x^3 + 3x + 5 + z^2 + z + a^3 + b^2"
+            }
+        ]
+    },
+    {
+        "decision": "Keep expressions rationalized",
+        "explanation": "Rationalize the denominator of any fractions involving radicals.",
+        "examples": [
+            {
+                "before": "2/(x^(1/2) + y^(1/2)) + z + 3a + z^3",
+                "after": "(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3"
+            },
+            {
+                "before": "1/(a^(1/3) + b^(1/3)) + x^2 + z^2 + 4z",
+                "after": "(a^(1/3) - b^(1/3))/(a - b) + x^2 + z^2 + 4z"
+            },
+            {
+                "before": "1/(x^(1/2) - z^(1/2)) + a + b^2 + 2z",
+                "after": "(x^(1/2) + z^(1/2))/(x - z) + a + b^2 + 2z"
+            },
+            {
+                "before": "3/(x^(1/3) + y^(1/3)) + z + x + 4b^2",
+                "after": "(3(x^(1/3) - y^(1/3)))/(x - y) + z + x + 4b^2"
+            },
+            {
+                "before": "2/(a^(1/2) + b^(1/2)) + z + 2x + y",
+                "after": "(2(a^(1/2) - b^(1/2)))/(a - b) + z + 2x + y"
+            }
+        ]
+    },
+    {
+        "decision": "Simplify powers of powers",
+        "explanation": "When dealing with expressions like (x^a)^b, reduce them to x^{a b} where possible.",
+        "examples": [
+            {
+                "before": "(x^2)^3 * (y^3)^2 + z^2 + 2x + y + z",
+                "after": "x^6 * y^6 + z^2 + 2x + y + z"
+            },
+            {
+                "before": "(a^3)^4 * (b^4)^2 + x^2 + z + y + z^2",
+                "after": "a^12 * b^8 + x^2 + z + y + z^2"
+            },
+            {
+                "before": "(x^4)^2 * (y^2)^4 + 3x + z + a + b",
+                "after": "x^8 * y^8 + 3x + z + a + b"
+            },
+            {
+                "before": "(a^2)^3 * (b^3)^2 + z + 2x + b^2",
+                "after": "a^6 * b^6 + z + 2x + b^2"
+            },
+            {
+                "before": "(x^5)^2 * (y^4)^2 + z + a + 2x + 7",
+                "after": "x^10 * y^8 + z + a + 2x + 7"
+            }
+        ]
+    },
+    {
+        "decision": "Avoid improper fractions",
+        "explanation": "Convert improper fractions to mixed numbers where clarity is more important than formality.",
+        "examples": [
+            {
+                "before": "27/4 + z + x^2 + b^2 + 3a",
+                "after": "6 3/4 + z + x^2 + b^2 + 3a"
+            },
+            {
+                "before": "29/6 + a + z^2 + b + 4x",
+                "after": "4 5/6 + a + z^2 + b + 4x"
+            },
+            {
+                "before": "15/2 + z^3 + 3x^2 + a + b^2",
+                "after": "7 1/2 + z^3 + 3x^2 + a + b^2"
+            },
+            {
+                "before": "35/3 + 2z^2 + a + x + b",
+                "after": "11 2/3 + 2z^2 + a + x + b"
+            },
+            {
+                "before": "19/5 + z^2 + 4x + a + b^2",
+                "after": "3 4/5 + z^2 + 4x + a + b^2"
+            }
+        ]
+    },
+    {
+        "decision": "Expand out complex fractions",
+        "explanation": "Break complex fractions (fractions within fractions) into simpler fractions or terms.",
+        "examples": [
+            {
+                "before": "1 / (1 / x + 1 / y + 1 / z) + a + b^2 + z^2",
+                "after": "(x y z) / (y z + x z + x y) + a + b^2 + z^2"
+            },
+            {
+                "before": "(a / b) / (c / d) / (e / f) + x^2 + y + z + 4x",
+                "after": "(a d f) / (b c e) + x^2 + y + z + 4x"
+            },
+            {
+                "before": "1 / (1/x + 1/y + 1/z + 1/a) + x^2 + z",
+                "after": "(x y z a) / (y z a + x z a + x y a + x y z) + x^2 + z"
+            },
+            {
+                "before": "(x / y) / (z / w) / (a / b) + 2x + b^2",
+                "after": "(x w b) / (y z a) + 2x + b^2"
+            },
+            {
+                "before": "1 / (1/x + 1/y + 1/z + 1/w) + 3a + 2b^2",
+                "after": "(x y z w) / (y z w + x z w + x y w + x y z) + 3a + 2b^2"
+            }
+        ]
+    }
+]

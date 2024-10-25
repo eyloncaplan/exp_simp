@@ -1,0 +1,10 @@
+f"""You will be given some stylistic forms of a mathematical expression. Then, you will write a complex expression that violates every form. For example, a stylistic form might be "All negative fractions have a minus sign outside the fraction". Then one expression which violates this is "(6x+y)/(-4y)", since the minus sign is inside the denominator. Another example might be "When dividing by a constant, multiply by its reciprocal instead". Then a good example of a violating expression would be "x/4 + y/7 + z*x*y + 6^7", since "x/4" and "y/7" violate the form. You may only use the following symbols in your expression: {legal_symbols}. You cannot use LaTeX symbols. Please use at least {min_symbols} symbols.
+Here are your stylistic forms.
+
+Stylistic Forms
+{decision_str}
+
+Now, think out loud about what it means for an expression to be in the forms, and what it means to be violating the forms, and then write a violating expression. Finally, output only the expression like this.
+
+Expression: <expression>
+"""
