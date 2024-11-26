@@ -1,0 +1,14 @@
+f"""You will be given a stylistic decision about the form of a mathematical expression. Then, you will write {num_expressions} pairs of complex expressions where the first expression in each pair is NOT in the right form, and the second expression in the pair is equivalent to the first one, but IS in the right form. For example, a stylistic decision might be "all negative fractions have a minus sign outside the fraction". Then one pair of equivalent expressions might be "(6x+y)/(-4y)" and "-((6x+y)/(4y))". You can use any of the following symbols: {legal_symbols}. Please use at least {min_symbols}. Output only the pairs in the following format:
+
+<exp1 not in format>, <exp1 in format>
+<exp2 not in format>, <exp2 in format>
+<exp3 not in format>, <exp3 in format>
+...
+
+Here is your stylistic decision.
+
+Stylistic Decision
+{decision_str}
+
+Now, generate the expressions.
+"""
