@@ -1,0 +1,10 @@
+f"""I want to figure out what form to put a math expression in given some examples. You will be given some example pairs of mathematical expressions before and after being put in this specific form. Then, I want you to write some guiding principles that describe how to reach the form. For example, a principle could be "distribute the minus sign", "rationalize denominator", "simplify to the least number of terms possible", etc. Here are the examples of before/after being put in the form:
+
+{pi_string}
+
+Now, write 1-3 guiding principles that describe how to reach the form. Output your response as line-separated principles, like this:
+
+<principle 1>
+<principle 2>
+<principle 3>
+"""
