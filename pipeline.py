@@ -62,6 +62,8 @@ def get_x_prime(H, x, temperature=0.1):
     prompt = eval(raw_prompt)
     # logging.debug(f"Prompt:\n{prompt}\n\n")  # Log the prompt
     output = model.infer([prompt], num_workers=1)[0].strip()
+    # replace any whitespace with no space
+    output = re.sub(r'\s+', '', output)
     # logging.debug(f"Output:\n{output}\n\n")  # Log the output
     return output
 
@@ -75,22 +77,72 @@ def get_all_x_primes(H, x, branching_factor, max_attempts_multiplier=3):
     max_temperature = 2
     temperature_delta = max_temperature / ((max_attempts_multiplier - 1) * branching_factor)
 
-    logging.debug(f"H: {H}")
-    logging.debug(f"x: {x}")   
+    # logging.info(f"H: {H}")
+    # logging.info(f"x: {x}")   
 
     while len(x_primes) < branching_factor and attempts < max_attempts_multiplier * branching_factor:
-        logging.debug(f"Attempt {attempts + 1}")
+        # logging.info(f"Attempt {attempts + 1}")
         x_prime = get_x_prime(H, x, temperature=temperature)
         if x_prime not in x_primes and x_prime != x:
             x_primes.append(x_prime)
         else:
-            logging.debug(f"Discarded x_prime: {x_prime}")
-        attempts += 1
+            pass
+            # logging.info(f"Discarded x_prime: {x_prime}")
         if attempts > branching_factor and temperature < max_temperature:
             temperature += temperature_delta
-            logging.debug(f"Temperature increased to {temperature}")
+            # logging.info(f"Temperature increased to {temperature}")
+        if attempts == branching_factor:
+            temperature = 0
+        attempts += 1
+
     return x_primes
+
+def get_H_score(H, x_original, x_prime):
+    # have the model score x using H
+    model = OpenAIWrapper()
+    # Read prompt
+    with open(f'prompts/score_x_with_H.txt', 'r') as file:
+        raw_prompt = file.read()
     
+    H_string = ""
+    for h in H:
+        H_string += f"{h}\n"
+
+    exp1 = x_original
+    exp2 = x_prime
+    
+    prompt = eval(raw_prompt)
+    # logging.debug(f"Prompt:\n{prompt}\n\n")  # Log the prompt
+    output = model.infer([prompt], num_workers=1)[0].strip()
+    # extract the number that appears after "Expression 1 Score:"
+    original_score = int(re.search(r'Expression 1 Score: (\d+)', output).group(1))
+    # extract the number that appears after "Expression 2 Score:"
+    score = int(re.search(r'Expression 2 Score: (\d+)', output).group(1))
+    # logging.debug(f"Output:\n{output}\n\n")  # Log the output
+    # logging.debug(f"Original score: {original_score}")
+    # logging.debug(f"Score: {score}")
+    return int(score)
+
+def get_pi_score(pi, x_original, x_prime):
+    model = OpenAIWrapper()
+    # Read prompt
+    with open(f'prompts/gen_sim_score.txt', 'r') as file:
+        raw_prompt = file.read()
+    
+    pi_string = ""
+    for example in pi:
+        pi_string += f"Before: {example['before']}   ->   After: {example['after']}\n"
+
+    before_after_pair = f"Before: {x_original}   ->   After: {x_prime}"
+    
+    prompt = eval(raw_prompt)
+    # logging.debug(f"Prompt:\n{prompt}\n\n")  # Log the prompt
+    output = model.infer([prompt], num_workers=1)[0].strip()
+    # extract the number that appears after "Score:"
+    score = int(re.search(r'Score: (\d+)', output).group(1))
+    # logging.debug(f"Output:\n{output}\n\n")  # Log the output
+    # logging.debug(f"Score: {score}")
+    return int(score)
 
 if __name__ == '__main__':
     configure_logging(debug=debug_mode)
@@ -104,7 +156,24 @@ if __name__ == '__main__':
     pi = get_pi(problem_instance, test_index)
     H = get_H(pi)
     x = problem_instance['examples'][test_index]['before']
-    branching_factor = 10
+    branching_factor = 5
     x_primes = get_all_x_primes(H, x, branching_factor)
     for x_prime in x_primes:
         logging.info(f"x_prime: {x_prime}")
+    
+    H_score_map = {}
+    pi_score_map = {}
+
+    for x_prime in x_primes:
+        H_score = get_H_score(H, x, x_prime)
+        H_score_map[x_prime] = H_score
+        pi_score = get_pi_score(pi, x, x_prime)
+        pi_score_map[x_prime] = pi_score
+
+    original_score = get_pi_score(pi, x, x)
+    logging.info(f"Original pi score for {x}: {original_score}")
+
+    for x_prime, score in H_score_map.items():
+        logging.info(f"H score for {x_prime}: {score}")
+    for x_prime, score in pi_score_map.items():
+        logging.info(f"Pi score for {x_prime}: {score}")

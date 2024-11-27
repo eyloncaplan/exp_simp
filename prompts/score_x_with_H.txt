@@ -1,0 +1,14 @@
+f"""I want to score some math expressions from 1-5 based on how well they follow some guiding principles. Here are the principles:
+
+{H_string}
+
+Here are the expressions:
+
+Expression 1: {exp1}
+Expression 2: {exp2}
+
+Now, think out loud about each principle, and how much each expression adheres to the principle. A 1 is no adherence, and a 5 is full adherence. Finally, decide a singular overall score from 1-5 for each expression. At the very end of your response, output only the overall scores in the format:
+
+Expression 1 Score: <score>
+Expression 2 Score: <score>
+"""

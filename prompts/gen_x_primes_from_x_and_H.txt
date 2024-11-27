@@ -1,4 +1,4 @@
-f"""I want to convert a math expression into a different form, following some guiding principles. However, I want to do it exactly one step at a time. Here are the principles:
+f"""I want to convert a math expression into a different form, following some guiding principles. However, I want to do it in many steps, one small step at a time. Here are the principles:
 
 {H_string}
 
@@ -6,5 +6,5 @@ Here is my expression:
 
 {exp}
 
-Now, perform just the first step to convert this expression using the guiding principles. Output just the converted expression (one step toward the correct form). Do not output any text or explanation, only the expression after one step.
+Now, perform just the first small step to convert this expression using the guiding principles. Output just the converted expression (one small step toward the correct form). Do not output any text or explanation, only the expression after one small step.
 """

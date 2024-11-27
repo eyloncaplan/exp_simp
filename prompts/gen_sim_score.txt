@@ -1,0 +1,14 @@
+f"""I want to determine how well a math expression conforms to a specific form. You will be given some example pairs of mathematical expressions before and after being converted into this specific form. I will then show you a single pair of before/after, and you must score how well the 'after' expression adheres to the form.
+
+Here are the example pairs that demonstrate the conversion:
+
+{pi_string}
+
+And here is the before/after pair that you will score:
+
+{before_after_pair}
+
+First, think out loud about how well the 'after' expression conforms to the form. Then, using a scale of 1-5, where 1 is not at all in the right form, and 5 is exactly in the right form, give a score. At the end of your response, output your answer in this format.
+
+Score: <score>
+"""
