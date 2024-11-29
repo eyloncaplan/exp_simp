@@ -1,0 +1,9 @@
+{
+  "summary": {
+    "total_tests": 75,
+    "total_passed": 67,
+    "total_failed": 8,
+    "pass_rate": "89.3%"
+  },
+  "decision_pairs": {}
+}

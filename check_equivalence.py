@@ -12,6 +12,7 @@ import json
 import random
 import numpy as np
 from typing import Dict, List, Tuple, Union
+import datetime
 
 def process_exponents(expr_str: str) -> str:
     """Convert all forms of exponents to standard form."""
@@ -52,22 +53,37 @@ def process_mixed_numbers(expr_str: str) -> str:
 def process_multiplication(expr_str: str) -> str:
     """Make implicit multiplication explicit"""
     import re
+    
     # Replace patterns like number followed by variable (e.g., 3a -> 3*a)
     expr_str = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr_str)
+    
     # Replace patterns like number followed by parenthesis (e.g., 2(x) -> 2*(x))
     expr_str = re.sub(r'(\d)(\()', r'\1*\2', expr_str)
-    # Replace patterns like adjacent variables, handling multiple variables and spaces
+    
+    # Replace patterns like variable followed by parenthesis (e.g., x(y) -> x*(y))
+    expr_str = re.sub(r'([a-zA-Z])(\()', r'\1*\2', expr_str)
+    
+    # Replace patterns like adjacent parentheses (e.g., (x+1)(x+2) -> (x+1)*(x+2))
+    expr_str = re.sub(r'\)(\()', r')*\1', expr_str)
+    
+    # Replace patterns like adjacent variables (e.g., ab -> a*b)
+    expr_str = re.sub(r'([a-zA-Z])([a-zA-Z])', r'\1*\2', expr_str)
+    
+    # Process parts between parentheses
     parts = re.split(r'([()])', expr_str)
     processed_parts = []
     for part in parts:
         if part in '()':
             processed_parts.append(part)
         else:
-            # Replace any sequence of variables separated by spaces with multiplication
+            # Replace any sequence of variables with multiplication
             part = re.sub(r'([a-zA-Z])\s+([a-zA-Z](?:\s+[a-zA-Z])*)', 
                          lambda m: m.group(0).replace(' ', '*'), 
                          part)
+            # Process adjacent variables within this part again
+            part = re.sub(r'([a-zA-Z])([a-zA-Z])', r'\1*\2', part)
             processed_parts.append(part)
+    
     return ''.join(processed_parts)
 
 def process_expression(expr_str: str) -> str:
@@ -155,9 +171,14 @@ def sympy_to_z3(expr, variables=None):
         return sum(sympy_to_z3(arg, variables) for arg in expr.args)
     
     if expr.is_Mul:
-        result = sympy_to_z3(expr.args[0], variables)
-        for arg in expr.args[1:]:
-            result *= sympy_to_z3(arg, variables)
+        # Ensure proper multiplication of terms
+        result = 1.0
+        for arg in expr.args:
+            z3_arg = sympy_to_z3(arg, variables)
+            if isinstance(result, float) and result == 1.0:
+                result = z3_arg
+            else:
+                result *= z3_arg
         return result
     
     if expr.is_Pow:
@@ -175,13 +196,32 @@ def sympy_to_z3(expr, variables=None):
     raise ValueError(f"Unsupported expression type: {type(expr)}")
 
 
+def has_square_root(expr):
+    """Check if expression contains square roots."""
+    if isinstance(expr, sympy.Pow) and expr.exp.is_number and abs(expr.exp - 0.5) < 1e-10:
+        return True
+    for arg in expr.args if hasattr(expr, 'args') else []:
+        if has_square_root(arg):
+            return True
+    return False
+
+def get_variables_under_root(expr):
+    """Get all variables that appear under a square root."""
+    vars_under_root = set()
+    if isinstance(expr, sympy.Pow) and expr.exp.is_number and abs(expr.exp - 0.5) < 1e-10:
+        for symbol in expr.base.free_symbols:
+            vars_under_root.add(str(symbol))
+    for arg in expr.args if hasattr(expr, 'args') else []:
+        vars_under_root.update(get_variables_under_root(arg))
+    return vars_under_root
+
 def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
     """
     Check if two expressions are equivalent using Z3.
     Returns (is_equivalent, details).
     """
     try:
-        # Process exponents first
+        # Process expressions first
         equation1 = process_expression(equation1)
         equation2 = process_expression(equation2)
         
@@ -189,56 +229,51 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         expr1 = parse_expr(equation1.replace('^', '**'))
         expr2 = parse_expr(equation2.replace('^', '**'))
         
-        # Convert to Z3 expressions
-        z3_expr1 = sympy_to_z3(expr1)
-        z3_expr2 = sympy_to_z3(expr2)
-        
         # Create Z3 solver
         s = Solver()
-
-        # Add constraints to prevent division by zero
-        variables = list(map(str, expr1.free_symbols | expr2.free_symbols))
-        var_dict = {var: Real(var) for var in variables}
         
-        # Add non-zero constraints for variables
-        for var in var_dict.values():
+        # Create variables dictionary
+        variables = {str(var): Real(str(var)) for var in expr1.free_symbols | expr2.free_symbols}
+        
+        # Convert to Z3 expressions
+        z3_expr1 = sympy_to_z3(expr1, variables)
+        z3_expr2 = sympy_to_z3(expr2, variables)
+        
+        # Add constraints to prevent division by zero
+        for var in variables.values():
             s.add(var != 0)
             
-        # Add non-zero constraints for denominators in first expression
+        # Add constraints for denominators
         denominators1 = get_denominators(expr1)
         for denom in denominators1:
-            z3_denom = sympy_to_z3(denom, var_dict)
+            z3_denom = sympy_to_z3(denom, variables)
             s.add(z3_denom != 0)
             
-        # Add non-zero constraints for denominators in second expression
         denominators2 = get_denominators(expr2)
         for denom in denominators2:
-            z3_denom = sympy_to_z3(denom, var_dict)
+            z3_denom = sympy_to_z3(denom, variables)
             s.add(z3_denom != 0)
+        
+        # Check for variables under square roots
+        root_vars1 = get_variables_under_root(expr1)
+        root_vars2 = get_variables_under_root(expr2)
+        root_vars = root_vars1.union(root_vars2)
+        
+        # Add positivity constraints for variables under square roots
+        for var_name in root_vars:
+            if var_name in variables:
+                s.add(variables[var_name] > 0)
         
         # Check equivalence
         s.add(z3_expr1 != z3_expr2)
-
-        # Inside check_equivalence_z3:
-        # Add positivity constraints for variables under square roots
-        for var in ['x', 'y']:
-            if var in variables:
-                var_expr = var_dict[var]
-                s.add(var_expr > 0)  # Must be positive for square root to be real
-
-        # Add special handling for x = y case
-        if 'x' in variables and 'y' in variables:
-            x_expr = var_dict['x']
-            y_expr = var_dict['y']
-            s.add(Or(x_expr != y_expr, expr1 == expr2))  # If x=y, expressions must be equal
-                
-        # Check if there exists a solution where expressions are different
+        
         result = s.check()
         is_equivalent = result == unsat
         
         details = {
             'solver_result': str(result),
-            'variables': variables
+            'variables': list(variables.keys()),
+            'root_variables': list(root_vars)
         }
         
         if result == sat:
@@ -267,40 +302,121 @@ def get_denominators(expr):
     return denominators
 
 
-def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = None):
-    """Test expressions using both Z3 and random sampling."""
+def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = None, 
+                    stats_file: str = "decision_pair_stats.json", 
+                    failures_file: str = "failed_cases.json"):
+    """
+    Test expressions using both Z3 and random sampling with detailed statistics.
+    Logs results to separate files for decision pair statistics and failed cases.
+    
+    Args:
+        json_file: Input JSON file with test cases
+        test_cases: List of (expr1, expr2) tuples to test
+        stats_file: Output file for decision pair statistics
+        failures_file: Output file for failed test cases
+    """
     evaluator = ExpressionEvaluator(num_random_tests=10)
     
-    def run_tests(expr1: str, expr2: str, context: str = ""):
+    # Statistics tracking
+    stats = {
+        'total_tests': 0,
+        'total_passed': 0,
+        'total_failed': 0,
+        'decision_pairs': {},
+        'failed_cases': []
+    }
+    
+    def run_tests(expr1: str, expr2: str, context: str = "", decision1: str = "", decision2: str = ""):
         print(f"\n{context}")
         print(f"Testing: {expr1} ≟ {expr2}")
+        
+        test_result = {
+            'expression1': expr1,
+            'expression2': expr2,
+            'context': context,
+            'decision1': decision1,
+            'decision2': decision2,
+            'z3_result': None,
+            'random_result': None,
+            'counterexample': None,
+            'max_difference': None,
+            'timestamp': datetime.datetime.now().isoformat()
+        }
         
         # Test with Z3
         try:
             z3_equiv, z3_details = check_equivalence_z3(expr1, expr2)
             print(f"Z3 Result: {'Equivalent' if z3_equiv else 'Not equivalent'}")
+            test_result['z3_result'] = z3_equiv
             if not z3_equiv and 'counterexample' in z3_details:
                 print(f"Z3 Counterexample: {z3_details['counterexample']}")
+                test_result['counterexample'] = z3_details['counterexample']
         except Exception as e:
             print(f"Z3 Error: {str(e)}")
-            z3_equiv = None
+            test_result['z3_error'] = str(e)
+            test_result['z3_result'] = None
         
         # Test with random sampling
         try:
             random_equiv, random_details = evaluator.check_equivalence_random(expr1, expr2)
             print(f"Random Sampling Result: {'Equivalent' if random_equiv else 'Not equivalent'}")
             print(f"Max difference: {random_details['max_difference']:.2e}")
-            print(f"Avg difference: {random_details['avg_difference']:.2e}")
+            test_result['random_result'] = random_equiv
+            test_result['max_difference'] = random_details['max_difference']
         except Exception as e:
             print(f"Random Sampling Error: {str(e)}")
-            random_equiv = None
+            test_result['random_error'] = str(e)
+            test_result['random_result'] = None
         
-        # Compare results
-        if z3_equiv is not None and random_equiv is not None:
-            if z3_equiv != random_equiv:
-                print("Warning: Z3 and random sampling disagree!")
+        # Update statistics
+        stats['total_tests'] += 1
         
-        return z3_equiv, random_equiv
+        # Consider test passed if either method confirms equivalence
+        is_equivalent = (test_result['z3_result'] or test_result['random_result'])
+        
+        if is_equivalent:
+            stats['total_passed'] += 1
+            if decision1 and decision2:
+                key = (decision1, decision2)
+                if key not in stats['decision_pairs']:
+                    stats['decision_pairs'][key] = {
+                        'decision1': decision1,
+                        'decision2': decision2,
+                        'passed': 0,
+                        'failed': 0,
+                        'total': 0,
+                        'examples': []
+                    }
+                stats['decision_pairs'][key]['passed'] += 1
+                stats['decision_pairs'][key]['total'] += 1
+                stats['decision_pairs'][key]['examples'].append({
+                    'expression1': expr1,
+                    'expression2': expr2,
+                    'result': 'passed'
+                })
+        else:
+            stats['total_failed'] += 1
+            if decision1 and decision2:
+                key = (decision1, decision2)
+                if key not in stats['decision_pairs']:
+                    stats['decision_pairs'][key] = {
+                        'decision1': decision1,
+                        'decision2': decision2,
+                        'passed': 0,
+                        'failed': 0,
+                        'total': 0,
+                        'examples': []
+                    }
+                stats['decision_pairs'][key]['failed'] += 1
+                stats['decision_pairs'][key]['total'] += 1
+                stats['decision_pairs'][key]['examples'].append({
+                    'expression1': expr1,
+                    'expression2': expr2,
+                    'result': 'failed'
+                })
+            stats['failed_cases'].append(test_result)
+        
+        return is_equivalent
 
     # Test manual test cases
     if test_cases:
@@ -327,41 +443,106 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
                     before = example.get('before', '')
                     after = example.get('after', '')
                     if before and after:
-                        run_tests(before, after, "JSON test case")
-                        
+                        run_tests(before, after, "JSON test case", decision1, decision2)
+        
         except Exception as e:
             print(f"Error processing JSON file: {str(e)}")
+    
+    # Prepare decision pair statistics for logging
+    decision_stats = {
+        'summary': {
+            'total_tests': stats['total_tests'],
+            'total_passed': stats['total_passed'],
+            'total_failed': stats['total_failed'],
+            'pass_rate': f"{(stats['total_passed']/stats['total_tests']*100):.1f}%"
+        },
+        'decision_pairs': {}
+    }
+    
+    # Convert decision pairs to a format suitable for JSON
+    for (decision1, decision2), results in stats['decision_pairs'].items():
+        key = f"{decision1} -> {decision2}"
+        decision_stats['decision_pairs'][key] = {
+            'decision1': decision1,
+            'decision2': decision2,
+            'passed': results['passed'],
+            'failed': results['failed'],
+            'total': results['total'],
+            'pass_rate': f"{(results['passed']/results['total']*100):.1f}%",
+            'examples': results['examples']
+        }
+    
+    # Save decision pair statistics to file
+    with open(stats_file, 'w') as f:
+        json.dump(decision_stats, f, indent=2)
+    print(f"\nDecision pair statistics saved to {stats_file}")
+    
+    # Save failed cases to file
+    if stats['failed_cases']:
+        failed_cases_data = {
+            'total_failed': len(stats['failed_cases']),
+            'cases': stats['failed_cases']
+        }
+        with open(failures_file, 'w') as f:
+            json.dump(failed_cases_data, f, indent=2)
+        print(f"Failed cases saved to {failures_file}")
+    
+    # Print summary to console
+    print("\n" + "="*50)
+    print("SUMMARY STATISTICS")
+    print("="*50)
+    print(f"Total tests run: {stats['total_tests']}")
+    print(f"Total passed: {stats['total_passed']} ({(stats['total_passed']/stats['total_tests']*100):.1f}%)")
+    print(f"Total failed: {stats['total_failed']} ({(stats['total_failed']/stats['total_tests']*100):.1f}%)")
+    print(f"\nDetailed statistics saved to {stats_file}")
+    if stats['failed_cases']:
+        print(f"Failed cases saved to {failures_file}")
+    
+    return stats
 
 if __name__ == "__main__":
-    # Define some test cases
-    test_cases = [
-        ("x + y", "y + x"),
-        ("2*x + 3*x", "5*x"),
-        ("x^2 * x^3", "x^5"),
-        ("x^{-3}", "1/x^3"),
-        ("1/(1/x + 1/y)", "(x*y)/(x + y)"),
-        ("(x + 1)^2/(x + 1)", "x + 1"),
-        ("((1/x)/(1/y))^2", "(y/x)^2"),
-        ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
-        ("x","x+1")
+    import os
+    import sys
+    
+    # Create data_stats directory if it doesn't exist
+    output_dir = "data_stats"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # List of datasets to process
+    datasets = [
+        'data/dataset.json',
+        # Add more dataset paths here
     ]
     
-    # Test both manual cases and JSON files
-    test_expressions(
-        json_file='data/dataset.json',
-        test_cases=test_cases
-    )
-
-    # test_cases = [
-    #     # ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
-    #     # ("27/4 + z + x^2 + b^2 + 3a","6 3/4 + z + x^2 + b^2 + 3a"),
-    #     # ("1 / (1/x + 1/y + 1/z + 1/w) + 3a + 2b^2", " (x y z w) / (y z w + x z w + x y w + x y z) + 3a + 2b^2"),
-    #     ("1 / (1/x + 1/y + 1/z + 1/w) + 3a + 2b^2", " (x y z w) / (y z w + x z w + x y w + x y z) + 3a + 2b^2 + 3"),
-    #     ("2/(x^(1/2) + y^(1/2)) + z + 3a + z^3","(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3"),
-    #      ("2/(x^(1/2) + y^(1/2)) + z + 3a + z^3","(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3 + 1"),
-    # ]
-
-    # test_expressions(
-    #     json_file=None,
-    #     test_cases=test_cases
-    # )
+    # Process command line arguments if provided
+    if len(sys.argv) > 1:
+        datasets = sys.argv[1:]
+    
+    # Process each dataset
+    for dataset_path in datasets:
+        try:
+            # Extract dataset name without path and extension
+            dataset_name = os.path.splitext(os.path.basename(dataset_path))[0]
+            
+            # Create output file paths
+            stats_file = os.path.join(output_dir, f"{dataset_name}_decision_stats.json")
+            failures_file = os.path.join(output_dir, f"{dataset_name}_failed_cases.json")
+            
+            print(f"\nProcessing dataset: {dataset_path}")
+            print(f"Stats will be saved to: {stats_file}")
+            print(f"Failed cases will be saved to: {failures_file}")
+            
+            # Run tests for this dataset
+            stats = test_expressions(
+                json_file=dataset_path,
+                test_cases=None,
+                stats_file=stats_file,
+                failures_file=failures_file
+            )
+            
+            print(f"Finished processing {dataset_path}\n")
+            print("-" * 80)
+            
+        except Exception as e:
+            print(f"Error processing dataset {dataset_path}: {str(e)}")
+            continue
