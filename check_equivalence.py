@@ -167,8 +167,8 @@ if __name__ == "__main__":
     # Then test the JSON files
     print("\n\nTesting JSON examples...")
     json_files = [
-        'dataset.json',
-        'complex_dataset.json'
+        'data/dataset.json',
+        'data/complex_dataset.json'
     ]
     
     for json_file in json_files:
