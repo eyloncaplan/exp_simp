@@ -1,3 +1,9 @@
+'''
+Note: There are two equivalence functions: z3 and random sampling. Having both functions helps for stress testing (z3 equivalence function can be used to find bugs in random sampling equivalence function, and vice versa).
+
+Another justification for having both is that one may be faster than the other. We can default to using the faster method to checking if the two expressions are equivalent. If the faster method returns false, then we use the slower method (ideally most of the examples are positive examples, so we don't have to use the slower method often).
+'''
+
 from z3 import *
 import sympy
 from sympy.parsing.sympy_parser import parse_expr
@@ -6,6 +12,12 @@ import json
 import random
 import numpy as np
 from typing import Dict, List, Tuple, Union
+
+def process_exponents(expr_str: str) -> str:
+    """Convert all forms of exponents to standard form."""
+    # Replace patterns like x^{-3} with x^(-3)
+    import re
+    return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
 
 class ExpressionEvaluator:
     def __init__(self, num_random_tests: int = 100):
@@ -17,6 +29,10 @@ class ExpressionEvaluator:
         Returns (is_equivalent, details).
         """
         try:
+            # Process exponents first
+            equation1 = process_exponents(equation1)
+            equation2 = process_exponents(equation2)
+            
             # Extract variables from both expressions
             expr1 = parse_expr(equation1.replace('^', '**'))
             expr2 = parse_expr(equation2.replace('^', '**'))
@@ -57,6 +73,9 @@ class ExpressionEvaluator:
         except Exception as e:
             raise ValueError(f"Error checking equivalence: {str(e)}")
 
+
+
+
 def sympy_to_z3(expr, variables=None):
     """Convert a SymPy expression to a Z3 expression."""
     if variables is None:
@@ -94,15 +113,21 @@ def sympy_to_z3(expr, variables=None):
     
     raise ValueError(f"Unsupported expression type: {type(expr)}")
 
+def process_exponents(expr_str: str) -> str:
+    """Convert all forms of exponents to standard form."""
+    # Replace patterns like x^{-3} with x^(-3)
+    import re
+    return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
+
 def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
     """
     Check if two expressions are equivalent using Z3.
     Returns (is_equivalent, details).
     """
     try:
-        # Replace {-n} style exponents with regular negative exponents
-        equation1 = equation1.replace('^{-', '^(-')
-        equation2 = equation2.replace('^{-', '^(-')
+        # Process exponents first
+        equation1 = process_exponents(equation1)
+        equation2 = process_exponents(equation2)
         
         # Parse the expressions using SymPy
         expr1 = parse_expr(equation1.replace('^', '**'))
@@ -114,6 +139,28 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         
         # Create Z3 solver
         s = Solver()
+
+        # Add constraints to prevent division by zero
+        variables = list(map(str, expr1.free_symbols | expr2.free_symbols))
+        var_dict = {var: Real(var) for var in variables}
+        
+        # Add non-zero constraints for variables
+        for var in var_dict.values():
+            s.add(var != 0)
+            
+        # Add non-zero constraints for denominators in first expression
+        denominators1 = get_denominators(expr1)
+        for denom in denominators1:
+            z3_denom = sympy_to_z3(denom, var_dict)
+            s.add(z3_denom != 0)
+            
+        # Add non-zero constraints for denominators in second expression
+        denominators2 = get_denominators(expr2)
+        for denom in denominators2:
+            z3_denom = sympy_to_z3(denom, var_dict)
+            s.add(z3_denom != 0)
+        
+        # Check equivalence
         s.add(z3_expr1 != z3_expr2)
         
         # Check if there exists a solution where expressions are different
@@ -122,7 +169,7 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         
         details = {
             'solver_result': str(result),
-            'variables': list(map(str, expr1.free_symbols | expr2.free_symbols))
+            'variables': variables
         }
         
         if result == sat:
@@ -133,6 +180,23 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         
     except Exception as e:
         raise ValueError(f"Error checking equivalence: {str(e)}")
+
+def get_denominators(expr):
+    """Extract all denominators from a SymPy expression."""
+    denominators = set()
+    
+    if isinstance(expr, sympy.core.power.Pow) and expr.exp.is_negative:
+        denominators.add(expr.base ** abs(expr.exp))
+    elif isinstance(expr, sympy.core.mul.Mul):
+        for arg in expr.args:
+            if isinstance(arg, sympy.core.power.Pow) and arg.exp.is_negative:
+                denominators.add(arg.base ** abs(arg.exp))
+    
+    for arg in expr.args if hasattr(expr, 'args') else []:
+        denominators.update(get_denominators(arg))
+    
+    return denominators
+
 
 def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = None):
     """Test expressions using both Z3 and random sampling."""
@@ -201,28 +265,28 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
 
 if __name__ == "__main__":
     # Define some test cases
-    # test_cases = [
-    #     ("x + y", "y + x"),
-    #     ("2*x + 3*x", "5*x"),
-    #     ("x^2 * x^3", "x^5"),
-    #     ("x^{-3}", "1/x^3"),
-    #     ("1/(1/x + 1/y)", "(x*y)/(x + y)"),
-    #     ("(x + 1)^2/(x + 1)", "x + 1"),
-    #     ("((1/x)/(1/y))^2", "(y/x)^2"),
-    #     ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
-    # ]
-    
-    # # Test both manual cases and JSON files
-    # test_expressions(
-    #     json_file='data/dataset.json',
-    #     test_cases=test_cases
-    # )
-
     test_cases = [
-        ("(x^2)^3 * (y^3)^2", "x^6 * y^6")
+        ("x + y", "y + x"),
+        ("2*x + 3*x", "5*x"),
+        ("x^2 * x^3", "x^5"),
+        ("x^{-3}", "1/x^3"),
+        ("1/(1/x + 1/y)", "(x*y)/(x + y)"),
+        ("(x + 1)^2/(x + 1)", "x + 1"),
+        ("((1/x)/(1/y))^2", "(y/x)^2"),
+        ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
     ]
-
+    
+    # Test both manual cases and JSON files
     test_expressions(
-        json_file=None,
+        json_file='data/dataset.json',
         test_cases=test_cases
     )
+
+    # test_cases = [
+    #     ("(x^2)^3 * (y^3)^2", "x^6 * y^6")
+    # ]
+
+    # test_expressions(
+    #     json_file=None,
+    #     test_cases=test_cases
+    # )
