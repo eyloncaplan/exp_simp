@@ -1,0 +1,754 @@
+{
+  "total_failed": 49,
+  "cases": [
+    {
+      "expression1": "12 + 4x + y^{-1} + 3^{-2} + 6",
+      "expression2": "6 + 5 + 1 + 2 + 3 + 4 + 4x + 1/y + 1/3^2 + 6",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Remove negative exponents",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "-1",
+        "x": "-1"
+      },
+      "max_difference": 9.0,
+      "timestamp": "2024-11-29T12:39:18.908222"
+    },
+    {
+      "expression1": "13 + 2x + a^{-3} + b^{-2} + 2",
+      "expression2": "1 + 2 + 3 + 4 + 5 + a^{-3} + b^{-2} + 2x + 2",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Remove negative exponents",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "1",
+        "x": "-1"
+      },
+      "max_difference": 2.0,
+      "timestamp": "2024-11-29T12:39:18.926579"
+    },
+    {
+      "expression1": "10 + 10 + x + x + y + y + z + z",
+      "expression2": "10 + 1 + 2 + 3 + 4 + 5 + 2x + 2y + 2z",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "-1",
+        "x": "1",
+        "z": "-1"
+      },
+      "max_difference": 5.000000000000007,
+      "timestamp": "2024-11-29T12:39:18.962058"
+    },
+    {
+      "expression1": "15 + 15 + z + z + x + x + 12",
+      "expression2": "7 + 6 + 5 + 3 + 2x + 2z + 12",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1",
+        "z": "-1"
+      },
+      "max_difference": 9.0,
+      "timestamp": "2024-11-29T12:39:18.993704"
+    },
+    {
+      "expression1": "25 + a + a + b + b + 25 + 2x",
+      "expression2": "10 + 9 + 8 + 2a + 2b + 25 + 2x",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "1",
+        "x": "-1"
+      },
+      "max_difference": 2.0,
+      "timestamp": "2024-11-29T12:39:19.012325"
+    },
+    {
+      "expression1": "3 + 3 + b + b + z + z + 3x",
+      "expression2": "4 + 6 + 3x + 2b + 2z",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "1",
+        "x": "-1",
+        "z": "-1"
+      },
+      "max_difference": 4.0,
+      "timestamp": "2024-11-29T12:39:19.041318"
+    },
+    {
+      "expression1": "28 + x + x + y + y + z + z",
+      "expression2": "10 + 9 + 8 + 2x + 2y + 2z",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "-1",
+        "x": "1",
+        "z": "-1"
+      },
+      "max_difference": 1.0,
+      "timestamp": "2024-11-29T12:39:19.069799"
+    },
+    {
+      "expression1": "(1/a + 1/b) + a^2 + b^3",
+      "expression2": "(ab)/(a + b) + a^2 + b^3",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Use standard form for polynomials",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "-1",
+        "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
+      },
+      "max_difference": 3.2274825256048416,
+      "timestamp": "2024-11-29T12:39:19.770942"
+    },
+    {
+      "expression1": "(1/a + 1/b) + 3a^3 + 2b^2",
+      "expression2": "(ab)/(a + b) + 3a^3 + 2b^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Use standard form for polynomials",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "-1",
+        "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
+      },
+      "max_difference": 4.227513405213358,
+      "timestamp": "2024-11-29T12:39:19.854573"
+    },
+    {
+      "expression1": "(1/x + 1/y + 1/z) + x^3 + y^2",
+      "expression2": "(xyz)/(x + y + z) + x^3 + y^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Use standard form for polynomials",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1",
+        "y": "-1",
+        "z": "-1",
+        "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, else -> 0]"
+      },
+      "max_difference": 9.022152337264629,
+      "timestamp": "2024-11-29T12:39:19.905044"
+    },
+    {
+      "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
+      "expression2": "2a^7 + 3b^7",
+      "context": "JSON test case",
+      "decision1": "Simplify powers of powers",
+      "decision2": "Factor out terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "-1"
+      },
+      "max_difference": 190597474.16866106,
+      "timestamp": "2024-11-29T12:39:19.976415"
+    },
+    {
+      "expression1": "x(2x^2)^4 + y(y^3)^2",
+      "expression2": "x^9 + y^7",
+      "context": "JSON test case",
+      "decision1": "Simplify powers of powers",
+      "decision2": "Factor out terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "1",
+        "x": "1"
+      },
+      "max_difference": 13707473173.028835,
+      "timestamp": "2024-11-29T12:39:20.001544"
+    },
+    {
+      "expression1": "x(x^3)^2 + 2x(2x^2)^3",
+      "expression2": "x^6 + 2x^7",
+      "context": "JSON test case",
+      "decision1": "Simplify powers of powers",
+      "decision2": "Factor out terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1"
+      },
+      "max_difference": 147845509.18436903,
+      "timestamp": "2024-11-29T12:39:20.018403"
+    },
+    {
+      "expression1": "((1/x + 1/y)/(1/a + 1/b))",
+      "expression2": "(x + y)(a + b)/(xyab)",
+      "context": "JSON test case",
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1",
+        "y": "-1",
+        "x": "-1",
+        "b": "-1",
+        "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
+      },
+      "max_difference": 1.9658352146886735,
+      "timestamp": "2024-11-29T12:39:20.045404"
+    },
+    {
+      "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b))",
+      "expression2": "(xyz)(a + b)/(xyab)",
+      "context": "JSON test case",
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "-1",
+        "a": "-1",
+        "x": "-1",
+        "b": "-1",
+        "z": "-1",
+        "/0": "[(1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
+      },
+      "max_difference": 27.439015115736833,
+      "timestamp": "2024-11-29T12:39:20.134267"
+    },
+    {
+      "expression1": "((1/x + 1/y)/(1/a + 1/b + 1/c))",
+      "expression2": "(x + y)(a + b + c)/(xyzabc)",
+      "context": "JSON test case",
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "c": "1",
+        "a": "-1",
+        "y": "-1",
+        "b": "-1",
+        "z": "-1",
+        "x": "-1",
+        "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
+      },
+      "max_difference": 1.489643154326995,
+      "timestamp": "2024-11-29T12:39:20.208717"
+    },
+    {
+      "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b + 1/c))",
+      "expression2": "(xyz)(abc)/(x + y + z)(a + b + c)",
+      "context": "JSON test case",
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "3",
+        "a": "-1",
+        "z": "-1",
+        "b": "-1",
+        "c": "-1",
+        "x": "-1",
+        "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
+      },
+      "max_difference": 117695.50407137381,
+      "timestamp": "2024-11-29T12:39:20.352531"
+    },
+    {
+      "expression1": "((1/x + 1/y)/(1/z + 1/a + 1/b))",
+      "expression2": "(x + y)(z + a + b)/(xyzab)",
+      "context": "JSON test case",
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "1/3",
+        "y": "-1",
+        "x": "-1",
+        "b": "-1",
+        "z": "-1",
+        "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
+      },
+      "max_difference": 4.412449391409236,
+      "timestamp": "2024-11-29T12:39:20.504435"
+    },
+    {
+      "expression1": "(a + 2)(a^2 - 2a + 3) + b + z^2",
+      "expression2": "a^3 - 2a^2 + a + 6 + b + z^2",
+      "context": "JSON test case",
+      "decision1": "Use standard form for polynomials",
+      "decision2": "Multiply through factored terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1",
+        "z": "1",
+        "b": "1"
+      },
+      "max_difference": 170.93169480858944,
+      "timestamp": "2024-11-29T12:39:20.801474"
+    },
+    {
+      "expression1": "(a + 2)(a^3 - 3a + 4) + z + 2x^2",
+      "expression2": "a^4 - a^2 + 5a + 8 + z + 2x^2",
+      "context": "JSON test case",
+      "decision1": "Use standard form for polynomials",
+      "decision2": "Multiply through factored terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-2",
+        "x": "1",
+        "z": "1"
+      },
+      "max_difference": 1724.896354734963,
+      "timestamp": "2024-11-29T12:39:20.896425"
+    },
+    {
+      "expression1": "6/12 + 10/20",
+      "expression2": "2^1 * 3^1 / 2^2 * 3^1 + 2 * 5 / 2^2 * 5",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {},
+      "max_difference": 16.0,
+      "timestamp": "2024-11-29T12:39:21.646714"
+    },
+    {
+      "expression1": "8/16 + 9/18",
+      "expression2": "2^3 / 2^4 + 3^2 / 2 * 3^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {},
+      "max_difference": 40.0,
+      "timestamp": "2024-11-29T12:39:21.651183"
+    },
+    {
+      "expression1": "15/30 + 25/50",
+      "expression2": "3 * 5 / 2 * 3 * 5 + 5^2 / 2 * 5^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {},
+      "max_difference": 424.0,
+      "timestamp": "2024-11-29T12:39:21.653876"
+    },
+    {
+      "expression1": "16/32 + 9/18",
+      "expression2": "2^4 / 2^5 + 3^2 / 2 * 3^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {},
+      "max_difference": 40.0,
+      "timestamp": "2024-11-29T12:39:21.656865"
+    },
+    {
+      "expression1": "24/48 + 18/36",
+      "expression2": "2^3 * 3 / 2^4 * 3 + 2 * 3^2 / 2 * 3^2",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {},
+      "max_difference": 84.5,
+      "timestamp": "2024-11-29T12:39:21.659505"
+    },
+    {
+      "expression1": "(a - 2)(a^2 + a + 5) + 3a + 2a",
+      "expression2": "a^3 - a^2 - 5a + 10 + 5a",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of terms",
+      "decision2": "Multiply through factored terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1"
+      },
+      "max_difference": 54.799259950899454,
+      "timestamp": "2024-11-29T12:39:21.956749"
+    },
+    {
+      "expression1": "(2x + 1)(x^2 + x - 3) + z + z + x",
+      "expression2": "2x^3 + 3x^2 - 4x - 3 + 2z + x",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of terms",
+      "decision2": "Multiply through factored terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1",
+        "z": "1"
+      },
+      "max_difference": 7.547024835157345,
+      "timestamp": "2024-11-29T12:39:22.006287"
+    },
+    {
+      "expression1": "(x - 2)(x^2 + 2x + 5) + 3x + 2x",
+      "expression2": "x^3 - 2x^2 - 9x + 10 + 5x",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of terms",
+      "decision2": "Multiply through factored terms",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-7"
+      },
+      "max_difference": 264.23585721900884,
+      "timestamp": "2024-11-29T12:39:22.050374"
+    },
+    {
+      "expression1": "((x + 3)(x^2 - 1) + a) + (b + c)",
+      "expression2": "x^3 + 2x^2 - 2 + a + b + c",
+      "context": "JSON test case",
+      "decision1": "Multiply through factored terms",
+      "decision2": "Reduce the number of parentheses",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1",
+        "b": "1",
+        "a": "1",
+        "c": "1"
+      },
+      "max_difference": 66.75306949451169,
+      "timestamp": "2024-11-29T12:39:22.147881"
+    },
+    {
+      "expression1": "12 + x^3 + 3x^2 + 2x",
+      "expression2": "1 + 2 + 3 + 4 + 5 + x^3 + 3x^2 + 2x",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Use standard form for polynomials",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1"
+      },
+      "max_difference": 3.0,
+      "timestamp": "2024-11-29T12:39:22.312891"
+    },
+    {
+      "expression1": "28 + 3x + x^2 + x^3",
+      "expression2": "7 + 6 + 5 + 4 + 3x + x^2 + x^3",
+      "context": "JSON test case",
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Use standard form for polynomials",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1"
+      },
+      "max_difference": 6.0,
+      "timestamp": "2024-11-29T12:39:22.329156"
+    },
+    {
+      "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
+      "expression2": "2a^7 + 3b^7",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-1",
+        "a": "-1"
+      },
+      "max_difference": 145544378.00988063,
+      "timestamp": "2024-11-29T12:39:22.632611"
+    },
+    {
+      "expression1": "x(2x^2)^4 + y(y^3)^2",
+      "expression2": "x^9 + y^7",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "1",
+        "y": "1"
+      },
+      "max_difference": 14550177190.534235,
+      "timestamp": "2024-11-29T12:39:22.655432"
+    },
+    {
+      "expression1": "x(x^3)^2 + 2x(2x^2)^3",
+      "expression2": "x^6 + 2x^7",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-1"
+      },
+      "max_difference": 106848825.97380693,
+      "timestamp": "2024-11-29T12:39:22.671390"
+    },
+    {
+      "expression1": "(1/x + 1/y) / (1/z + 1/a)",
+      "expression2": "(x + y)(z + a)/(x y z a)",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1",
+        "y": "-1",
+        "x": "-1",
+        "z": "-1",
+        "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
+      },
+      "max_difference": 10.19890866444787,
+      "timestamp": "2024-11-29T12:39:22.696628"
+    },
+    {
+      "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b)",
+      "expression2": "(xyz)(a + b)/((x + y + z)ab)",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1",
+        "y": "-1",
+        "b": "-1",
+        "z": "-1",
+        "x": "-1",
+        "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
+      },
+      "max_difference": 58.576047532034174,
+      "timestamp": "2024-11-29T12:39:22.779152"
+    },
+    {
+      "expression1": "(1/x + 1/y) / (1/a + 1/b + 1/c)",
+      "expression2": "(x + y)(a + b + c)/(xyz abc)",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "c": "1",
+        "a": "-1",
+        "y": "-1",
+        "z": "-1",
+        "b": "-1",
+        "x": "-1",
+        "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
+      },
+      "max_difference": 3.174263001392853,
+      "timestamp": "2024-11-29T12:39:22.880540"
+    },
+    {
+      "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b + 1/c)",
+      "expression2": "(xyz)(abc)/(x + y + z)(a + b + c)",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "3",
+        "a": "-1",
+        "z": "-1",
+        "b": "-1",
+        "c": "-1",
+        "x": "-1",
+        "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
+      },
+      "max_difference": 214921.03738794228,
+      "timestamp": "2024-11-29T12:39:23.004174"
+    },
+    {
+      "expression1": "(1/x + 1/y) / (1/z + 1/a + 1/b)",
+      "expression2": "(x + y)(z + a + b)/(xyzab)",
+      "context": "JSON test case",
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "1/3",
+        "y": "-1",
+        "x": "-1",
+        "b": "-1",
+        "z": "-1",
+        "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
+      },
+      "max_difference": 1.7557256485811294,
+      "timestamp": "2024-11-29T12:39:23.139769"
+    },
+    {
+      "expression1": "(x^{1/2})/(x^{1/2} + y^{1/2})",
+      "expression2": "1/(x^{-1/2} + y^{1/2})",
+      "context": "JSON test case",
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": null,
+      "max_difference": 0.18314829303777092,
+      "timestamp": "2024-11-29T12:39:23.244228"
+    },
+    {
+      "expression1": "1/(x^{3/2} + y^{1/2})",
+      "expression2": "1/(x^{-3/2} + y^{-1/2})",
+      "context": "JSON test case",
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": null,
+      "max_difference": 2.529571956679962,
+      "timestamp": "2024-11-29T12:39:23.271590"
+    },
+    {
+      "expression1": "1/(x^{1/3} + y^{1/2})",
+      "expression2": "1/(x^{-1/3} + y^{-1/2})",
+      "context": "JSON test case",
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": null,
+      "max_difference": 0.9294250994779554,
+      "timestamp": "2024-11-29T12:39:23.293745"
+    },
+    {
+      "expression1": "1/(x^{1/4} + y^{3/4})",
+      "expression2": "1/(x^{-1/4} + y^{-3/4})",
+      "context": "JSON test case",
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": null,
+      "max_difference": 0.9529096063379049,
+      "timestamp": "2024-11-29T12:39:23.317033"
+    },
+    {
+      "expression1": "1/(x^{1/3} + y^{2/3})",
+      "expression2": "1/(x^{-1/3} + y^{-2/3})",
+      "context": "JSON test case",
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": null,
+      "max_difference": 1.0615253961725366,
+      "timestamp": "2024-11-29T12:39:23.343496"
+    },
+    {
+      "expression1": "(x + 3)(x + 1) + (x + 3)(x - 1)",
+      "expression2": "(x + 3)(x^2 - 1)",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "x": "-4"
+      },
+      "max_difference": 521.8691872417651,
+      "timestamp": "2024-11-29T12:39:23.593547"
+    },
+    {
+      "expression1": "(a + 2)(a + 1) + (a + 2)(a - 1)",
+      "expression2": "(a + 2)(a^2 - 1)",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-3"
+      },
+      "max_difference": 882.080507815164,
+      "timestamp": "2024-11-29T12:39:23.616221"
+    },
+    {
+      "expression1": "(y + 1)(y + 2) + (y + 1)(y - 2)",
+      "expression2": "(y + 1)(y^2 - 2)",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "y": "-2"
+      },
+      "max_difference": 345.4392403396745,
+      "timestamp": "2024-11-29T12:39:23.639044"
+    },
+    {
+      "expression1": "(b + 3)(b + 1) + (b + 3)(b - 1)",
+      "expression2": "(b + 3)(b^2 - 1)",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "b": "-4"
+      },
+      "max_difference": 666.0481018732455,
+      "timestamp": "2024-11-29T12:39:23.661373"
+    },
+    {
+      "expression1": "(z + 2)(z + 1) + (z + 2)(z - 1)",
+      "expression2": "(z + 2)(z^2 - 1)",
+      "context": "JSON test case",
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "z": "-3"
+      },
+      "max_difference": 695.5514301272215,
+      "timestamp": "2024-11-29T12:39:23.683664"
+    }
+  ]
+}
