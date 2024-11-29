@@ -1,0 +1,19 @@
+{
+  "total_failed": 1,
+  "cases": [
+    {
+      "expression1": "1/(1/x^{1/2} + 1/y^{1/2})",
+      "expression2": "(x^{1/2}y^{1/2})/(x^{1/2} + y^{1/2})",
+      "context": "Manual test case",
+      "decision1": "",
+      "decision2": "",
+      "z3_result": null,
+      "random_result": null,
+      "counterexample": null,
+      "max_difference": null,
+      "timestamp": "2024-11-29T12:19:06.814407",
+      "z3_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)",
+      "random_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)"
+    }
+  ]
+}

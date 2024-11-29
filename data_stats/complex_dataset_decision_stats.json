@@ -1,0 +1,1060 @@
+{
+  "summary": {
+    "total_tests": 150,
+    "total_passed": 96,
+    "total_failed": 54,
+    "pass_rate": "64.0%"
+  },
+  "decision_pairs": {
+    "Leave repeating sums as they are -> Remove negative exponents": {
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Remove negative exponents",
+      "passed": 3,
+      "failed": 2,
+      "total": 5,
+      "pass_rate": "60.0%",
+      "examples": [
+        {
+          "expression1": "55 + x^{-3} + y^{-2} + 7",
+          "expression2": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + 1/x^3 + 1/y^2 + 7",
+          "result": "passed"
+        },
+        {
+          "expression1": "15 + x^{-4} + 3y + 7 + z^{-1}",
+          "expression2": "1 + 2 + 3 + 4 + 5 + x^{-4} + 3y + 7 + 1/z",
+          "result": "passed"
+        },
+        {
+          "expression1": "12 + 4x + y^{-1} + 3^{-2} + 6",
+          "expression2": "6 + 5 + 1 + 2 + 3 + 4 + 4x + 1/y + 1/3^2 + 6",
+          "result": "failed"
+        },
+        {
+          "expression1": "13 + 2x + a^{-3} + b^{-2} + 2",
+          "expression2": "1 + 2 + 3 + 4 + 5 + a^{-3} + b^{-2} + 2x + 2",
+          "result": "failed"
+        },
+        {
+          "expression1": "21 + z^{-2} + 4 + x^{-3}",
+          "expression2": "7 + 6 + 5 + 3 + 4 + 1/z^2 + 1/x^3",
+          "result": "passed"
+        }
+      ]
+    },
+    "Leave repeating sums as they are -> Reduce the number of terms": {
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Reduce the number of terms",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "10 + 10 + x + x + y + y + z + z",
+          "expression2": "10 + 1 + 2 + 3 + 4 + 5 + 2x + 2y + 2z",
+          "result": "failed"
+        },
+        {
+          "expression1": "15 + 15 + z + z + x + x + 12",
+          "expression2": "7 + 6 + 5 + 3 + 2x + 2z + 12",
+          "result": "failed"
+        },
+        {
+          "expression1": "25 + a + a + b + b + 25 + 2x",
+          "expression2": "10 + 9 + 8 + 2a + 2b + 25 + 2x",
+          "result": "failed"
+        },
+        {
+          "expression1": "3 + 3 + b + b + z + z + 3x",
+          "expression2": "4 + 6 + 3x + 2b + 2z",
+          "result": "failed"
+        },
+        {
+          "expression1": "28 + x + x + y + y + z + z",
+          "expression2": "10 + 9 + 8 + 2x + 2y + 2z",
+          "result": "failed"
+        }
+      ]
+    },
+    "Factor out terms -> Reduce the number of fractions": {
+      "decision1": "Factor out terms",
+      "decision2": "Reduce the number of fractions",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(x^2 + 2x)/x + (y^2 + 3y)/y",
+          "expression2": "(x + 2) + (y + 3)",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^2 + 2a)/a + (b^2 + 3b)/b",
+          "expression2": "(a + 2) + (b + 3)",
+          "result": "passed"
+        },
+        {
+          "expression1": "(2x^2 + 4x)/x + (y^2 + 5y)/y",
+          "expression2": "2(x + 2) + (y + 5)",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^3 + 3a^2)/a + (b^2 + 2b)/b",
+          "expression2": "a^2 + 3a + b + 2",
+          "result": "passed"
+        },
+        {
+          "expression1": "(2x^2 + 6x)/x + (y^3 + 4y^2)/y",
+          "expression2": "2(x + 3) + (y^2 + 4y)",
+          "result": "passed"
+        }
+      ]
+    },
+    "Remove negative exponents -> Use standard form for polynomials": {
+      "decision1": "Remove negative exponents",
+      "decision2": "Use standard form for polynomials",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "x^{-3} + x^2 + x^{-1} + 4x + 3",
+          "expression2": "1/x^3 + x^2 + 1/x + 4x + 3",
+          "result": "passed"
+        },
+        {
+          "expression1": "a^{-1} + a^2 + b^{-3} + 2b + 5",
+          "expression2": "1/a + a^2 + 1/b^3 + 2b + 5",
+          "result": "passed"
+        },
+        {
+          "expression1": "x^{-2} + x + x^3 + 3x^4 + x^{-1}",
+          "expression2": "1/x^2 + x + x^3 + 3x^4 + 1/x",
+          "result": "passed"
+        },
+        {
+          "expression1": "x^{-1} + x + x^2 + 3x^3 + 7",
+          "expression2": "1/x + x + x^2 + 3x^3 + 7",
+          "result": "passed"
+        },
+        {
+          "expression1": "a^{-2} + b^{-1} + a^3 + b^2 + 2",
+          "expression2": "1/a^2 + 1/b + a^3 + b^2 + 2",
+          "result": "passed"
+        }
+      ]
+    },
+    "Expand out complex fractions -> Simplify powers of powers": {
+      "decision1": "Expand out complex fractions",
+      "decision2": "Simplify powers of powers",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "((1/x)/(1/y))^2 + ((1/a)/(1/b))^3",
+          "expression2": "(y/x)^2 + (b/a)^3",
+          "result": "passed"
+        },
+        {
+          "expression1": "((1/x^2)/(1/y^3))^2 + ((1/a^2)/(1/b^3))^3",
+          "expression2": "(y^3/x^2)^2 + (b^3/a^2)^3",
+          "result": "passed"
+        },
+        {
+          "expression1": "((1/x)/(1/y))^3 + ((1/a)/(1/b))^4",
+          "expression2": "(y/x)^3 + (b/a)^4",
+          "result": "passed"
+        },
+        {
+          "expression1": "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4",
+          "expression2": "(y^4/x^3)^3 + (b^4/a^3)^4",
+          "result": "passed"
+        },
+        {
+          "expression1": "((1/x)/(1/y^2))^3 + ((1/a)/(1/b^2))^2",
+          "expression2": "(y^2/x)^3 + (b^2/a)^2",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of fractions -> Use standard form for polynomials": {
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Use standard form for polynomials",
+      "passed": 2,
+      "failed": 3,
+      "total": 5,
+      "pass_rate": "40.0%",
+      "examples": [
+        {
+          "expression1": "(1/x + 1/y) + x^3 + x^2",
+          "expression2": "(x + y)/(xy) + x^3 + x^2",
+          "result": "passed"
+        },
+        {
+          "expression1": "(1/a + 1/b) + a^2 + b^3",
+          "expression2": "(ab)/(a + b) + a^2 + b^3",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y) + 2x^3 + 4x^2",
+          "expression2": "(x + y)/(xy) + 2x^3 + 4x^2",
+          "result": "passed"
+        },
+        {
+          "expression1": "(1/a + 1/b) + 3a^3 + 2b^2",
+          "expression2": "(ab)/(a + b) + 3a^3 + 2b^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y + 1/z) + x^3 + y^2",
+          "expression2": "(xyz)/(x + y + z) + x^3 + y^2",
+          "result": "failed"
+        }
+      ]
+    },
+    "Simplify powers of powers -> Factor out terms": {
+      "decision1": "Simplify powers of powers",
+      "decision2": "Factor out terms",
+      "passed": 2,
+      "failed": 3,
+      "total": 5,
+      "pass_rate": "40.0%",
+      "examples": [
+        {
+          "expression1": "x(x^2)^3 + y(y^3)^2",
+          "expression2": "x^7 + y^7",
+          "result": "passed"
+        },
+        {
+          "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
+          "expression2": "2a^7 + 3b^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "x(2x^2)^4 + y(y^3)^2",
+          "expression2": "x^9 + y^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "x(x^3)^2 + 2x(2x^2)^3",
+          "expression2": "x^6 + 2x^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "a(a^2)^2 + b(b^3)^2",
+          "expression2": "a^5 + b^7",
+          "result": "passed"
+        }
+      ]
+    },
+    "Expand out complex fractions -> Reduce the number of parentheses": {
+      "decision1": "Expand out complex fractions",
+      "decision2": "Reduce the number of parentheses",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "((1/x + 1/y)/(1/a + 1/b))",
+          "expression2": "(x + y)(a + b)/(xyab)",
+          "result": "failed"
+        },
+        {
+          "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b))",
+          "expression2": "(xyz)(a + b)/(xyab)",
+          "result": "failed"
+        },
+        {
+          "expression1": "((1/x + 1/y)/(1/a + 1/b + 1/c))",
+          "expression2": "(x + y)(a + b + c)/(xyzabc)",
+          "result": "failed"
+        },
+        {
+          "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b + 1/c))",
+          "expression2": "(xyz)(abc)/(x + y + z)(a + b + c)",
+          "result": "failed"
+        },
+        {
+          "expression1": "((1/x + 1/y)/(1/z + 1/a + 1/b))",
+          "expression2": "(x + y)(z + a + b)/(xyzab)",
+          "result": "failed"
+        }
+      ]
+    },
+    "Reduce the number of terms -> Factor out terms": {
+      "decision1": "Reduce the number of terms",
+      "decision2": "Factor out terms",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "2x + 3x + 4x - 5y + y + z + z^2",
+          "expression2": "9x - 4y + z + z^2",
+          "result": "passed"
+        },
+        {
+          "expression1": "x^2 + 2x^2 + 3y - 3y + 4z + 5z^2 + x",
+          "expression2": "3x^2 + 4z + 5z^2 + x",
+          "result": "passed"
+        },
+        {
+          "expression1": "a + b + 2a - b + z + 3z^2",
+          "expression2": "3a + z + 3z^2",
+          "result": "passed"
+        },
+        {
+          "expression1": "4x + 3x - 2x + 6y - 3y + z",
+          "expression2": "5x + 3y + z",
+          "result": "passed"
+        },
+        {
+          "expression1": "2x^2 + 3x^2 + 2z + z + b",
+          "expression2": "5x^2 + 3z + b",
+          "result": "passed"
+        }
+      ]
+    },
+    "Use standard form for polynomials -> Multiply through factored terms": {
+      "decision1": "Use standard form for polynomials",
+      "decision2": "Multiply through factored terms",
+      "passed": 3,
+      "failed": 2,
+      "total": 5,
+      "pass_rate": "60.0%",
+      "examples": [
+        {
+          "expression1": "(x + 3)(x^2 - x + 4) + z + a",
+          "expression2": "x^3 + 2x^2 + x + 12 + z + a",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a + 2)(a^2 - 2a + 3) + b + z^2",
+          "expression2": "a^3 - 2a^2 + a + 6 + b + z^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "(x - 1)(x^2 + 3x + 2) + a + b",
+          "expression2": "x^3 + 2x^2 - x - 2 + a + b",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a + 2)(a^3 - 3a + 4) + z + 2x^2",
+          "expression2": "a^4 - a^2 + 5a + 8 + z + 2x^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "(x + 2)(x^2 + x + 3) + b + a",
+          "expression2": "x^3 + 3x^2 + 5x + 6 + b + a",
+          "result": "passed"
+        }
+      ]
+    },
+    "Simplify powers of powers -> Remove negative exponents": {
+      "decision1": "Simplify powers of powers",
+      "decision2": "Remove negative exponents",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(x^{-2})^3 + (y^{-1})^2 + (z^{-3})^3",
+          "expression2": "x^{-6} + y^{-2} + z^{-9}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^{-1})^2 + (b^{-3})^3 + (c^{-2})^2",
+          "expression2": "a^{-2} + b^{-9} + c^{-4}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x^{-1})^4 + (y^{-2})^3 + (z^{-3})^2",
+          "expression2": "x^{-4} + y^{-6} + z^{-6}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x^{-3})^3 + (y^{-1})^2 + (z^{-2})^4",
+          "expression2": "x^{-9} + y^{-2} + z^{-8}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^{-2})^3 + (b^{-1})^4 + (c^{-3})^2",
+          "expression2": "a^{-6} + b^{-4} + c^{-6}",
+          "result": "passed"
+        }
+      ]
+    },
+    "Keep expressions rationalized -> Expand out complex fractions": {
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Expand out complex fractions",
+      "passed": 2,
+      "failed": 3,
+      "total": 5,
+      "pass_rate": "40.0%",
+      "examples": [
+        {
+          "expression1": "1/(1/x + 1/y + 1/z)",
+          "expression2": "(xyz)/(xy + xz + yz)",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(1/a + 1/b + 1/c)",
+          "expression2": "(abc)/(ab + ac + bc)",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(1/x^{1/2} + 1/y^{1/2})",
+          "expression2": "(x^{1/2}y^{1/2})/(x^{1/2} + y^{1/2})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(1/a^{1/3} + 1/b^{1/3})",
+          "expression2": "(a^{1/3}b^{1/3})/(a^{1/3} + b^{1/3})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(1/x^{3/2} + 1/y^{3/2})",
+          "expression2": "(x^{3/2}y^{3/2})/(x^{3/2} + y^{3/2})",
+          "result": "failed"
+        }
+      ]
+    },
+    "Prefer binomial expansions -> Reduce the number of parentheses": {
+      "decision1": "Prefer binomial expansions",
+      "decision2": "Reduce the number of parentheses",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "((x + 1)^2) + ((x - 2)^3) + y",
+          "expression2": "x^2 + 2x + 1 + x^3 - 6x^2 + 12x - 8 + y",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + b)^3) + ((a - b)^2) + c",
+          "expression2": "a^3 + 3a^2b + 3ab^2 + b^3 + a^2 - 2ab + b^2 + c",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x + 2)^3) + ((x - 3)^2) + z",
+          "expression2": "x^3 + 6x^2 + 12x + 8 + x^2 - 6x + 9 + z",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a - 1)^3) + ((b + 2)^2) + z",
+          "expression2": "a^3 - 3a^2 + 3a - 1 + b^2 + 4b + 4 + z",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x + 3)^2) + ((y - 4)^3) + z",
+          "expression2": "x^2 + 6x + 9 + y^3 - 12y^2 + 48y - 64 + z",
+          "result": "passed"
+        }
+      ]
+    },
+    "Prefer binomial expansions -> Keep expressions rationalized": {
+      "decision1": "Prefer binomial expansions",
+      "decision2": "Keep expressions rationalized",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(x + 1)^2 / (x + 1)",
+          "expression2": "x + 1",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a - b)^2 / (a - b)",
+          "expression2": "a - b",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x + y)^3 / (x + y)",
+          "expression2": "x^2 + 2xy + y^2",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a + b)^4 / (a + b)",
+          "expression2": "a^3 + 3a^2b + 3ab^2 + b^3",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x - 1)^3 / (x - 1)",
+          "expression2": "x^2 - 2x + 1",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of fractions -> Keep prime factorizations decomposed": {
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Keep prime factorizations decomposed",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "6/12 + 10/20",
+          "expression2": "2^1 * 3^1 / 2^2 * 3^1 + 2 * 5 / 2^2 * 5",
+          "result": "failed"
+        },
+        {
+          "expression1": "8/16 + 9/18",
+          "expression2": "2^3 / 2^4 + 3^2 / 2 * 3^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "15/30 + 25/50",
+          "expression2": "3 * 5 / 2 * 3 * 5 + 5^2 / 2 * 5^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "16/32 + 9/18",
+          "expression2": "2^4 / 2^5 + 3^2 / 2 * 3^2",
+          "result": "failed"
+        },
+        {
+          "expression1": "24/48 + 18/36",
+          "expression2": "2^3 * 3 / 2^4 * 3 + 2 * 3^2 / 2 * 3^2",
+          "result": "failed"
+        }
+      ]
+    },
+    "Reduce the number of terms -> Simplify powers of powers": {
+      "decision1": "Reduce the number of terms",
+      "decision2": "Simplify powers of powers",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "x^2 * x^3 + y^2 * y^4",
+          "expression2": "x^5 + y^6",
+          "result": "passed"
+        },
+        {
+          "expression1": "a^3 * a^4 + b^2 * b^3",
+          "expression2": "a^7 + b^5",
+          "result": "passed"
+        },
+        {
+          "expression1": "x^2 * x^5 + y^3 * y^2",
+          "expression2": "x^7 + y^5",
+          "result": "passed"
+        },
+        {
+          "expression1": "a^4 * a^3 + b^5 * b^2",
+          "expression2": "a^7 + b^7",
+          "result": "passed"
+        },
+        {
+          "expression1": "x^3 * x^4 + y^2 * y^3",
+          "expression2": "x^7 + y^5",
+          "result": "passed"
+        }
+      ]
+    },
+    "Write reciprocal as x^{-1} -> Factor out terms": {
+      "decision1": "Write reciprocal as x^{-1}",
+      "decision2": "Factor out terms",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "1/x + 1/x^2",
+          "expression2": "x^{-1}(1 + x^{-1})",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/a + 1/a^2",
+          "expression2": "a^{-1}(1 + a^{-1})",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/x + 1/x^3",
+          "expression2": "x^{-1}(1 + x^{-2})",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/b + 1/b^2",
+          "expression2": "b^{-1}(1 + b^{-1})",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/z + 1/z^2",
+          "expression2": "z^{-1}(1 + z^{-1})",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of parentheses -> Use standard form for polynomials": {
+      "decision1": "Reduce the number of parentheses",
+      "decision2": "Use standard form for polynomials",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "((x + 3) + (x^2 + x^3))",
+          "expression2": "x^3 + x^2 + x + 3",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + b) + (a^2 + b^3))",
+          "expression2": "b^3 + a^2 + a + b",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x + y) + (x^3 + y^2))",
+          "expression2": "x^3 + y^2 + x + y",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + b) + (a^3 + b^2))",
+          "expression2": "a^3 + b^2 + a + b",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x + 1) + (x^2 + x^3))",
+          "expression2": "x^3 + x^2 + x + 1",
+          "result": "passed"
+        }
+      ]
+    },
+    "Write reciprocal as x^{-1} -> Simplify powers of powers": {
+      "decision1": "Write reciprocal as x^{-1}",
+      "decision2": "Simplify powers of powers",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(x^{-1})^3",
+          "expression2": "x^{-3}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^{-1})^2",
+          "expression2": "a^{-2}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x^{-1})^4",
+          "expression2": "x^{-4}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(b^{-1})^3",
+          "expression2": "b^{-3}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(y^{-1})^5",
+          "expression2": "y^{-5}",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of parentheses -> Keep expressions rationalized": {
+      "decision1": "Reduce the number of parentheses",
+      "decision2": "Keep expressions rationalized",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "((x + 1)^2)/(x + 1)",
+          "expression2": "x + 1",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + 2)^2)/(a + 2)",
+          "expression2": "a + 2",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x - 1)^2)/(x - 1)",
+          "expression2": "x - 1",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + b)^2)/(a + b)",
+          "expression2": "a + b",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x - y)^2)/(x - y)",
+          "expression2": "x - y",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of terms -> Multiply through factored terms": {
+      "decision1": "Reduce the number of terms",
+      "decision2": "Multiply through factored terms",
+      "passed": 2,
+      "failed": 3,
+      "total": 5,
+      "pass_rate": "40.0%",
+      "examples": [
+        {
+          "expression1": "(x + 3)(x^2 - x + 4) + 2x + 2x",
+          "expression2": "x^3 + 2x^2 + x + 12 + 4x",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a - 2)(a^2 + a + 5) + 3a + 2a",
+          "expression2": "a^3 - a^2 - 5a + 10 + 5a",
+          "result": "failed"
+        },
+        {
+          "expression1": "(x + 3)(x^2 - 2x + 1) + 4x + 3x",
+          "expression2": "x^3 + x^2 - 5x + 3 + 7x",
+          "result": "passed"
+        },
+        {
+          "expression1": "(2x + 1)(x^2 + x - 3) + z + z + x",
+          "expression2": "2x^3 + 3x^2 - 4x - 3 + 2z + x",
+          "result": "failed"
+        },
+        {
+          "expression1": "(x - 2)(x^2 + 2x + 5) + 3x + 2x",
+          "expression2": "x^3 - 2x^2 - 9x + 10 + 5x",
+          "result": "failed"
+        }
+      ]
+    },
+    "Multiply through factored terms -> Reduce the number of parentheses": {
+      "decision1": "Multiply through factored terms",
+      "decision2": "Reduce the number of parentheses",
+      "passed": 4,
+      "failed": 1,
+      "total": 5,
+      "pass_rate": "80.0%",
+      "examples": [
+        {
+          "expression1": "((x + 3)(x - 2) + z) + (a + b)",
+          "expression2": "x^2 + x - 6 + z + a + b",
+          "result": "passed"
+        },
+        {
+          "expression1": "((a + 2)(a - 3) + z^2) + (x + 3a)",
+          "expression2": "a^2 - a - 6 + z^2 + x + 3a",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x + 3)(x^2 - 1) + a) + (b + c)",
+          "expression2": "x^3 + 2x^2 - 2 + a + b + c",
+          "result": "failed"
+        },
+        {
+          "expression1": "((2x + 3)(x + 2) + z) + (y + b + c)",
+          "expression2": "2x^2 + 7x + 6 + z + y + b + c",
+          "result": "passed"
+        },
+        {
+          "expression1": "((x - 1)(x^2 + 1) + z^2) + (y + a)",
+          "expression2": "x^3 - x^2 + x - 1 + z^2 + y + a",
+          "result": "passed"
+        }
+      ]
+    },
+    "Leave repeating sums as they are -> Use standard form for polynomials": {
+      "decision1": "Leave repeating sums as they are",
+      "decision2": "Use standard form for polynomials",
+      "passed": 3,
+      "failed": 2,
+      "total": 5,
+      "pass_rate": "60.0%",
+      "examples": [
+        {
+          "expression1": "55 + x^2 + x^3 + 3x + 2",
+          "expression2": "1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10 + x^3 + x^2 + 3x + 2",
+          "result": "passed"
+        },
+        {
+          "expression1": "21 + x + x^2 + x^3",
+          "expression2": "7 + 6 + 5 + 3 + x^3 + x^2 + x",
+          "result": "passed"
+        },
+        {
+          "expression1": "12 + x^3 + 3x^2 + 2x",
+          "expression2": "1 + 2 + 3 + 4 + 5 + x^3 + 3x^2 + 2x",
+          "result": "failed"
+        },
+        {
+          "expression1": "28 + 3x + x^2 + x^3",
+          "expression2": "7 + 6 + 5 + 4 + 3x + x^2 + x^3",
+          "result": "failed"
+        },
+        {
+          "expression1": "45 + 3x^2 + 2x^3 + x",
+          "expression2": "10 + 9 + 8 + 7 + 6 + 5 + 3x^2 + 2x^3 + x",
+          "result": "passed"
+        }
+      ]
+    },
+    "Remove negative exponents -> Keep expressions rationalized": {
+      "decision1": "Remove negative exponents",
+      "decision2": "Keep expressions rationalized",
+      "passed": 3,
+      "failed": 2,
+      "total": 5,
+      "pass_rate": "60.0%",
+      "examples": [
+        {
+          "expression1": "1/(x^{-1} + y^{-1})",
+          "expression2": "xy/(x + y)",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(x^{-1/2} + y^{-1/2})",
+          "expression2": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(x^{-1} + y^{-1} + z^{-1})",
+          "expression2": "xyz/(xy + yz + xz)",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(a^{-1} + b^{-1} + c^{-1})",
+          "expression2": "abc/(ab + bc + ac)",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(x^{-3/2} + y^{-1})",
+          "expression2": "x^{3/2}y/(x^{3/2} + y)",
+          "result": "failed"
+        }
+      ]
+    },
+    "Factor out terms -> Simplify powers of powers": {
+      "decision1": "Factor out terms",
+      "decision2": "Simplify powers of powers",
+      "passed": 2,
+      "failed": 3,
+      "total": 5,
+      "pass_rate": "40.0%",
+      "examples": [
+        {
+          "expression1": "x(x^2)^3 + y(y^3)^2",
+          "expression2": "x^7 + y^7",
+          "result": "passed"
+        },
+        {
+          "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
+          "expression2": "2a^7 + 3b^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "x(2x^2)^4 + y(y^3)^2",
+          "expression2": "x^9 + y^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "x(x^3)^2 + 2x(2x^2)^3",
+          "expression2": "x^6 + 2x^7",
+          "result": "failed"
+        },
+        {
+          "expression1": "a(a^2)^2 + b(b^3)^2",
+          "expression2": "a^5 + b^7",
+          "result": "passed"
+        }
+      ]
+    },
+    "Reduce the number of fractions -> Expand out complex fractions": {
+      "decision1": "Reduce the number of fractions",
+      "decision2": "Expand out complex fractions",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "(1/x + 1/y) / (1/z + 1/a)",
+          "expression2": "(x + y)(z + a)/(x y z a)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b)",
+          "expression2": "(xyz)(a + b)/((x + y + z)ab)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y) / (1/a + 1/b + 1/c)",
+          "expression2": "(x + y)(a + b + c)/(xyz abc)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b + 1/c)",
+          "expression2": "(xyz)(abc)/(x + y + z)(a + b + c)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(1/x + 1/y) / (1/z + 1/a + 1/b)",
+          "expression2": "(x + y)(z + a + b)/(xyzab)",
+          "result": "failed"
+        }
+      ]
+    },
+    "Keep expressions rationalized -> Simplify powers of powers": {
+      "decision1": "Keep expressions rationalized",
+      "decision2": "Simplify powers of powers",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "(x^{1/2})/(x^{1/2} + y^{1/2})",
+          "expression2": "1/(x^{-1/2} + y^{1/2})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(x^{3/2} + y^{1/2})",
+          "expression2": "1/(x^{-3/2} + y^{-1/2})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(x^{1/3} + y^{1/2})",
+          "expression2": "1/(x^{-1/3} + y^{-1/2})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(x^{1/4} + y^{3/4})",
+          "expression2": "1/(x^{-1/4} + y^{-3/4})",
+          "result": "failed"
+        },
+        {
+          "expression1": "1/(x^{1/3} + y^{2/3})",
+          "expression2": "1/(x^{-1/3} + y^{-2/3})",
+          "result": "failed"
+        }
+      ]
+    },
+    "Reduce the number of parentheses -> Write reciprocal as x^{-1}": {
+      "decision1": "Reduce the number of parentheses",
+      "decision2": "Write reciprocal as x^{-1}",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(1/(a + b)) + (1/(x + y))",
+          "expression2": "(a + b)^{-1} + (x + y)^{-1}",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(x * (y + z))",
+          "expression2": "x^{-1} * (y + z)^{-1}",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/((a + b) * (x + y))",
+          "expression2": "(a + b)^{-1} * (x + y)^{-1}",
+          "result": "passed"
+        },
+        {
+          "expression1": "(1/(a + 1) + (1/(b + 1)))",
+          "expression2": "(a + 1)^{-1} + (b + 1)^{-1}",
+          "result": "passed"
+        },
+        {
+          "expression1": "1/(x + 1) + (y + z) + (1/(x + y))",
+          "expression2": "(x + 1)^{-1} + (y + z) + (x + y)^{-1}",
+          "result": "passed"
+        }
+      ]
+    },
+    "Use standard form for polynomials -> Simplify powers of powers": {
+      "decision1": "Use standard form for polynomials",
+      "decision2": "Simplify powers of powers",
+      "passed": 5,
+      "failed": 0,
+      "total": 5,
+      "pass_rate": "100.0%",
+      "examples": [
+        {
+          "expression1": "(x^2)^3 + (x^3)^2 + x + x^4",
+          "expression2": "x^6 + x^6 + x^4 + x",
+          "result": "passed"
+        },
+        {
+          "expression1": "(y^2)^3 + (y^3)^2 + y + y^4",
+          "expression2": "y^6 + y^6 + y^4 + y",
+          "result": "passed"
+        },
+        {
+          "expression1": "(x^4)^2 + (x^2)^3 + x + x^3",
+          "expression2": "x^8 + x^6 + x^3 + x",
+          "result": "passed"
+        },
+        {
+          "expression1": "(a^3)^2 + (a^2)^3 + a + a^4",
+          "expression2": "a^6 + a^6 + a^4 + a",
+          "result": "passed"
+        },
+        {
+          "expression1": "(b^2)^4 + (b^3)^2 + b + b^5",
+          "expression2": "b^8 + b^6 + b^5 + b",
+          "result": "passed"
+        }
+      ]
+    },
+    "Factor out terms -> Prefer binomial expansions": {
+      "decision1": "Factor out terms",
+      "decision2": "Prefer binomial expansions",
+      "passed": 0,
+      "failed": 5,
+      "total": 5,
+      "pass_rate": "0.0%",
+      "examples": [
+        {
+          "expression1": "(x + 3)(x + 1) + (x + 3)(x - 1)",
+          "expression2": "(x + 3)(x^2 - 1)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(a + 2)(a + 1) + (a + 2)(a - 1)",
+          "expression2": "(a + 2)(a^2 - 1)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(y + 1)(y + 2) + (y + 1)(y - 2)",
+          "expression2": "(y + 1)(y^2 - 2)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(b + 3)(b + 1) + (b + 3)(b - 1)",
+          "expression2": "(b + 3)(b^2 - 1)",
+          "result": "failed"
+        },
+        {
+          "expression1": "(z + 2)(z + 1) + (z + 2)(z - 1)",
+          "expression2": "(z + 2)(z^2 - 1)",
+          "result": "failed"
+        }
+      ]
+    }
+  }
+}

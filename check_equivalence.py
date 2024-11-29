@@ -13,85 +13,105 @@ import random
 import numpy as np
 from typing import Dict, List, Tuple, Union
 import datetime
+import re
 
-def process_exponents(expr_str: str) -> str:
-    """Convert all forms of exponents to standard form."""
-    # Replace patterns like x^{-3} with x^(-3)
-    import re
-    return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
-
-def process_mixed_numbers(expr_str: str) -> str:
-    """Convert mixed numbers (like '6 3/4') to improper fractions."""
-    import re
-    
-    def convert_mixed(match):
-        whole = int(match.group(1))
-        num = int(match.group(2))
-        den = int(match.group(3))
-        improper_num = whole * den + num
-        return f"{improper_num}/{den}"
-    
-    # Match pattern: whole_number space numerator/denominator
-    # Make sure there's exactly one space between whole number and fraction
-    expr_parts = expr_str.split()
-    processed_parts = []
-    i = 0
-    while i < len(expr_parts):
-        if i + 1 < len(expr_parts) and re.match(r'^\d+$', expr_parts[i]) and re.match(r'^\d+/\d+$', expr_parts[i + 1]):
-            # Found a mixed number
-            whole = int(expr_parts[i])
-            num, den = map(int, expr_parts[i + 1].split('/'))
-            improper_num = whole * den + num
-            processed_parts.append(f"{improper_num}/{den}")
-            i += 2
-        else:
-            processed_parts.append(expr_parts[i])
-            i += 1
-    
-    return ' '.join(processed_parts)
+def process_fractions(expr_str: str) -> str:
+    """Remove spaces in fractions."""
+    def clean_fraction(match):
+        return ''.join(match.group(0).split())
+    expr_str = re.sub(r'\d*\s*/\s*[a-zA-Z0-9^()\{\}]+', clean_fraction, expr_str)
+    expr_str = re.sub(r'[a-zA-Z0-9^()\{\}]+\s*/\s*[a-zA-Z0-9^()\{\}]+', clean_fraction, expr_str)
+    return expr_str
 
 def process_multiplication(expr_str: str) -> str:
-    """Make implicit multiplication explicit"""
-    import re
+    """Make implicit multiplication explicit."""
+    # First normalize spaces
+    expr_str = ' '.join(expr_str.split())
     
-    # Replace patterns like number followed by variable (e.g., 3a -> 3*a)
-    expr_str = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr_str)
+    # Handle terms with exponents first
+    def add_mult_between_exp_terms(match):
+        terms = match.group(1).split()
+        return '*'.join(terms)
     
-    # Replace patterns like number followed by parenthesis (e.g., 2(x) -> 2*(x))
-    expr_str = re.sub(r'(\d)(\()', r'\1*\2', expr_str)
+    # Handle expressions like x^(...) followed by other terms
+    expr_str = re.sub(r'([a-zA-Z0-9^()\{\}]+(?:\s+[a-zA-Z0-9^()\{\}]+)+)', 
+                      add_mult_between_exp_terms, 
+                      expr_str)
     
-    # Replace patterns like variable followed by parenthesis (e.g., x(y) -> x*(y))
-    expr_str = re.sub(r'([a-zA-Z])(\()', r'\1*\2', expr_str)
+    # Handle remaining pairs of variables
+    while True:
+        new_expr = re.sub(r'([a-zA-Z])(?:\s*)([a-zA-Z])', r'\1*\2', expr_str)
+        if new_expr == expr_str:
+            break
+        expr_str = new_expr
     
-    # Replace patterns like adjacent parentheses (e.g., (x+1)(x+2) -> (x+1)*(x+2))
-    expr_str = re.sub(r'\)(\()', r')*\1', expr_str)
+    # Handle remaining cases of implicit multiplication
+    expr_str = re.sub(r'(\d+)([a-zA-Z])', r'\1*\2', expr_str)  # 2x -> 2*x
+    expr_str = re.sub(r'(\d+|\w+|\))(?=\()', r'\1*', expr_str)  # 2(x) -> 2*(x)
     
-    # Replace patterns like adjacent variables (e.g., ab -> a*b)
-    expr_str = re.sub(r'([a-zA-Z])([a-zA-Z])', r'\1*\2', expr_str)
-    
-    # Process parts between parentheses
-    parts = re.split(r'([()])', expr_str)
-    processed_parts = []
-    for part in parts:
-        if part in '()':
-            processed_parts.append(part)
-        else:
-            # Replace any sequence of variables with multiplication
-            part = re.sub(r'([a-zA-Z])\s+([a-zA-Z](?:\s+[a-zA-Z])*)', 
-                         lambda m: m.group(0).replace(' ', '*'), 
-                         part)
-            # Process adjacent variables within this part again
-            part = re.sub(r'([a-zA-Z])([a-zA-Z])', r'\1*\2', part)
-            processed_parts.append(part)
-    
-    return ''.join(processed_parts)
+    return expr_str
 
 def process_expression(expr_str: str) -> str:
-    """Process all forms of expression notation."""
+    """Process mathematical expressions for parsing."""
+    # First handle mixed numbers
     expr_str = process_mixed_numbers(expr_str)
+    
+    # Handle exponents before other operations
     expr_str = process_exponents(expr_str)
+    
+    # Remove spaces in fractions
+    expr_str = process_fractions(expr_str)
+    
+    # Make implicit multiplication explicit
     expr_str = process_multiplication(expr_str)
+    
+    # Handle spacing around operators (except / which was handled in fractions)
+    for op in ['+', '-', '*']:
+        expr_str = re.sub(f'\\{op}', f' {op} ', expr_str)
+    
+    # Clean up spaces around parentheses
+    expr_str = re.sub(r'\s*\(\s*', '(', expr_str)
+    expr_str = re.sub(r'\s*\)\s*', ')', expr_str)
+    
+    # Final cleanup of multiple spaces
+    expr_str = ' '.join(expr_str.split())
+    
     return expr_str
+
+def process_exponents(expr_str: str) -> str:
+    """Handle various exponent notations."""
+    # Remove spaces in fractions in exponents first
+    def clean_exponent_fraction(match):
+        exp = match.group(1)
+        return '^(' + ''.join(exp.split()) + ')'
+    
+    # Handle curly brace exponents and convert to parentheses
+    expr_str = re.sub(r'\^\{([^}]+)\}', clean_exponent_fraction, expr_str)
+    
+    # Handle existing parenthetical exponents
+    expr_str = re.sub(r'\^\(([^)]+)\)', clean_exponent_fraction, expr_str)
+    
+    # Handle bare fraction exponents
+    expr_str = re.sub(r'\^(\d+/\d+)', r'^(\1)', expr_str)
+    
+    return expr_str
+
+def process_mixed_numbers(expr_str: str) -> str:
+    """Convert mixed numbers to improper fractions."""
+    parts = expr_str.split()
+    result = []
+    i = 0
+    while i < len(parts):
+        if i + 1 < len(parts) and re.match(r'^\d+$', parts[i]) and re.match(r'^\d+/\d+$', parts[i + 1]):
+            whole = int(parts[i])
+            num, den = map(int, parts[i + 1].split('/'))
+            improper_num = whole * den + num
+            result.append(f"{improper_num}/{den}")
+            i += 2
+        else:
+            result.append(parts[i])
+            i += 1
+    return ' '.join(result)
 
 class ExpressionEvaluator:
     def __init__(self, num_random_tests: int = 10):
@@ -510,13 +530,23 @@ if __name__ == "__main__":
     
     # List of datasets to process
     datasets = [
-        'data/dataset.json',
+        # 'data/dataset.json',
+        'data/complex_dataset.json',
         # Add more dataset paths here
     ]
     
     # Process command line arguments if provided
     if len(sys.argv) > 1:
         datasets = sys.argv[1:]
+
+    test_expressions(
+        test_cases = [
+            ('((x + 1)^2)/(x + 1)', 'x + 1'), # this one is important, keep this here!
+            ('2/(x^(1/2) + y^(1/2)) + z + 3a + z^3', '(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3'),
+            ('1 / (1 / x + 1 / y + 1 / z) + a + b^2 + z^2','(x y z) / (y z + x z + x y) + a + b^2 + z^2'),
+            ('1/(1/x^{1/2} + 1/y^{1/2})','(x^{1/2}y^{1/2})/(x^{1/2} + y^{1/2})')
+        ]
+    )
     
     # Process each dataset
     for dataset_path in datasets:
