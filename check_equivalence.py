@@ -533,8 +533,8 @@ if __name__ == "__main__":
     
     # List of datasets to process
     datasets = [
-        # 'data/dataset.json',
-        # 'data/complex_dataset.json',
+        'data/dataset.json',
+        'data/complex_dataset.json',
         # Add more dataset paths here
     ]
     

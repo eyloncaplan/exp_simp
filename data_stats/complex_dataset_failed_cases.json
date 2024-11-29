@@ -13,8 +13,8 @@
         "y": "-1",
         "x": "-1"
       },
-      "max_difference": 9.0,
-      "timestamp": "2024-11-29T12:39:18.908222"
+      "max_difference": 9.000000000000004,
+      "timestamp": "2024-11-29T12:43:36.499756"
     },
     {
       "expression1": "13 + 2x + a^{-3} + b^{-2} + 2",
@@ -25,12 +25,12 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "b": "-1",
-        "a": "1",
+        "b": "1",
+        "a": "-1",
         "x": "-1"
       },
       "max_difference": 2.0,
-      "timestamp": "2024-11-29T12:39:18.926579"
+      "timestamp": "2024-11-29T12:43:36.515518"
     },
     {
       "expression1": "10 + 10 + x + x + y + y + z + z",
@@ -46,7 +46,7 @@
         "z": "-1"
       },
       "max_difference": 5.000000000000007,
-      "timestamp": "2024-11-29T12:39:18.962058"
+      "timestamp": "2024-11-29T12:43:36.549272"
     },
     {
       "expression1": "15 + 15 + z + z + x + x + 12",
@@ -60,8 +60,8 @@
         "x": "-1",
         "z": "-1"
       },
-      "max_difference": 9.0,
-      "timestamp": "2024-11-29T12:39:18.993704"
+      "max_difference": 9.000000000000007,
+      "timestamp": "2024-11-29T12:43:36.578612"
     },
     {
       "expression1": "25 + a + a + b + b + 25 + 2x",
@@ -72,12 +72,12 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "b": "-1",
-        "a": "1",
+        "b": "1",
+        "a": "-1",
         "x": "-1"
       },
       "max_difference": 2.0,
-      "timestamp": "2024-11-29T12:39:19.012325"
+      "timestamp": "2024-11-29T12:43:36.597560"
     },
     {
       "expression1": "3 + 3 + b + b + z + z + 3x",
@@ -93,7 +93,7 @@
         "z": "-1"
       },
       "max_difference": 4.0,
-      "timestamp": "2024-11-29T12:39:19.041318"
+      "timestamp": "2024-11-29T12:43:36.631312"
     },
     {
       "expression1": "28 + x + x + y + y + z + z",
@@ -109,7 +109,7 @@
         "z": "-1"
       },
       "max_difference": 1.0,
-      "timestamp": "2024-11-29T12:39:19.069799"
+      "timestamp": "2024-11-29T12:43:36.662581"
     },
     {
       "expression1": "(1/a + 1/b) + a^2 + b^3",
@@ -124,8 +124,8 @@
         "a": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 3.2274825256048416,
-      "timestamp": "2024-11-29T12:39:19.770942"
+      "max_difference": 3.474618003122032,
+      "timestamp": "2024-11-29T12:43:37.300833"
     },
     {
       "expression1": "(1/a + 1/b) + 3a^3 + 2b^2",
@@ -140,8 +140,8 @@
         "a": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 4.227513405213358,
-      "timestamp": "2024-11-29T12:39:19.854573"
+      "max_difference": 7.575879499432498,
+      "timestamp": "2024-11-29T12:43:37.374588"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) + x^3 + y^2",
@@ -152,13 +152,13 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "x": "-1",
         "y": "-1",
         "z": "-1",
+        "x": "-1",
         "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 9.022152337264629,
-      "timestamp": "2024-11-29T12:39:19.905044"
+      "max_difference": 22.598037974959993,
+      "timestamp": "2024-11-29T12:43:37.420472"
     },
     {
       "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
@@ -172,8 +172,8 @@
         "b": "-1",
         "a": "-1"
       },
-      "max_difference": 190597474.16866106,
-      "timestamp": "2024-11-29T12:39:19.976415"
+      "max_difference": 193920068.05392423,
+      "timestamp": "2024-11-29T12:43:37.490376"
     },
     {
       "expression1": "x(2x^2)^4 + y(y^3)^2",
@@ -187,8 +187,8 @@
         "y": "1",
         "x": "1"
       },
-      "max_difference": 13707473173.028835,
-      "timestamp": "2024-11-29T12:39:20.001544"
+      "max_difference": 3450665816.166126,
+      "timestamp": "2024-11-29T12:43:37.512800"
     },
     {
       "expression1": "x(x^3)^2 + 2x(2x^2)^3",
@@ -201,8 +201,8 @@
       "counterexample": {
         "x": "-1"
       },
-      "max_difference": 147845509.18436903,
-      "timestamp": "2024-11-29T12:39:20.018403"
+      "max_difference": 126794926.73104028,
+      "timestamp": "2024-11-29T12:43:37.528865"
     },
     {
       "expression1": "((1/x + 1/y)/(1/a + 1/b))",
@@ -213,14 +213,14 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
+        "b": "-1",
         "a": "-1",
         "y": "-1",
         "x": "-1",
-        "b": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 1.9658352146886735,
-      "timestamp": "2024-11-29T12:39:20.045404"
+      "max_difference": 4.480051654017923,
+      "timestamp": "2024-11-29T12:43:37.554334"
     },
     {
       "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b))",
@@ -231,15 +231,15 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "-1",
-        "a": "-1",
-        "x": "-1",
         "b": "-1",
+        "a": "-1",
+        "y": "-1",
+        "x": "-1",
         "z": "-1",
         "/0": "[(1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
       },
-      "max_difference": 27.439015115736833,
-      "timestamp": "2024-11-29T12:39:20.134267"
+      "max_difference": 18.839436900206643,
+      "timestamp": "2024-11-29T12:43:37.642042"
     },
     {
       "expression1": "((1/x + 1/y)/(1/a + 1/b + 1/c))",
@@ -253,13 +253,13 @@
         "c": "1",
         "a": "-1",
         "y": "-1",
-        "b": "-1",
         "z": "-1",
+        "b": "-1",
         "x": "-1",
         "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
       },
-      "max_difference": 1.489643154326995,
-      "timestamp": "2024-11-29T12:39:20.208717"
+      "max_difference": 5.134159641949379,
+      "timestamp": "2024-11-29T12:43:37.719350"
     },
     {
       "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b + 1/c))",
@@ -270,16 +270,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "3",
-        "a": "-1",
+        "y": "-1",
+        "c": "-1",
         "z": "-1",
         "b": "-1",
-        "c": "-1",
-        "x": "-1",
+        "x": "3",
+        "a": "-1",
         "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
       },
-      "max_difference": 117695.50407137381,
-      "timestamp": "2024-11-29T12:39:20.352531"
+      "max_difference": 64003.461721877284,
+      "timestamp": "2024-11-29T12:43:37.845518"
     },
     {
       "expression1": "((1/x + 1/y)/(1/z + 1/a + 1/b))",
@@ -290,15 +290,15 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
+        "b": "-1",
         "a": "1/3",
         "y": "-1",
         "x": "-1",
-        "b": "-1",
         "z": "-1",
         "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
       },
-      "max_difference": 4.412449391409236,
-      "timestamp": "2024-11-29T12:39:20.504435"
+      "max_difference": 0.9103636413015631,
+      "timestamp": "2024-11-29T12:43:37.984121"
     },
     {
       "expression1": "(a + 2)(a^2 - 2a + 3) + b + z^2",
@@ -310,11 +310,11 @@
       "random_result": false,
       "counterexample": {
         "a": "-1",
-        "z": "1",
-        "b": "1"
+        "b": "1",
+        "z": "1"
       },
-      "max_difference": 170.93169480858944,
-      "timestamp": "2024-11-29T12:39:20.801474"
+      "max_difference": 178.12944640320575,
+      "timestamp": "2024-11-29T12:43:38.263833"
     },
     {
       "expression1": "(a + 2)(a^3 - 3a + 4) + z + 2x^2",
@@ -326,11 +326,11 @@
       "random_result": false,
       "counterexample": {
         "a": "-2",
-        "x": "1",
-        "z": "1"
+        "z": "1",
+        "x": "1"
       },
-      "max_difference": 1724.896354734963,
-      "timestamp": "2024-11-29T12:39:20.896425"
+      "max_difference": 1696.9441663361267,
+      "timestamp": "2024-11-29T12:43:38.365606"
     },
     {
       "expression1": "6/12 + 10/20",
@@ -342,7 +342,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 16.0,
-      "timestamp": "2024-11-29T12:39:21.646714"
+      "timestamp": "2024-11-29T12:43:39.158690"
     },
     {
       "expression1": "8/16 + 9/18",
@@ -354,7 +354,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 40.0,
-      "timestamp": "2024-11-29T12:39:21.651183"
+      "timestamp": "2024-11-29T12:43:39.162721"
     },
     {
       "expression1": "15/30 + 25/50",
@@ -366,7 +366,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 424.0,
-      "timestamp": "2024-11-29T12:39:21.653876"
+      "timestamp": "2024-11-29T12:43:39.165772"
     },
     {
       "expression1": "16/32 + 9/18",
@@ -378,7 +378,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 40.0,
-      "timestamp": "2024-11-29T12:39:21.656865"
+      "timestamp": "2024-11-29T12:43:39.168712"
     },
     {
       "expression1": "24/48 + 18/36",
@@ -390,7 +390,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 84.5,
-      "timestamp": "2024-11-29T12:39:21.659505"
+      "timestamp": "2024-11-29T12:43:39.171894"
     },
     {
       "expression1": "(a - 2)(a^2 + a + 5) + 3a + 2a",
@@ -403,8 +403,8 @@
       "counterexample": {
         "a": "-1"
       },
-      "max_difference": 54.799259950899454,
-      "timestamp": "2024-11-29T12:39:21.956749"
+      "max_difference": 55.80119995138659,
+      "timestamp": "2024-11-29T12:43:39.509955"
     },
     {
       "expression1": "(2x + 1)(x^2 + x - 3) + z + z + x",
@@ -418,8 +418,8 @@
         "x": "-1",
         "z": "1"
       },
-      "max_difference": 7.547024835157345,
-      "timestamp": "2024-11-29T12:39:22.006287"
+      "max_difference": 9.051583070255674,
+      "timestamp": "2024-11-29T12:43:39.565019"
     },
     {
       "expression1": "(x - 2)(x^2 + 2x + 5) + 3x + 2x",
@@ -432,8 +432,8 @@
       "counterexample": {
         "x": "-7"
       },
-      "max_difference": 264.23585721900884,
-      "timestamp": "2024-11-29T12:39:22.050374"
+      "max_difference": 259.838280224349,
+      "timestamp": "2024-11-29T12:43:39.613545"
     },
     {
       "expression1": "((x + 3)(x^2 - 1) + a) + (b + c)",
@@ -445,12 +445,12 @@
       "random_result": false,
       "counterexample": {
         "x": "-1",
-        "b": "1",
         "a": "1",
-        "c": "1"
+        "c": "1",
+        "b": "1"
       },
-      "max_difference": 66.75306949451169,
-      "timestamp": "2024-11-29T12:39:22.147881"
+      "max_difference": 73.74824635097309,
+      "timestamp": "2024-11-29T12:43:39.725001"
     },
     {
       "expression1": "12 + x^3 + 3x^2 + 2x",
@@ -464,7 +464,7 @@
         "x": "-1"
       },
       "max_difference": 3.0,
-      "timestamp": "2024-11-29T12:39:22.312891"
+      "timestamp": "2024-11-29T12:43:39.905693"
     },
     {
       "expression1": "28 + 3x + x^2 + x^3",
@@ -478,7 +478,7 @@
         "x": "-1"
       },
       "max_difference": 6.0,
-      "timestamp": "2024-11-29T12:39:22.329156"
+      "timestamp": "2024-11-29T12:43:39.924072"
     },
     {
       "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
@@ -492,8 +492,8 @@
         "b": "-1",
         "a": "-1"
       },
-      "max_difference": 145544378.00988063,
-      "timestamp": "2024-11-29T12:39:22.632611"
+      "max_difference": 209327380.5496407,
+      "timestamp": "2024-11-29T12:43:40.246680"
     },
     {
       "expression1": "x(2x^2)^4 + y(y^3)^2",
@@ -504,11 +504,11 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "x": "1",
-        "y": "1"
+        "y": "1",
+        "x": "1"
       },
-      "max_difference": 14550177190.534235,
-      "timestamp": "2024-11-29T12:39:22.655432"
+      "max_difference": 145782418.34361762,
+      "timestamp": "2024-11-29T12:43:40.269710"
     },
     {
       "expression1": "x(x^3)^2 + 2x(2x^2)^3",
@@ -521,8 +521,8 @@
       "counterexample": {
         "x": "-1"
       },
-      "max_difference": 106848825.97380693,
-      "timestamp": "2024-11-29T12:39:22.671390"
+      "max_difference": 7398128.005844541,
+      "timestamp": "2024-11-29T12:43:40.285520"
     },
     {
       "expression1": "(1/x + 1/y) / (1/z + 1/a)",
@@ -535,12 +535,12 @@
       "counterexample": {
         "a": "-1",
         "y": "-1",
-        "x": "-1",
         "z": "-1",
+        "x": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 10.19890866444787,
-      "timestamp": "2024-11-29T12:39:22.696628"
+      "max_difference": 5.237315219543255,
+      "timestamp": "2024-11-29T12:43:40.311708"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b)",
@@ -553,13 +553,13 @@
       "counterexample": {
         "a": "-1",
         "y": "-1",
+        "x": "-1",
         "b": "-1",
         "z": "-1",
-        "x": "-1",
         "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
       },
-      "max_difference": 58.576047532034174,
-      "timestamp": "2024-11-29T12:39:22.779152"
+      "max_difference": 72.53536591597748,
+      "timestamp": "2024-11-29T12:43:40.397191"
     },
     {
       "expression1": "(1/x + 1/y) / (1/a + 1/b + 1/c)",
@@ -573,13 +573,13 @@
         "c": "1",
         "a": "-1",
         "y": "-1",
-        "z": "-1",
         "b": "-1",
+        "z": "-1",
         "x": "-1",
         "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
       },
-      "max_difference": 3.174263001392853,
-      "timestamp": "2024-11-29T12:39:22.880540"
+      "max_difference": 3.3930242387280076,
+      "timestamp": "2024-11-29T12:43:40.500470"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b + 1/c)",
@@ -590,16 +590,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "3",
+        "y": "-1",
         "a": "-1",
         "z": "-1",
         "b": "-1",
         "c": "-1",
-        "x": "-1",
+        "x": "3",
         "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
       },
-      "max_difference": 214921.03738794228,
-      "timestamp": "2024-11-29T12:39:23.004174"
+      "max_difference": 68981.43336291968,
+      "timestamp": "2024-11-29T12:43:40.627899"
     },
     {
       "expression1": "(1/x + 1/y) / (1/z + 1/a + 1/b)",
@@ -617,8 +617,8 @@
         "z": "-1",
         "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
       },
-      "max_difference": 1.7557256485811294,
-      "timestamp": "2024-11-29T12:39:23.139769"
+      "max_difference": 2.528570623778857,
+      "timestamp": "2024-11-29T12:43:40.792596"
     },
     {
       "expression1": "(x^{1/2})/(x^{1/2} + y^{1/2})",
@@ -629,8 +629,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.18314829303777092,
-      "timestamp": "2024-11-29T12:39:23.244228"
+      "max_difference": 0.1658032005602308,
+      "timestamp": "2024-11-29T12:43:40.897887"
     },
     {
       "expression1": "1/(x^{3/2} + y^{1/2})",
@@ -641,8 +641,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 2.529571956679962,
-      "timestamp": "2024-11-29T12:39:23.271590"
+      "max_difference": 2.569544993933692,
+      "timestamp": "2024-11-29T12:43:40.925574"
     },
     {
       "expression1": "1/(x^{1/3} + y^{1/2})",
@@ -653,8 +653,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.9294250994779554,
-      "timestamp": "2024-11-29T12:39:23.293745"
+      "max_difference": 1.0314715658010656,
+      "timestamp": "2024-11-29T12:43:40.947881"
     },
     {
       "expression1": "1/(x^{1/4} + y^{3/4})",
@@ -665,8 +665,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.9529096063379049,
-      "timestamp": "2024-11-29T12:39:23.317033"
+      "max_difference": 1.1952235996162464,
+      "timestamp": "2024-11-29T12:43:40.971363"
     },
     {
       "expression1": "1/(x^{1/3} + y^{2/3})",
@@ -677,8 +677,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 1.0615253961725366,
-      "timestamp": "2024-11-29T12:39:23.343496"
+      "max_difference": 1.2155555065511803,
+      "timestamp": "2024-11-29T12:43:40.998789"
     },
     {
       "expression1": "(x + 3)(x + 1) + (x + 3)(x - 1)",
@@ -691,8 +691,8 @@
       "counterexample": {
         "x": "-4"
       },
-      "max_difference": 521.8691872417651,
-      "timestamp": "2024-11-29T12:39:23.593547"
+      "max_difference": 859.4907122050905,
+      "timestamp": "2024-11-29T12:43:41.230694"
     },
     {
       "expression1": "(a + 2)(a + 1) + (a + 2)(a - 1)",
@@ -705,8 +705,8 @@
       "counterexample": {
         "a": "-3"
       },
-      "max_difference": 882.080507815164,
-      "timestamp": "2024-11-29T12:39:23.616221"
+      "max_difference": 880.3945985672332,
+      "timestamp": "2024-11-29T12:43:41.254465"
     },
     {
       "expression1": "(y + 1)(y + 2) + (y + 1)(y - 2)",
@@ -719,8 +719,8 @@
       "counterexample": {
         "y": "-2"
       },
-      "max_difference": 345.4392403396745,
-      "timestamp": "2024-11-29T12:39:23.639044"
+      "max_difference": 795.0992821811242,
+      "timestamp": "2024-11-29T12:43:41.278523"
     },
     {
       "expression1": "(b + 3)(b + 1) + (b + 3)(b - 1)",
@@ -733,8 +733,8 @@
       "counterexample": {
         "b": "-4"
       },
-      "max_difference": 666.0481018732455,
-      "timestamp": "2024-11-29T12:39:23.661373"
+      "max_difference": 922.6290296386156,
+      "timestamp": "2024-11-29T12:43:41.301772"
     },
     {
       "expression1": "(z + 2)(z + 1) + (z + 2)(z - 1)",
@@ -747,8 +747,8 @@
       "counterexample": {
         "z": "-3"
       },
-      "max_difference": 695.5514301272215,
-      "timestamp": "2024-11-29T12:39:23.683664"
+      "max_difference": 830.6355056826375,
+      "timestamp": "2024-11-29T12:43:41.326726"
     }
   ]
 }
