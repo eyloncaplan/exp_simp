@@ -1,5 +1,5 @@
 {
-  "total_failed": 54,
+  "total_failed": 49,
   "cases": [
     {
       "expression1": "12 + 4x + y^{-1} + 3^{-2} + 6",
@@ -13,8 +13,8 @@
         "y": "-1",
         "x": "-1"
       },
-      "max_difference": 9.000000000000004,
-      "timestamp": "2024-11-29T12:19:06.851932"
+      "max_difference": 9.0,
+      "timestamp": "2024-11-29T12:39:18.908222"
     },
     {
       "expression1": "13 + 2x + a^{-3} + b^{-2} + 2",
@@ -30,7 +30,7 @@
         "x": "-1"
       },
       "max_difference": 2.0,
-      "timestamp": "2024-11-29T12:19:06.867969"
+      "timestamp": "2024-11-29T12:39:18.926579"
     },
     {
       "expression1": "10 + 10 + x + x + y + y + z + z",
@@ -41,12 +41,12 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "1",
-        "x": "-1",
+        "y": "-1",
+        "x": "1",
         "z": "-1"
       },
       "max_difference": 5.000000000000007,
-      "timestamp": "2024-11-29T12:19:06.904040"
+      "timestamp": "2024-11-29T12:39:18.962058"
     },
     {
       "expression1": "15 + 15 + z + z + x + x + 12",
@@ -60,8 +60,8 @@
         "x": "-1",
         "z": "-1"
       },
-      "max_difference": 9.000000000000007,
-      "timestamp": "2024-11-29T12:19:06.935319"
+      "max_difference": 9.0,
+      "timestamp": "2024-11-29T12:39:18.993704"
     },
     {
       "expression1": "25 + a + a + b + b + 25 + 2x",
@@ -77,7 +77,7 @@
         "x": "-1"
       },
       "max_difference": 2.0,
-      "timestamp": "2024-11-29T12:19:06.954252"
+      "timestamp": "2024-11-29T12:39:19.012325"
     },
     {
       "expression1": "3 + 3 + b + b + z + z + 3x",
@@ -88,12 +88,12 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "b": "-1",
+        "b": "1",
         "x": "-1",
-        "z": "1"
+        "z": "-1"
       },
-      "max_difference": 4.0000000000000036,
-      "timestamp": "2024-11-29T12:19:06.985712"
+      "max_difference": 4.0,
+      "timestamp": "2024-11-29T12:39:19.041318"
     },
     {
       "expression1": "28 + x + x + y + y + z + z",
@@ -104,12 +104,12 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "1",
-        "x": "-1",
+        "y": "-1",
+        "x": "1",
         "z": "-1"
       },
       "max_difference": 1.0,
-      "timestamp": "2024-11-29T12:19:07.015170"
+      "timestamp": "2024-11-29T12:39:19.069799"
     },
     {
       "expression1": "(1/a + 1/b) + a^2 + b^3",
@@ -124,8 +124,8 @@
         "a": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 3.2954954890785757,
-      "timestamp": "2024-11-29T12:19:07.617524"
+      "max_difference": 3.2274825256048416,
+      "timestamp": "2024-11-29T12:39:19.770942"
     },
     {
       "expression1": "(1/a + 1/b) + 3a^3 + 2b^2",
@@ -140,8 +140,8 @@
         "a": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 3.6426222614290964,
-      "timestamp": "2024-11-29T12:19:07.690611"
+      "max_difference": 4.227513405213358,
+      "timestamp": "2024-11-29T12:39:19.854573"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) + x^3 + y^2",
@@ -152,13 +152,13 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
+        "x": "-1",
         "y": "-1",
         "z": "-1",
-        "x": "-1",
         "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 19.99903940067611,
-      "timestamp": "2024-11-29T12:19:07.734275"
+      "max_difference": 9.022152337264629,
+      "timestamp": "2024-11-29T12:39:19.905044"
     },
     {
       "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
@@ -172,8 +172,8 @@
         "b": "-1",
         "a": "-1"
       },
-      "max_difference": 96752369.88067372,
-      "timestamp": "2024-11-29T12:19:07.795713"
+      "max_difference": 190597474.16866106,
+      "timestamp": "2024-11-29T12:39:19.976415"
     },
     {
       "expression1": "x(2x^2)^4 + y(y^3)^2",
@@ -187,8 +187,8 @@
         "y": "1",
         "x": "1"
       },
-      "max_difference": 7421545179.673568,
-      "timestamp": "2024-11-29T12:19:07.816089"
+      "max_difference": 13707473173.028835,
+      "timestamp": "2024-11-29T12:39:20.001544"
     },
     {
       "expression1": "x(x^3)^2 + 2x(2x^2)^3",
@@ -201,8 +201,8 @@
       "counterexample": {
         "x": "-1"
       },
-      "max_difference": 148014144.13048363,
-      "timestamp": "2024-11-29T12:19:07.830144"
+      "max_difference": 147845509.18436903,
+      "timestamp": "2024-11-29T12:39:20.018403"
     },
     {
       "expression1": "((1/x + 1/y)/(1/a + 1/b))",
@@ -215,12 +215,12 @@
       "counterexample": {
         "a": "-1",
         "y": "-1",
-        "b": "-1",
         "x": "-1",
+        "b": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 2.4872417375146494,
-      "timestamp": "2024-11-29T12:19:07.852213"
+      "max_difference": 1.9658352146886735,
+      "timestamp": "2024-11-29T12:39:20.045404"
     },
     {
       "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b))",
@@ -231,15 +231,15 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "b": "-1",
-        "a": "-1",
         "y": "-1",
+        "a": "-1",
         "x": "-1",
+        "b": "-1",
         "z": "-1",
         "/0": "[(1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
       },
-      "max_difference": 21.422263681889035,
-      "timestamp": "2024-11-29T12:19:07.934253"
+      "max_difference": 27.439015115736833,
+      "timestamp": "2024-11-29T12:39:20.134267"
     },
     {
       "expression1": "((1/x + 1/y)/(1/a + 1/b + 1/c))",
@@ -250,16 +250,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "c": "-1",
+        "c": "1",
         "a": "-1",
         "y": "-1",
-        "z": "-1",
         "b": "-1",
+        "z": "-1",
         "x": "-1",
-        "/0": "[(1, -1) -> -1, (1, -3) -> -1/3, else -> 0]"
+        "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
       },
-      "max_difference": 2.170413883426692,
-      "timestamp": "2024-11-29T12:19:08.004994"
+      "max_difference": 1.489643154326995,
+      "timestamp": "2024-11-29T12:39:20.208717"
     },
     {
       "expression1": "((1/x + 1/y + 1/z)/(1/a + 1/b + 1/c))",
@@ -270,16 +270,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "-1",
+        "y": "3",
+        "a": "-1",
+        "z": "-1",
+        "b": "-1",
         "c": "-1",
         "x": "-1",
-        "z": "3",
-        "b": "-1",
-        "a": "-1",
-        "/0": "[(1, 1) -> 1,\n (1, 3) -> 1/3,\n (1, -1) -> -1,\n (1, -3) -> -1/3,\n else -> 0]"
+        "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
       },
-      "max_difference": 111030.61952066947,
-      "timestamp": "2024-11-29T12:19:08.129693"
+      "max_difference": 117695.50407137381,
+      "timestamp": "2024-11-29T12:39:20.352531"
     },
     {
       "expression1": "((1/x + 1/y)/(1/z + 1/a + 1/b))",
@@ -290,15 +290,15 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "b": "-1",
         "a": "1/3",
         "y": "-1",
         "x": "-1",
+        "b": "-1",
         "z": "-1",
         "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
       },
-      "max_difference": 6.414756939836372,
-      "timestamp": "2024-11-29T12:19:08.261783"
+      "max_difference": 4.412449391409236,
+      "timestamp": "2024-11-29T12:39:20.504435"
     },
     {
       "expression1": "(a + 2)(a^2 - 2a + 3) + b + z^2",
@@ -313,8 +313,8 @@
         "z": "1",
         "b": "1"
       },
-      "max_difference": 106.90239884419788,
-      "timestamp": "2024-11-29T12:19:08.552341"
+      "max_difference": 170.93169480858944,
+      "timestamp": "2024-11-29T12:39:20.801474"
     },
     {
       "expression1": "(a + 2)(a^3 - 3a + 4) + z + 2x^2",
@@ -329,50 +329,8 @@
         "x": "1",
         "z": "1"
       },
-      "max_difference": 1728.6875618361973,
-      "timestamp": "2024-11-29T12:19:08.644326"
-    },
-    {
-      "expression1": "1/(1/x^{1/2} + 1/y^{1/2})",
-      "expression2": "(x^{1/2}y^{1/2})/(x^{1/2} + y^{1/2})",
-      "context": "JSON test case",
-      "decision1": "Keep expressions rationalized",
-      "decision2": "Expand out complex fractions",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:08.979670",
-      "z3_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)"
-    },
-    {
-      "expression1": "1/(1/a^{1/3} + 1/b^{1/3})",
-      "expression2": "(a^{1/3}b^{1/3})/(a^{1/3} + b^{1/3})",
-      "context": "JSON test case",
-      "decision1": "Keep expressions rationalized",
-      "decision2": "Expand out complex fractions",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:08.981885",
-      "z3_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)"
-    },
-    {
-      "expression1": "1/(1/x^{3/2} + 1/y^{3/2})",
-      "expression2": "(x^{3/2}y^{3/2})/(x^{3/2} + y^{3/2})",
-      "context": "JSON test case",
-      "decision1": "Keep expressions rationalized",
-      "decision2": "Expand out complex fractions",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:08.984065",
-      "z3_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)"
+      "max_difference": 1724.896354734963,
+      "timestamp": "2024-11-29T12:39:20.896425"
     },
     {
       "expression1": "6/12 + 10/20",
@@ -384,7 +342,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 16.0,
-      "timestamp": "2024-11-29T12:19:09.239279"
+      "timestamp": "2024-11-29T12:39:21.646714"
     },
     {
       "expression1": "8/16 + 9/18",
@@ -396,7 +354,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 40.0,
-      "timestamp": "2024-11-29T12:19:09.242756"
+      "timestamp": "2024-11-29T12:39:21.651183"
     },
     {
       "expression1": "15/30 + 25/50",
@@ -408,7 +366,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 424.0,
-      "timestamp": "2024-11-29T12:19:09.245296"
+      "timestamp": "2024-11-29T12:39:21.653876"
     },
     {
       "expression1": "16/32 + 9/18",
@@ -420,7 +378,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 40.0,
-      "timestamp": "2024-11-29T12:19:09.247934"
+      "timestamp": "2024-11-29T12:39:21.656865"
     },
     {
       "expression1": "24/48 + 18/36",
@@ -432,7 +390,7 @@
       "random_result": false,
       "counterexample": {},
       "max_difference": 84.5,
-      "timestamp": "2024-11-29T12:19:09.250412"
+      "timestamp": "2024-11-29T12:39:21.659505"
     },
     {
       "expression1": "(a - 2)(a^2 + a + 5) + 3a + 2a",
@@ -445,8 +403,8 @@
       "counterexample": {
         "a": "-1"
       },
-      "max_difference": 52.99917259019651,
-      "timestamp": "2024-11-29T12:19:09.558492"
+      "max_difference": 54.799259950899454,
+      "timestamp": "2024-11-29T12:39:21.956749"
     },
     {
       "expression1": "(2x + 1)(x^2 + x - 3) + z + z + x",
@@ -460,8 +418,8 @@
         "x": "-1",
         "z": "1"
       },
-      "max_difference": 9.394615257113628,
-      "timestamp": "2024-11-29T12:19:09.611233"
+      "max_difference": 7.547024835157345,
+      "timestamp": "2024-11-29T12:39:22.006287"
     },
     {
       "expression1": "(x - 2)(x^2 + 2x + 5) + 3x + 2x",
@@ -474,8 +432,8 @@
       "counterexample": {
         "x": "-7"
       },
-      "max_difference": 272.868556818794,
-      "timestamp": "2024-11-29T12:19:09.656998"
+      "max_difference": 264.23585721900884,
+      "timestamp": "2024-11-29T12:39:22.050374"
     },
     {
       "expression1": "((x + 3)(x^2 - 1) + a) + (b + c)",
@@ -487,12 +445,12 @@
       "random_result": false,
       "counterexample": {
         "x": "-1",
-        "c": "1",
         "b": "1",
-        "a": "1"
+        "a": "1",
+        "c": "1"
       },
-      "max_difference": 85.37303153796324,
-      "timestamp": "2024-11-29T12:19:09.752858"
+      "max_difference": 66.75306949451169,
+      "timestamp": "2024-11-29T12:39:22.147881"
     },
     {
       "expression1": "12 + x^3 + 3x^2 + 2x",
@@ -506,7 +464,7 @@
         "x": "-1"
       },
       "max_difference": 3.0,
-      "timestamp": "2024-11-29T12:19:09.917837"
+      "timestamp": "2024-11-29T12:39:22.312891"
     },
     {
       "expression1": "28 + 3x + x^2 + x^3",
@@ -519,36 +477,8 @@
       "counterexample": {
         "x": "-1"
       },
-      "max_difference": 6.000000000000014,
-      "timestamp": "2024-11-29T12:19:09.935222"
-    },
-    {
-      "expression1": "1/(x^{-1/2} + y^{-1/2})",
-      "expression2": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
-      "context": "JSON test case",
-      "decision1": "Remove negative exponents",
-      "decision2": "Keep expressions rationalized",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:09.992751",
-      "z3_error": "Error checking equivalence: invalid syntax (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax (<string>, line 1)"
-    },
-    {
-      "expression1": "1/(x^{-3/2} + y^{-1})",
-      "expression2": "x^{3/2}y/(x^{3/2} + y)",
-      "context": "JSON test case",
-      "decision1": "Remove negative exponents",
-      "decision2": "Keep expressions rationalized",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:10.156217",
-      "z3_error": "Error checking equivalence: invalid syntax (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax (<string>, line 1)"
+      "max_difference": 6.0,
+      "timestamp": "2024-11-29T12:39:22.329156"
     },
     {
       "expression1": "2a(2a^2)^3 + 3b(3b^3)^2",
@@ -562,8 +492,8 @@
         "b": "-1",
         "a": "-1"
       },
-      "max_difference": 134927697.86435866,
-      "timestamp": "2024-11-29T12:19:10.168636"
+      "max_difference": 145544378.00988063,
+      "timestamp": "2024-11-29T12:39:22.632611"
     },
     {
       "expression1": "x(2x^2)^4 + y(y^3)^2",
@@ -574,11 +504,11 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "1",
-        "x": "1"
+        "x": "1",
+        "y": "1"
       },
-      "max_difference": 13973998130.933182,
-      "timestamp": "2024-11-29T12:19:10.188139"
+      "max_difference": 14550177190.534235,
+      "timestamp": "2024-11-29T12:39:22.655432"
     },
     {
       "expression1": "x(x^3)^2 + 2x(2x^2)^3",
@@ -591,8 +521,8 @@
       "counterexample": {
         "x": "-1"
       },
-      "max_difference": 80495232.06222828,
-      "timestamp": "2024-11-29T12:19:10.202491"
+      "max_difference": 106848825.97380693,
+      "timestamp": "2024-11-29T12:39:22.671390"
     },
     {
       "expression1": "(1/x + 1/y) / (1/z + 1/a)",
@@ -609,8 +539,8 @@
         "z": "-1",
         "/0": "[(1, -2) -> -1/2, (1, -1) -> -1, else -> 0]"
       },
-      "max_difference": 2.002348533515449,
-      "timestamp": "2024-11-29T12:19:10.224872"
+      "max_difference": 10.19890866444787,
+      "timestamp": "2024-11-29T12:39:22.696628"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b)",
@@ -618,13 +548,18 @@
       "context": "JSON test case",
       "decision1": "Reduce the number of fractions",
       "decision2": "Expand out complex fractions",
-      "z3_result": null,
-      "random_result": null,
-      "counterexample": null,
-      "max_difference": null,
-      "timestamp": "2024-11-29T12:19:10.319410",
-      "z3_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)",
-      "random_error": "Error checking equivalence: invalid syntax. Perhaps you forgot a comma? (<string>, line 1)"
+      "z3_result": false,
+      "random_result": false,
+      "counterexample": {
+        "a": "-1",
+        "y": "-1",
+        "b": "-1",
+        "z": "-1",
+        "x": "-1",
+        "/0": "[(1, -3) -> -1/3, (1, -1) -> -1, (1, -2) -> -1/2, else -> 0]"
+      },
+      "max_difference": 58.576047532034174,
+      "timestamp": "2024-11-29T12:39:22.779152"
     },
     {
       "expression1": "(1/x + 1/y) / (1/a + 1/b + 1/c)",
@@ -635,16 +570,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "c": "-1",
+        "c": "1",
         "a": "-1",
         "y": "-1",
         "z": "-1",
         "b": "-1",
         "x": "-1",
-        "/0": "[(1, -1) -> -1, (1, -3) -> -1/3, else -> 0]"
+        "/0": "[(1, -1) -> -1, (1, 1) -> 1, else -> 0]"
       },
-      "max_difference": 8.891296470920475,
-      "timestamp": "2024-11-29T12:19:10.321408"
+      "max_difference": 3.174263001392853,
+      "timestamp": "2024-11-29T12:39:22.880540"
     },
     {
       "expression1": "(1/x + 1/y + 1/z) / (1/a + 1/b + 1/c)",
@@ -655,16 +590,16 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": {
-        "y": "-1",
+        "y": "3",
         "a": "-1",
-        "x": "-1",
-        "z": "3",
+        "z": "-1",
         "b": "-1",
         "c": "-1",
-        "/0": "[(1, 1) -> 1,\n (1, 3) -> 1/3,\n (1, -1) -> -1,\n (1, -3) -> -1/3,\n else -> 0]"
+        "x": "-1",
+        "/0": "[(1, 1) -> 1,\n (1, -1) -> -1,\n (1, 3) -> 1/3,\n (1, -3) -> -1/3,\n else -> 0]"
       },
-      "max_difference": 92943.21299044516,
-      "timestamp": "2024-11-29T12:19:10.444222"
+      "max_difference": 214921.03738794228,
+      "timestamp": "2024-11-29T12:39:23.004174"
     },
     {
       "expression1": "(1/x + 1/y) / (1/z + 1/a + 1/b)",
@@ -678,12 +613,12 @@
         "a": "1/3",
         "y": "-1",
         "x": "-1",
-        "z": "-1",
         "b": "-1",
+        "z": "-1",
         "/0": "[(1, 1) -> 1, (1, -1) -> -1, (1, 1/3) -> 3, else -> 0]"
       },
-      "max_difference": 1.4029623951981056,
-      "timestamp": "2024-11-29T12:19:10.574579"
+      "max_difference": 1.7557256485811294,
+      "timestamp": "2024-11-29T12:39:23.139769"
     },
     {
       "expression1": "(x^{1/2})/(x^{1/2} + y^{1/2})",
@@ -694,8 +629,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.1916339153118104,
-      "timestamp": "2024-11-29T12:19:10.678898"
+      "max_difference": 0.18314829303777092,
+      "timestamp": "2024-11-29T12:39:23.244228"
     },
     {
       "expression1": "1/(x^{3/2} + y^{1/2})",
@@ -706,8 +641,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 2.313915697660699,
-      "timestamp": "2024-11-29T12:19:10.706185"
+      "max_difference": 2.529571956679962,
+      "timestamp": "2024-11-29T12:39:23.271590"
     },
     {
       "expression1": "1/(x^{1/3} + y^{1/2})",
@@ -718,8 +653,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.9501789614080763,
-      "timestamp": "2024-11-29T12:19:10.728303"
+      "max_difference": 0.9294250994779554,
+      "timestamp": "2024-11-29T12:39:23.293745"
     },
     {
       "expression1": "1/(x^{1/4} + y^{3/4})",
@@ -730,8 +665,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 0.9271733176294594,
-      "timestamp": "2024-11-29T12:19:10.752207"
+      "max_difference": 0.9529096063379049,
+      "timestamp": "2024-11-29T12:39:23.317033"
     },
     {
       "expression1": "1/(x^{1/3} + y^{2/3})",
@@ -742,8 +677,8 @@
       "z3_result": false,
       "random_result": false,
       "counterexample": null,
-      "max_difference": 1.2263621540789276,
-      "timestamp": "2024-11-29T12:19:10.778842"
+      "max_difference": 1.0615253961725366,
+      "timestamp": "2024-11-29T12:39:23.343496"
     },
     {
       "expression1": "(x + 3)(x + 1) + (x + 3)(x - 1)",
@@ -756,8 +691,8 @@
       "counterexample": {
         "x": "-4"
       },
-      "max_difference": 1017.5574501693527,
-      "timestamp": "2024-11-29T12:19:11.009755"
+      "max_difference": 521.8691872417651,
+      "timestamp": "2024-11-29T12:39:23.593547"
     },
     {
       "expression1": "(a + 2)(a + 1) + (a + 2)(a - 1)",
@@ -770,8 +705,8 @@
       "counterexample": {
         "a": "-3"
       },
-      "max_difference": 900.8987958928408,
-      "timestamp": "2024-11-29T12:19:11.035908"
+      "max_difference": 882.080507815164,
+      "timestamp": "2024-11-29T12:39:23.616221"
     },
     {
       "expression1": "(y + 1)(y + 2) + (y + 1)(y - 2)",
@@ -784,8 +719,8 @@
       "counterexample": {
         "y": "-2"
       },
-      "max_difference": 455.3969017622087,
-      "timestamp": "2024-11-29T12:19:11.060054"
+      "max_difference": 345.4392403396745,
+      "timestamp": "2024-11-29T12:39:23.639044"
     },
     {
       "expression1": "(b + 3)(b + 1) + (b + 3)(b - 1)",
@@ -798,8 +733,8 @@
       "counterexample": {
         "b": "-4"
       },
-      "max_difference": 898.9647867944293,
-      "timestamp": "2024-11-29T12:19:11.084312"
+      "max_difference": 666.0481018732455,
+      "timestamp": "2024-11-29T12:39:23.661373"
     },
     {
       "expression1": "(z + 2)(z + 1) + (z + 2)(z - 1)",
@@ -812,8 +747,8 @@
       "counterexample": {
         "z": "-3"
       },
-      "max_difference": 891.8861553041087,
-      "timestamp": "2024-11-29T12:19:11.107669"
+      "max_difference": 695.5514301272215,
+      "timestamp": "2024-11-29T12:39:23.683664"
     }
   ]
 }

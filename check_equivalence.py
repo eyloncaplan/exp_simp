@@ -6,7 +6,7 @@ Another justification for having both is that one may be faster than the other. 
 
 from z3 import *
 import sympy
-from sympy.parsing.sympy_parser import parse_expr
+from sympy.parsing.sympy_parser import parse_expr, standard_transformations, implicit_multiplication_application
 from sympy.abc import x, y, z, a, b, c  # Common variables
 import json
 import random
@@ -14,6 +14,8 @@ import numpy as np
 from typing import Dict, List, Tuple, Union
 import datetime
 import re
+
+standard_transformations += (implicit_multiplication_application,)
 
 def process_fractions(expr_str: str) -> str:
     """Remove spaces in fractions."""
@@ -113,6 +115,7 @@ def process_mixed_numbers(expr_str: str) -> str:
             i += 1
     return ' '.join(result)
 
+
 class ExpressionEvaluator:
     def __init__(self, num_random_tests: int = 10):
         self.num_random_tests = num_random_tests
@@ -130,8 +133,8 @@ class ExpressionEvaluator:
             # import ipdb; ipdb.set_trace()
 
             # Extract variables from both expressions
-            expr1 = parse_expr(equation1.replace('^', '**'))
-            expr2 = parse_expr(equation2.replace('^', '**'))
+            expr1 = parse_expr(equation1.replace('^', '**'), transformations=standard_transformations)
+            expr2 = parse_expr(equation2.replace('^', '**'), transformations=standard_transformations)
             variables = set(map(str, expr1.free_symbols | expr2.free_symbols))
 
             
@@ -246,8 +249,8 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         equation2 = process_expression(equation2)
         
         # Parse the expressions using SymPy
-        expr1 = parse_expr(equation1.replace('^', '**'))
-        expr2 = parse_expr(equation2.replace('^', '**'))
+        expr1 = parse_expr(equation1.replace('^', '**'), transformations=standard_transformations)
+        expr2 = parse_expr(equation2.replace('^', '**'), transformations=standard_transformations)
         
         # Create Z3 solver
         s = Solver()
