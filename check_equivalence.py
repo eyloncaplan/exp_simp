@@ -11,30 +11,7 @@ class ExpressionEvaluator:
     def __init__(self, num_random_tests: int = 100):
         self.num_random_tests = num_random_tests
     
-    def evaluate_random(self, expr_str: str, variables: List[str], num_points: int = None) -> List[float]:
-        """Evaluate an expression at random points."""
-        if num_points is None:
-            num_points = self.num_random_tests
-            
-        try:
-            # Replace {-n} style exponents with regular negative exponents
-            expr_str = expr_str.replace('^{-', '^(-')
-            # Parse the expression using SymPy
-            expr = parse_expr(expr_str.replace('^', '**'))
-            
-            results = []
-            for _ in range(num_points):
-                # Create random values for variables
-                var_values = {var: random.uniform(0.1, 10.0) for var in variables}
-                result = float(expr.evalf(subs=var_values))
-                results.append(result)
-                
-            return results
-        except Exception as e:
-            raise ValueError(f"Error evaluating expression '{expr_str}': {str(e)}")
-    
-    def check_equivalence_random(self, equation1: str, equation2: str, 
-                               tolerance: float = 1e-10) -> Tuple[bool, Dict]:
+    def check_equivalence_random(self, equation1: str, equation2: str, tolerance: float = 1e-10) -> Tuple[bool, Dict]:
         """
         Check if two expressions are equivalent using random sampling.
         Returns (is_equivalent, details).
@@ -45,9 +22,20 @@ class ExpressionEvaluator:
             expr2 = parse_expr(equation2.replace('^', '**'))
             variables = set(map(str, expr1.free_symbols | expr2.free_symbols))
             
-            # Evaluate both expressions at random points
-            results1 = self.evaluate_random(equation1, variables)
-            results2 = self.evaluate_random(equation2, variables)
+            # Generate random points first
+            random_points = []
+            for _ in range(self.num_random_tests):
+                var_values = {var: random.uniform(0.1, 10.0) for var in variables}
+                random_points.append(var_values)
+            
+            # Evaluate both expressions using the same random points
+            results1 = []
+            results2 = []
+            for var_values in random_points:
+                r1 = float(expr1.evalf(subs=var_values))
+                r2 = float(expr2.evalf(subs=var_values))
+                results1.append(r1)
+                results2.append(r2)
             
             # Compare results
             differences = [abs(r1 - r2) for r1, r2 in zip(results1, results2)]
@@ -213,19 +201,28 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
 
 if __name__ == "__main__":
     # Define some test cases
-    test_cases = [
-        ("x + y", "y + x"),
-        ("2*x + 3*x", "5*x"),
-        ("x^2 * x^3", "x^5"),
-        ("x^{-3}", "1/x^3"),
-        ("1/(1/x + 1/y)", "(x*y)/(x + y)"),
-        ("(x + 1)^2/(x + 1)", "x + 1"),
-        ("((1/x)/(1/y))^2", "(y/x)^2"),
-        ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
-    ]
+    # test_cases = [
+    #     ("x + y", "y + x"),
+    #     ("2*x + 3*x", "5*x"),
+    #     ("x^2 * x^3", "x^5"),
+    #     ("x^{-3}", "1/x^3"),
+    #     ("1/(1/x + 1/y)", "(x*y)/(x + y)"),
+    #     ("(x + 1)^2/(x + 1)", "x + 1"),
+    #     ("((1/x)/(1/y))^2", "(y/x)^2"),
+    #     ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
+    # ]
     
-    # Test both manual cases and JSON files
+    # # Test both manual cases and JSON files
+    # test_expressions(
+    #     json_file='data/dataset.json',
+    #     test_cases=test_cases
+    # )
+
+    test_cases = [
+        ("(x^2)^3 * (y^3)^2", "x^6 * y^6")
+    ]
+
     test_expressions(
-        json_file='data/dataset.json',
+        json_file=None,
         test_cases=test_cases
     )
