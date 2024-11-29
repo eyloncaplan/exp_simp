@@ -226,6 +226,6 @@ if __name__ == "__main__":
     
     # Test both manual cases and JSON files
     test_expressions(
-        json_file='dataset.json',
+        json_file='data/dataset.json',
         test_cases=test_cases
     )
