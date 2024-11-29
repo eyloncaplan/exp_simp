@@ -19,6 +19,64 @@ def process_exponents(expr_str: str) -> str:
     import re
     return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
 
+def process_mixed_numbers(expr_str: str) -> str:
+    """Convert mixed numbers (like '6 3/4') to improper fractions."""
+    import re
+    
+    def convert_mixed(match):
+        whole = int(match.group(1))
+        num = int(match.group(2))
+        den = int(match.group(3))
+        improper_num = whole * den + num
+        return f"{improper_num}/{den}"
+    
+    # Match pattern: whole_number space numerator/denominator
+    # Make sure there's exactly one space between whole number and fraction
+    expr_parts = expr_str.split()
+    processed_parts = []
+    i = 0
+    while i < len(expr_parts):
+        if i + 1 < len(expr_parts) and re.match(r'^\d+$', expr_parts[i]) and re.match(r'^\d+/\d+$', expr_parts[i + 1]):
+            # Found a mixed number
+            whole = int(expr_parts[i])
+            num, den = map(int, expr_parts[i + 1].split('/'))
+            improper_num = whole * den + num
+            processed_parts.append(f"{improper_num}/{den}")
+            i += 2
+        else:
+            processed_parts.append(expr_parts[i])
+            i += 1
+    
+    return ' '.join(processed_parts)
+
+def process_multiplication(expr_str: str) -> str:
+    """Make implicit multiplication explicit"""
+    import re
+    # Replace patterns like number followed by variable (e.g., 3a -> 3*a)
+    expr_str = re.sub(r'(\d)([a-zA-Z])', r'\1*\2', expr_str)
+    # Replace patterns like number followed by parenthesis (e.g., 2(x) -> 2*(x))
+    expr_str = re.sub(r'(\d)(\()', r'\1*\2', expr_str)
+    # Replace patterns like adjacent variables, handling multiple variables and spaces
+    parts = re.split(r'([()])', expr_str)
+    processed_parts = []
+    for part in parts:
+        if part in '()':
+            processed_parts.append(part)
+        else:
+            # Replace any sequence of variables separated by spaces with multiplication
+            part = re.sub(r'([a-zA-Z])\s+([a-zA-Z](?:\s+[a-zA-Z])*)', 
+                         lambda m: m.group(0).replace(' ', '*'), 
+                         part)
+            processed_parts.append(part)
+    return ''.join(processed_parts)
+
+def process_expression(expr_str: str) -> str:
+    """Process all forms of expression notation."""
+    expr_str = process_mixed_numbers(expr_str)
+    expr_str = process_exponents(expr_str)
+    expr_str = process_multiplication(expr_str)
+    return expr_str
+
 class ExpressionEvaluator:
     def __init__(self, num_random_tests: int = 10):
         self.num_random_tests = num_random_tests
@@ -30,13 +88,16 @@ class ExpressionEvaluator:
         """
         try:
             # Process exponents first
-            equation1 = process_exponents(equation1)
-            equation2 = process_exponents(equation2)
-            
+            equation1 = process_expression(equation1)
+            equation2 = process_expression(equation2)
+
+            # import ipdb; ipdb.set_trace()
+
             # Extract variables from both expressions
             expr1 = parse_expr(equation1.replace('^', '**'))
             expr2 = parse_expr(equation2.replace('^', '**'))
             variables = set(map(str, expr1.free_symbols | expr2.free_symbols))
+
             
             # Generate random points first
             random_points = []
@@ -113,11 +174,6 @@ def sympy_to_z3(expr, variables=None):
     
     raise ValueError(f"Unsupported expression type: {type(expr)}")
 
-def process_exponents(expr_str: str) -> str:
-    """Convert all forms of exponents to standard form."""
-    # Replace patterns like x^{-3} with x^(-3)
-    import re
-    return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
 
 def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
     """
@@ -126,8 +182,8 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
     """
     try:
         # Process exponents first
-        equation1 = process_exponents(equation1)
-        equation2 = process_exponents(equation2)
+        equation1 = process_expression(equation1)
+        equation2 = process_expression(equation2)
         
         # Parse the expressions using SymPy
         expr1 = parse_expr(equation1.replace('^', '**'))
@@ -162,7 +218,20 @@ def check_equivalence_z3(equation1: str, equation2: str) -> Tuple[bool, Dict]:
         
         # Check equivalence
         s.add(z3_expr1 != z3_expr2)
-        
+
+        # Inside check_equivalence_z3:
+        # Add positivity constraints for variables under square roots
+        for var in ['x', 'y']:
+            if var in variables:
+                var_expr = var_dict[var]
+                s.add(var_expr > 0)  # Must be positive for square root to be real
+
+        # Add special handling for x = y case
+        if 'x' in variables and 'y' in variables:
+            x_expr = var_dict['x']
+            y_expr = var_dict['y']
+            s.add(Or(x_expr != y_expr, expr1 == expr2))  # If x=y, expressions must be equal
+                
         # Check if there exists a solution where expressions are different
         result = s.check()
         is_equivalent = result == unsat
@@ -206,16 +275,15 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
         print(f"\n{context}")
         print(f"Testing: {expr1} ≟ {expr2}")
         
-        z3_equiv = None
-        # # Test with Z3
-        # try:
-        #     z3_equiv, z3_details = check_equivalence_z3(expr1, expr2)
-        #     print(f"Z3 Result: {'Equivalent' if z3_equiv else 'Not equivalent'}")
-        #     if not z3_equiv and 'counterexample' in z3_details:
-        #         print(f"Z3 Counterexample: {z3_details['counterexample']}")
-        # except Exception as e:
-        #     print(f"Z3 Error: {str(e)}")
-        #     z3_equiv = None
+        # Test with Z3
+        try:
+            z3_equiv, z3_details = check_equivalence_z3(expr1, expr2)
+            print(f"Z3 Result: {'Equivalent' if z3_equiv else 'Not equivalent'}")
+            if not z3_equiv and 'counterexample' in z3_details:
+                print(f"Z3 Counterexample: {z3_details['counterexample']}")
+        except Exception as e:
+            print(f"Z3 Error: {str(e)}")
+            z3_equiv = None
         
         # Test with random sampling
         try:
@@ -227,10 +295,10 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
             print(f"Random Sampling Error: {str(e)}")
             random_equiv = None
         
-        # # Compare results
-        # if z3_equiv is not None and random_equiv is not None:
-        #     if z3_equiv != random_equiv:
-        #         print("Warning: Z3 and random sampling disagree!")
+        # Compare results
+        if z3_equiv is not None and random_equiv is not None:
+            if z3_equiv != random_equiv:
+                print("Warning: Z3 and random sampling disagree!")
         
         return z3_equiv, random_equiv
 
@@ -275,6 +343,7 @@ if __name__ == "__main__":
         ("(x + 1)^2/(x + 1)", "x + 1"),
         ("((1/x)/(1/y))^2", "(y/x)^2"),
         ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
+        ("x","x+1")
     ]
     
     # Test both manual cases and JSON files
@@ -284,7 +353,12 @@ if __name__ == "__main__":
     )
 
     # test_cases = [
-    #     ("(x^2)^3 * (y^3)^2", "x^6 * y^6")
+    #     # ("(x^2)^3 * (y^3)^2", "x^6 * y^6"),
+    #     # ("27/4 + z + x^2 + b^2 + 3a","6 3/4 + z + x^2 + b^2 + 3a"),
+    #     # ("1 / (1/x + 1/y + 1/z + 1/w) + 3a + 2b^2", " (x y z w) / (y z w + x z w + x y w + x y z) + 3a + 2b^2"),
+    #     ("1 / (1/x + 1/y + 1/z + 1/w) + 3a + 2b^2", " (x y z w) / (y z w + x z w + x y w + x y z) + 3a + 2b^2 + 3"),
+    #     ("2/(x^(1/2) + y^(1/2)) + z + 3a + z^3","(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3"),
+    #      ("2/(x^(1/2) + y^(1/2)) + z + 3a + z^3","(2(x^(1/2) - y^(1/2)))/(x - y) + z + 3a + z^3 + 1"),
     # ]
 
     # test_expressions(
