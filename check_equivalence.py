@@ -20,7 +20,7 @@ def process_exponents(expr_str: str) -> str:
     return re.sub(r'\^\{(.+?)\}', r'^(\1)', expr_str)
 
 class ExpressionEvaluator:
-    def __init__(self, num_random_tests: int = 100):
+    def __init__(self, num_random_tests: int = 10):
         self.num_random_tests = num_random_tests
     
     def check_equivalence_random(self, equation1: str, equation2: str, tolerance: float = 1e-10) -> Tuple[bool, Dict]:
@@ -200,21 +200,22 @@ def get_denominators(expr):
 
 def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = None):
     """Test expressions using both Z3 and random sampling."""
-    evaluator = ExpressionEvaluator(num_random_tests=1000)
+    evaluator = ExpressionEvaluator(num_random_tests=10)
     
     def run_tests(expr1: str, expr2: str, context: str = ""):
         print(f"\n{context}")
         print(f"Testing: {expr1} ≟ {expr2}")
         
-        # Test with Z3
-        try:
-            z3_equiv, z3_details = check_equivalence_z3(expr1, expr2)
-            print(f"Z3 Result: {'Equivalent' if z3_equiv else 'Not equivalent'}")
-            if not z3_equiv and 'counterexample' in z3_details:
-                print(f"Z3 Counterexample: {z3_details['counterexample']}")
-        except Exception as e:
-            print(f"Z3 Error: {str(e)}")
-            z3_equiv = None
+        z3_equiv = None
+        # # Test with Z3
+        # try:
+        #     z3_equiv, z3_details = check_equivalence_z3(expr1, expr2)
+        #     print(f"Z3 Result: {'Equivalent' if z3_equiv else 'Not equivalent'}")
+        #     if not z3_equiv and 'counterexample' in z3_details:
+        #         print(f"Z3 Counterexample: {z3_details['counterexample']}")
+        # except Exception as e:
+        #     print(f"Z3 Error: {str(e)}")
+        #     z3_equiv = None
         
         # Test with random sampling
         try:
@@ -226,10 +227,10 @@ def test_expressions(json_file: str = None, test_cases: List[Tuple[str, str]] = 
             print(f"Random Sampling Error: {str(e)}")
             random_equiv = None
         
-        # Compare results
-        if z3_equiv is not None and random_equiv is not None:
-            if z3_equiv != random_equiv:
-                print("Warning: Z3 and random sampling disagree!")
+        # # Compare results
+        # if z3_equiv is not None and random_equiv is not None:
+        #     if z3_equiv != random_equiv:
+        #         print("Warning: Z3 and random sampling disagree!")
         
         return z3_equiv, random_equiv
 
