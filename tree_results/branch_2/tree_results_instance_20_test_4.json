@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-6} + y^{-2} + z^{-9}",
+                "expression2": "(x^{-2})^3 + (y^{-1})^2 + (z^{-3})^3"
+            },
+            {
+                "expression1": "a^{-2} + b^{-9} + c^{-4}",
+                "expression2": "(a^{-1})^2 + (b^{-3})^3 + (c^{-2})^2"
+            },
+            {
+                "expression1": "x^{-4} + y^{-6} + z^{-6}",
+                "expression2": "(x^{-1})^4 + (y^{-2})^3 + (z^{-3})^2"
+            },
+            {
+                "expression1": "x^{-9} + y^{-2} + z^{-8}",
+                "expression2": "(x^{-3})^3 + (y^{-1})^2 + (z^{-2})^4"
+            },
+            {
+                "expression1": "a^{-6} + b^{-4} + c^{-6}",
+                "expression2": "(a^{-2})^3 + (b^{-1})^4 + (c^{-3})^2"
+            }
+        ],
+        "description": "(REVERSE) Simplify powers of powers/Remove negative exponents\na^{-6} + b^{-4} + c^{-6} -> (a^{-2})^3 + (b^{-1})^4 + (c^{-3})^2"
+    },
+    "test_index": 4,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "a^{-6} + b^{-4} + c^{-6}"
+        ]
+    },
+    "scores": {
+        "a^{-6} + b^{-4} + c^{-6}": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "a^{-6} + b^{-4} + c^{-6}": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

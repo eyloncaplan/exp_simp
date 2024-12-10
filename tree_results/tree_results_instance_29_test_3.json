@@ -1,0 +1,203 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "xy/(x + y)",
+                "expression2": "1/(x^{-1} + y^{-1})"
+            },
+            {
+                "expression1": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "expression2": "1/(x^{-1/2} + y^{-1/2})"
+            },
+            {
+                "expression1": "xyz/(xy + yz + xz)",
+                "expression2": "1/(x^{-1} + y^{-1} + z^{-1})"
+            },
+            {
+                "expression1": "abc/(ab + bc + ac)",
+                "expression2": "1/(a^{-1} + b^{-1} + c^{-1})"
+            },
+            {
+                "expression1": "x^{3/2}y/(x^{3/2} + y)",
+                "expression2": "1/(x^{-3/2} + y^{-1})"
+            }
+        ],
+        "description": "(REVERSE) Remove negative exponents/Keep expressions rationalized\nabc/(ab + bc + ac) -> 1/(a^{-1} + b^{-1} + c^{-1})"
+    },
+    "test_index": 3,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "abc/(ab + bc + ac)"
+        ],
+        "abc/(ab + bc + ac)": [
+            "abc/(a(b+c)+bc)",
+            "abc/(ab(1+c/a+c/b))",
+            "abc/(ab(1+c/b+c/a))",
+            "abc/(ab+ac+bc)*(1/1)",
+            "abc/(a*b+b*c+a*c)"
+        ],
+        "abc/(ab(1+c/a+c/b))": [
+            "abc/(ab*(1+c/a+c/b))",
+            "abc/(ab)*1/(1+c/a+c/b)",
+            "(abc)/(ab)*(1/(1+c/a+c/b))",
+            "(abc)/(ab)*1/(1+c/a+c/b)"
+        ],
+        "abc/(ab(1+c/b+c/a))": [
+            "abc/(ab*(1+c/b+c/a))",
+            "abc/(ab)*1/(1+c/b+c/a)",
+            "(abc)/(ab)*(1/(1+c/b+c/a))",
+            "abc/(ab*(1+(c/b)+(c/a)))"
+        ],
+        "abc/(a*b+b*c+a*c)": [
+            "abc/(b(a+c)+ac)",
+            "abc/(ab+ac+bc)",
+            "abc/(b*(a+c)+a*c)"
+        ],
+        "abc/(ab)*1/(1+c/b+c/a)": [
+            "(c/1)/(1+c/b+c/a)",
+            "(abc/(ab))*(1/(1+c/b+c/a))"
+        ],
+        "(abc)/(ab)*(1/(1+c/b+c/a))": [
+            "(c)/(1+c/b+c/a)"
+        ]
+    },
+    "scores": {
+        "abc/(ab + bc + ac)": [
+            1,
+            1
+        ],
+        "abc/(a(b+c)+bc)": [
+            1,
+            1
+        ],
+        "abc/(ab(1+c/a+c/b))": [
+            2,
+            2
+        ],
+        "abc/(ab(1+c/b+c/a))": [
+            2,
+            1
+        ],
+        "abc/(ab+ac+bc)*(1/1)": [
+            1,
+            1
+        ],
+        "abc/(a*b+b*c+a*c)": [
+            2,
+            1
+        ],
+        "abc/(ab*(1+c/a+c/b))": [
+            1,
+            2
+        ],
+        "abc/(ab)*1/(1+c/a+c/b)": [
+            2,
+            2
+        ],
+        "(abc)/(ab)*(1/(1+c/a+c/b))": [
+            2,
+            2
+        ],
+        "(abc)/(ab)*1/(1+c/a+c/b)": [
+            2,
+            1
+        ],
+        "abc/(ab*(1+c/b+c/a))": [
+            1,
+            2
+        ],
+        "abc/(ab)*1/(1+c/b+c/a)": [
+            2,
+            2
+        ],
+        "(abc)/(ab)*(1/(1+c/b+c/a))": [
+            2,
+            4
+        ],
+        "abc/(ab*(1+(c/b)+(c/a)))": [
+            1,
+            2
+        ],
+        "abc/(b(a+c)+ac)": [
+            1,
+            2
+        ],
+        "abc/(ab+ac+bc)": [
+            1,
+            1
+        ],
+        "abc/(b*(a+c)+a*c)": [
+            1,
+            1
+        ],
+        "(c/1)/(1+c/b+c/a)": [
+            2,
+            1
+        ],
+        "(abc/(ab))*(1/(1+c/b+c/a))": [
+            2,
+            2
+        ],
+        "(c)/(1+c/b+c/a)": [
+            2,
+            1
+        ]
+    },
+    "averages": {
+        "abc/(ab + bc + ac)": 1.0,
+        "abc/(a(b+c)+bc)": 1.0,
+        "abc/(ab(1+c/a+c/b))": 2.0,
+        "abc/(ab(1+c/b+c/a))": 1.5,
+        "abc/(ab+ac+bc)*(1/1)": 1.0,
+        "abc/(a*b+b*c+a*c)": 1.5,
+        "abc/(ab*(1+c/a+c/b))": 1.5,
+        "abc/(ab)*1/(1+c/a+c/b)": 2.0,
+        "(abc)/(ab)*(1/(1+c/a+c/b))": 2.0,
+        "(abc)/(ab)*1/(1+c/a+c/b)": 1.5,
+        "abc/(ab*(1+c/b+c/a))": 1.5,
+        "abc/(ab)*1/(1+c/b+c/a)": 2.0,
+        "(abc)/(ab)*(1/(1+c/b+c/a))": 3.0,
+        "abc/(ab*(1+(c/b)+(c/a)))": 1.5,
+        "abc/(b(a+c)+ac)": 1.5,
+        "abc/(ab+ac+bc)": 1.0,
+        "abc/(b*(a+c)+a*c)": 1.0,
+        "(c/1)/(1+c/b+c/a)": 1.5,
+        "(abc/(ab))*(1/(1+c/b+c/a))": 2.0,
+        "(c)/(1+c/b+c/a)": 1.5
+    },
+    "tree_stats": {
+        "total_nodes": 20,
+        "max_pi_score": 2,
+        "max_h_score": 4,
+        "max_avg_score": 3.0,
+        "average_pi_score": 1.55,
+        "average_h_score": 1.6,
+        "average_avg_score": 1.575,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 5,
+            "2": 11,
+            "3": 3
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 1.4,
+            "2": 1.6818181818181819,
+            "3": 1.6666666666666667
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.6,
+            "2": 1.4545454545454546,
+            "3": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 1.2,
+            "2": 1.9090909090909092,
+            "3": 1.3333333333333333
+        }
+    }
+}

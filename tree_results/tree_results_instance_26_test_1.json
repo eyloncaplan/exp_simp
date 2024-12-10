@@ -1,0 +1,95 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^3 + x^2 + x + 3",
+                "expression2": "((x + 3) + (x^2 + x^3))"
+            },
+            {
+                "expression1": "b^3 + a^2 + a + b",
+                "expression2": "((a + b) + (a^2 + b^3))"
+            },
+            {
+                "expression1": "x^3 + y^2 + x + y",
+                "expression2": "((x + y) + (x^3 + y^2))"
+            },
+            {
+                "expression1": "a^3 + b^2 + a + b",
+                "expression2": "((a + b) + (a^3 + b^2))"
+            },
+            {
+                "expression1": "x^3 + x^2 + x + 1",
+                "expression2": "((x + 1) + (x^2 + x^3))"
+            }
+        ],
+        "description": "(REVERSE) Reduce the number of parentheses/Use standard form for polynomials\nb^3 + a^2 + a + b -> ((a + b) + (a^2 + b^3))"
+    },
+    "test_index": 1,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "b^3 + a^2 + a + b"
+        ],
+        "b^3 + a^2 + a + b": [
+            "b^3+a+a^2+b",
+            "b^3+(a^2+a+b)"
+        ],
+        "b^3+a+a^2+b": [
+            "b^3+a^2+a+b"
+        ]
+    },
+    "scores": {
+        "b^3 + a^2 + a + b": [
+            1,
+            1
+        ],
+        "b^3+a+a^2+b": [
+            1,
+            2
+        ],
+        "b^3+(a^2+a+b)": [
+            2,
+            5
+        ],
+        "b^3+a^2+a+b": [
+            3,
+            2
+        ]
+    },
+    "averages": {
+        "b^3 + a^2 + a + b": 1.0,
+        "b^3+a+a^2+b": 1.5,
+        "b^3+(a^2+a+b)": 3.5,
+        "b^3+a^2+a+b": 2.5
+    },
+    "tree_stats": {
+        "total_nodes": 4,
+        "max_pi_score": 3,
+        "max_h_score": 5,
+        "max_avg_score": 3.5,
+        "average_pi_score": 1.75,
+        "average_h_score": 2.5,
+        "average_avg_score": 2.125,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.5,
+            "2": 2.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.5,
+            "2": 3.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.5,
+            "2": 2.0
+        }
+    }
+}

@@ -1,0 +1,134 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "((x + 1)^2)/(x + 1)",
+                "expression2": "x + 1",
+                "result": "passed"
+            },
+            {
+                "expression1": "((a + 2)^2)/(a + 2)",
+                "expression2": "a + 2",
+                "result": "passed"
+            },
+            {
+                "expression1": "((x - 1)^2)/(x - 1)",
+                "expression2": "x - 1",
+                "result": "passed"
+            },
+            {
+                "expression1": "((a + b)^2)/(a + b)",
+                "expression2": "a + b",
+                "result": "passed"
+            },
+            {
+                "expression1": "((x - y)^2)/(x - y)",
+                "expression2": "x - y",
+                "result": "passed"
+            }
+        ],
+        "description": "Reduce the number of parentheses/Keep expressions rationalized\n((x - y)^2)/(x - y) -> x - y"
+    },
+    "test_index": 4,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "((x - y)^2)/(x - y)"
+        ],
+        "((x - y)^2)/(x - y)": [
+            "(x-y)^(2-1)",
+            "(x-y)",
+            "(x-y)*(x-y)/(x-y)"
+        ],
+        "(x-y)^(2-1)": [
+            "(x-y)^(1)"
+        ],
+        "(x-y)": [
+            "(x-y)*1",
+            "1*(x-y)",
+            "(x-y)/1"
+        ],
+        "(x-y)*(x-y)/(x-y)": [
+            "(x-y)^2/(x-y)"
+        ]
+    },
+    "scores": {
+        "((x - y)^2)/(x - y)": [
+            1,
+            1
+        ],
+        "(x-y)^(2-1)": [
+            3,
+            2
+        ],
+        "(x-y)": [
+            5,
+            2
+        ],
+        "(x-y)*(x-y)/(x-y)": [
+            1,
+            5
+        ],
+        "(x-y)^(1)": [
+            2,
+            2
+        ],
+        "(x-y)*1": [
+            2,
+            2
+        ],
+        "1*(x-y)": [
+            2,
+            2
+        ],
+        "(x-y)/1": [
+            1,
+            3
+        ],
+        "(x-y)^2/(x-y)": [
+            2,
+            5
+        ]
+    },
+    "averages": {
+        "((x - y)^2)/(x - y)": 1.0,
+        "(x-y)^(2-1)": 2.5,
+        "(x-y)": 3.5,
+        "(x-y)*(x-y)/(x-y)": 3.0,
+        "(x-y)^(1)": 2.0,
+        "(x-y)*1": 2.0,
+        "1*(x-y)": 2.0,
+        "(x-y)/1": 2.0,
+        "(x-y)^2/(x-y)": 3.5
+    },
+    "tree_stats": {
+        "total_nodes": 9,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 3.5,
+        "average_pi_score": 2.111111111111111,
+        "average_h_score": 2.6666666666666665,
+        "average_avg_score": 2.388888888888889,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 3,
+            "2": 5
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 2.3
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 1.8
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 2.8
+        }
+    }
+}

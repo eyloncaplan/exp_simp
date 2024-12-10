@@ -1,0 +1,146 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "2x + 3x + 4x - 5y + y + z + z^2",
+                "expression2": "9x - 4y + z + z^2",
+                "result": "passed"
+            },
+            {
+                "expression1": "x^2 + 2x^2 + 3y - 3y + 4z + 5z^2 + x",
+                "expression2": "3x^2 + 4z + 5z^2 + x",
+                "result": "passed"
+            },
+            {
+                "expression1": "a + b + 2a - b + z + 3z^2",
+                "expression2": "3a + z + 3z^2",
+                "result": "passed"
+            },
+            {
+                "expression1": "4x + 3x - 2x + 6y - 3y + z",
+                "expression2": "5x + 3y + z",
+                "result": "passed"
+            },
+            {
+                "expression1": "2x^2 + 3x^2 + 2z + z + b",
+                "expression2": "5x^2 + 3z + b",
+                "result": "passed"
+            }
+        ],
+        "description": "Reduce the number of terms/Factor out terms\n4x + 3x - 2x + 6y - 3y + z -> 5x + 3y + z"
+    },
+    "test_index": 3,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "4x + 3x - 2x + 6y - 3y + z"
+        ],
+        "4x + 3x - 2x + 6y - 3y + z": [
+            "4x+(3x-2x)+6y-3y+z",
+            "(4x+3x-2x)+(6y-3y)+z"
+        ],
+        "4x+(3x-2x)+6y-3y+z": [
+            "4x+(1x)+6y-3y+z",
+            "4x+(3x-2x)+(6y-3y)+z"
+        ],
+        "(4x+3x-2x)+(6y-3y)+z": [
+            "(4x-2x+3x)+(6y-3y)+z"
+        ],
+        "4x+(1x)+6y-3y+z": [
+            "5x+3y+z",
+            "4x+1x+6y-3y+z"
+        ],
+        "4x+(3x-2x)+(6y-3y)+z": [
+            "4x+(x)+(3y)+z",
+            "4x+(1x)+(3y)+z"
+        ]
+    },
+    "scores": {
+        "4x + 3x - 2x + 6y - 3y + z": [
+            1,
+            1
+        ],
+        "4x+(3x-2x)+6y-3y+z": [
+            2,
+            3
+        ],
+        "(4x+3x-2x)+(6y-3y)+z": [
+            2,
+            4
+        ],
+        "4x+(1x)+6y-3y+z": [
+            3,
+            4
+        ],
+        "4x+(3x-2x)+(6y-3y)+z": [
+            3,
+            4
+        ],
+        "(4x-2x+3x)+(6y-3y)+z": [
+            2,
+            4
+        ],
+        "5x+3y+z": [
+            5,
+            4
+        ],
+        "4x+1x+6y-3y+z": [
+            3,
+            3
+        ],
+        "4x+(x)+(3y)+z": [
+            4,
+            3
+        ],
+        "4x+(1x)+(3y)+z": [
+            3,
+            3
+        ]
+    },
+    "averages": {
+        "4x + 3x - 2x + 6y - 3y + z": 1.0,
+        "4x+(3x-2x)+6y-3y+z": 2.5,
+        "(4x+3x-2x)+(6y-3y)+z": 3.0,
+        "4x+(1x)+6y-3y+z": 3.5,
+        "4x+(3x-2x)+(6y-3y)+z": 3.5,
+        "(4x-2x+3x)+(6y-3y)+z": 3.0,
+        "5x+3y+z": 4.5,
+        "4x+1x+6y-3y+z": 3.0,
+        "4x+(x)+(3y)+z": 3.5,
+        "4x+(1x)+(3y)+z": 3.0
+    },
+    "tree_stats": {
+        "total_nodes": 10,
+        "max_pi_score": 5,
+        "max_h_score": 4,
+        "max_avg_score": 4.5,
+        "average_pi_score": 2.8,
+        "average_h_score": 3.3,
+        "average_avg_score": 3.05,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 3,
+            "3": 4
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.75,
+            "2": 3.3333333333333335,
+            "3": 3.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.6666666666666665,
+            "3": 3.75
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.5,
+            "2": 4.0,
+            "3": 3.25
+        }
+    }
+}

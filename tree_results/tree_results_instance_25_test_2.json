@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-1}(1 + x^{-1})",
+                "expression2": "1/x + 1/x^2"
+            },
+            {
+                "expression1": "a^{-1}(1 + a^{-1})",
+                "expression2": "1/a + 1/a^2"
+            },
+            {
+                "expression1": "x^{-1}(1 + x^{-2})",
+                "expression2": "1/x + 1/x^3"
+            },
+            {
+                "expression1": "b^{-1}(1 + b^{-1})",
+                "expression2": "1/b + 1/b^2"
+            },
+            {
+                "expression1": "z^{-1}(1 + z^{-1})",
+                "expression2": "1/z + 1/z^2"
+            }
+        ],
+        "description": "(REVERSE) Write reciprocal as x^{-1}/Factor out terms\nx^{-1}(1 + x^{-2}) -> 1/x + 1/x^3"
+    },
+    "test_index": 2,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "x^{-1}(1 + x^{-2})"
+        ]
+    },
+    "scores": {
+        "x^{-1}(1 + x^{-2})": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "x^{-1}(1 + x^{-2})": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

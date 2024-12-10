@@ -1,0 +1,94 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(x^2 + 2x)/x + (y^2 + 3y)/y",
+                "expression2": "(x + 2) + (y + 3)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(a^2 + 2a)/a + (b^2 + 3b)/b",
+                "expression2": "(a + 2) + (b + 3)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(2x^2 + 4x)/x + (y^2 + 5y)/y",
+                "expression2": "2(x + 2) + (y + 5)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(a^3 + 3a^2)/a + (b^2 + 2b)/b",
+                "expression2": "a^2 + 3a + b + 2",
+                "result": "passed"
+            },
+            {
+                "expression1": "(2x^2 + 6x)/x + (y^3 + 4y^2)/y",
+                "expression2": "2(x + 3) + (y^2 + 4y)",
+                "result": "passed"
+            }
+        ],
+        "description": "Factor out terms/Reduce the number of fractions\n(2x^2 + 4x)/x + (y^2 + 5y)/y -> 2(x + 2) + (y + 5)"
+    },
+    "test_index": 2,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "(2x^2 + 4x)/x + (y^2 + 5y)/y"
+        ],
+        "(2x^2 + 4x)/x + (y^2 + 5y)/y": [
+            "2x+4+y+5"
+        ],
+        "2x+4+y+5": [
+            "2(x+2)+y+5"
+        ]
+    },
+    "scores": {
+        "(2x^2 + 4x)/x + (y^2 + 5y)/y": [
+            1,
+            1
+        ],
+        "2x+4+y+5": [
+            3,
+            2
+        ],
+        "2(x+2)+y+5": [
+            3,
+            3
+        ]
+    },
+    "averages": {
+        "(2x^2 + 4x)/x + (y^2 + 5y)/y": 1.0,
+        "2x+4+y+5": 2.5,
+        "2(x+2)+y+5": 3.0
+    },
+    "tree_stats": {
+        "total_nodes": 3,
+        "max_pi_score": 3,
+        "max_h_score": 3,
+        "max_avg_score": 3.0,
+        "average_pi_score": 2.3333333333333335,
+        "average_h_score": 2.0,
+        "average_avg_score": 2.1666666666666665,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.5,
+            "2": 3.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 3.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 3.0
+        }
+    }
+}

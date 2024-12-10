@@ -1,0 +1,108 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "1/x + 1/x^2",
+                "expression2": "x^{-1}(1 + x^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/a + 1/a^2",
+                "expression2": "a^{-1}(1 + a^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/x + 1/x^3",
+                "expression2": "x^{-1}(1 + x^{-2})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/b + 1/b^2",
+                "expression2": "b^{-1}(1 + b^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/z + 1/z^2",
+                "expression2": "z^{-1}(1 + z^{-1})",
+                "result": "passed"
+            }
+        ],
+        "description": "Write reciprocal as x^{-1}/Factor out terms\n1/z + 1/z^2 -> z^{-1}(1 + z^{-1})"
+    },
+    "test_index": 4,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "1/z + 1/z^2"
+        ],
+        "1/z + 1/z^2": [
+            "1/z+z^(-2)",
+            "1/z*(1+1/z)"
+        ],
+        "1/z+z^(-2)": [
+            "z^(-2)*(z+1)"
+        ],
+        "1/z*(1+1/z)": [
+            "1/z*(1+z^(-1))"
+        ]
+    },
+    "scores": {
+        "1/z + 1/z^2": [
+            1,
+            1
+        ],
+        "1/z+z^(-2)": [
+            2,
+            3
+        ],
+        "1/z*(1+1/z)": [
+            4,
+            4
+        ],
+        "z^(-2)*(z+1)": [
+            2,
+            3
+        ],
+        "1/z*(1+z^(-1))": [
+            5,
+            3
+        ]
+    },
+    "averages": {
+        "1/z + 1/z^2": 1.0,
+        "1/z+z^(-2)": 2.5,
+        "1/z*(1+1/z)": 4.0,
+        "z^(-2)*(z+1)": 2.5,
+        "1/z*(1+z^(-1))": 4.0
+    },
+    "tree_stats": {
+        "total_nodes": 5,
+        "max_pi_score": 5,
+        "max_h_score": 4,
+        "max_avg_score": 4.0,
+        "average_pi_score": 2.8,
+        "average_h_score": 2.8,
+        "average_avg_score": 2.8,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.25,
+            "2": 3.25
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 3.5
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.5,
+            "2": 3.0
+        }
+    }
+}

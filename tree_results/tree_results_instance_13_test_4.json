@@ -1,0 +1,100 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "1/(x^{-1} + y^{-1})",
+                "expression2": "xy/(x + y)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1/2} + y^{-1/2})",
+                "expression2": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1} + y^{-1} + z^{-1})",
+                "expression2": "xyz/(xy + yz + xz)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(a^{-1} + b^{-1} + c^{-1})",
+                "expression2": "abc/(ab + bc + ac)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-3/2} + y^{-1})",
+                "expression2": "x^{3/2}y/(x^{3/2} + y)",
+                "result": "passed"
+            }
+        ],
+        "description": "Remove negative exponents/Keep expressions rationalized\n1/(x^{-3/2} + y^{-1}) -> x^{3/2}y/(x^{3/2} + y)"
+    },
+    "test_index": 4,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "1/(x^{-3/2} + y^{-1})"
+        ],
+        "1/(x^{-3/2} + y^{-1})": [
+            "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)"
+        ],
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)": [
+            "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(x^{3/2}*y)/(x^{3/2}*y)",
+            "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(y^{1}*x^{3/2})/(y^{1}*x^{3/2})"
+        ]
+    },
+    "scores": {
+        "1/(x^{-3/2} + y^{-1})": [
+            1,
+            1
+        ],
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)": [
+            1,
+            3
+        ],
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(x^{3/2}*y)/(x^{3/2}*y)": [
+            2,
+            2
+        ],
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(y^{1}*x^{3/2})/(y^{1}*x^{3/2})": [
+            2,
+            3
+        ]
+    },
+    "averages": {
+        "1/(x^{-3/2} + y^{-1})": 1.0,
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)": 2.0,
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(x^{3/2}*y)/(x^{3/2}*y)": 2.0,
+        "1/(x^{-3/2}+y^{-1})*(x^{3/2}*y)/(x^{3/2}*y)*(y^{1}*x^{3/2})/(y^{1}*x^{3/2})": 2.5
+    },
+    "tree_stats": {
+        "total_nodes": 4,
+        "max_pi_score": 2,
+        "max_h_score": 3,
+        "max_avg_score": 2.5,
+        "average_pi_score": 1.5,
+        "average_h_score": 2.25,
+        "average_avg_score": 1.875,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.25
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 2.5
+        }
+    }
+}

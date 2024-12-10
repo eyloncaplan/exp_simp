@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "xy/(x + y)",
+                "expression2": "1/(x^{-1} + y^{-1})"
+            },
+            {
+                "expression1": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "expression2": "1/(x^{-1/2} + y^{-1/2})"
+            },
+            {
+                "expression1": "xyz/(xy + yz + xz)",
+                "expression2": "1/(x^{-1} + y^{-1} + z^{-1})"
+            },
+            {
+                "expression1": "abc/(ab + bc + ac)",
+                "expression2": "1/(a^{-1} + b^{-1} + c^{-1})"
+            },
+            {
+                "expression1": "x^{3/2}y/(x^{3/2} + y)",
+                "expression2": "1/(x^{-3/2} + y^{-1})"
+            }
+        ],
+        "description": "(REVERSE) Remove negative exponents/Keep expressions rationalized\nx^{3/2}y/(x^{3/2} + y) -> 1/(x^{-3/2} + y^{-1})"
+    },
+    "test_index": 4,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "x^{3/2}y/(x^{3/2} + y)"
+        ]
+    },
+    "scores": {
+        "x^{3/2}y/(x^{3/2} + y)": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "x^{3/2}y/(x^{3/2} + y)": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

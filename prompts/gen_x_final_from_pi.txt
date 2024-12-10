@@ -1,0 +1,10 @@
+f"""I want to convert a math expression to a specific form. You will be given some example pairs of mathematical expressions before and after being converted into this specific form. I will then show you an expression, and you will convert it into the form. Here are the examples:
+
+{pi_string}
+
+Here is my expression:
+
+{exp}
+
+Now, using only the symbols {{+, -, *, /, ^, (, )}} and any numbers, convert the expression to the form. Output just the converted expression. Do not output any text or explanation, only the expression.
+"""

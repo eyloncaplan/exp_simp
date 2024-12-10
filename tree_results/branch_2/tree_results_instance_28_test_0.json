@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x + 1",
+                "expression2": "((x + 1)^2)/(x + 1)"
+            },
+            {
+                "expression1": "a + 2",
+                "expression2": "((a + 2)^2)/(a + 2)"
+            },
+            {
+                "expression1": "x - 1",
+                "expression2": "((x - 1)^2)/(x - 1)"
+            },
+            {
+                "expression1": "a + b",
+                "expression2": "((a + b)^2)/(a + b)"
+            },
+            {
+                "expression1": "x - y",
+                "expression2": "((x - y)^2)/(x - y)"
+            }
+        ],
+        "description": "(REVERSE) Reduce the number of parentheses/Keep expressions rationalized\nx + 1 -> ((x + 1)^2)/(x + 1)"
+    },
+    "test_index": 0,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "x + 1"
+        ]
+    },
+    "scores": {
+        "x + 1": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "x + 1": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

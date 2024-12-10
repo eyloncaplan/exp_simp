@@ -1,0 +1,114 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "((x + 1)^2)/(x + 1)",
+                "expression2": "x + 1",
+                "result": "passed"
+            },
+            {
+                "expression1": "((a + 2)^2)/(a + 2)",
+                "expression2": "a + 2",
+                "result": "passed"
+            },
+            {
+                "expression1": "((x - 1)^2)/(x - 1)",
+                "expression2": "x - 1",
+                "result": "passed"
+            },
+            {
+                "expression1": "((a + b)^2)/(a + b)",
+                "expression2": "a + b",
+                "result": "passed"
+            },
+            {
+                "expression1": "((x - y)^2)/(x - y)",
+                "expression2": "x - y",
+                "result": "passed"
+            }
+        ],
+        "description": "Reduce the number of parentheses/Keep expressions rationalized\n((a + b)^2)/(a + b) -> a + b"
+    },
+    "test_index": 3,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "((a + b)^2)/(a + b)"
+        ],
+        "((a + b)^2)/(a + b)": [
+            "(a+b)^(2-1)",
+            "(a+b)"
+        ],
+        "(a+b)^(2-1)": [
+            "(a+b)^(1)"
+        ],
+        "(a+b)": [
+            "(a+b)*1",
+            "(a+b)/1"
+        ]
+    },
+    "scores": {
+        "((a + b)^2)/(a + b)": [
+            1,
+            1
+        ],
+        "(a+b)^(2-1)": [
+            3,
+            2
+        ],
+        "(a+b)": [
+            5,
+            2
+        ],
+        "(a+b)^(1)": [
+            2,
+            2
+        ],
+        "(a+b)*1": [
+            2,
+            2
+        ],
+        "(a+b)/1": [
+            2,
+            2
+        ]
+    },
+    "averages": {
+        "((a + b)^2)/(a + b)": 1.0,
+        "(a+b)^(2-1)": 2.5,
+        "(a+b)": 3.5,
+        "(a+b)^(1)": 2.0,
+        "(a+b)*1": 2.0,
+        "(a+b)/1": 2.0
+    },
+    "tree_stats": {
+        "total_nodes": 6,
+        "max_pi_score": 5,
+        "max_h_score": 2,
+        "max_avg_score": 3.5,
+        "average_pi_score": 2.5,
+        "average_h_score": 1.8333333333333333,
+        "average_avg_score": 2.1666666666666665,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 3
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 2.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.0
+        }
+    }
+}

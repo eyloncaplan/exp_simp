@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(y/x)^2 + (b/a)^3",
+                "expression2": "((1/x)/(1/y))^2 + ((1/a)/(1/b))^3"
+            },
+            {
+                "expression1": "(y^3/x^2)^2 + (b^3/a^2)^3",
+                "expression2": "((1/x^2)/(1/y^3))^2 + ((1/a^2)/(1/b^3))^3"
+            },
+            {
+                "expression1": "(y/x)^3 + (b/a)^4",
+                "expression2": "((1/x)/(1/y))^3 + ((1/a)/(1/b))^4"
+            },
+            {
+                "expression1": "(y^4/x^3)^3 + (b^4/a^3)^4",
+                "expression2": "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4"
+            },
+            {
+                "expression1": "(y^2/x)^3 + (b^2/a)^2",
+                "expression2": "((1/x)/(1/y^2))^3 + ((1/a)/(1/b^2))^2"
+            }
+        ],
+        "description": "(REVERSE) Expand out complex fractions/Simplify powers of powers\n(y^3/x^2)^2 + (b^3/a^2)^3 -> ((1/x^2)/(1/y^3))^2 + ((1/a^2)/(1/b^3))^3"
+    },
+    "test_index": 1,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "(y^3/x^2)^2 + (b^3/a^2)^3"
+        ]
+    },
+    "scores": {
+        "(y^3/x^2)^2 + (b^3/a^2)^3": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "(y^3/x^2)^2 + (b^3/a^2)^3": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

@@ -1,0 +1,70 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-3} + x^2 + x^{-1} + 4x + 3",
+                "expression2": "1/x^3 + x^2 + 1/x + 4x + 3",
+                "result": "passed"
+            },
+            {
+                "expression1": "a^{-1} + a^2 + b^{-3} + 2b + 5",
+                "expression2": "1/a + a^2 + 1/b^3 + 2b + 5",
+                "result": "passed"
+            },
+            {
+                "expression1": "x^{-2} + x + x^3 + 3x^4 + x^{-1}",
+                "expression2": "1/x^2 + x + x^3 + 3x^4 + 1/x",
+                "result": "passed"
+            },
+            {
+                "expression1": "x^{-1} + x + x^2 + 3x^3 + 7",
+                "expression2": "1/x + x + x^2 + 3x^3 + 7",
+                "result": "passed"
+            },
+            {
+                "expression1": "a^{-2} + b^{-1} + a^3 + b^2 + 2",
+                "expression2": "1/a^2 + 1/b + a^3 + b^2 + 2",
+                "result": "passed"
+            }
+        ],
+        "description": "Remove negative exponents/Use standard form for polynomials\na^{-2} + b^{-1} + a^3 + b^2 + 2 -> 1/a^2 + 1/b + a^3 + b^2 + 2"
+    },
+    "test_index": 4,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "a^{-2} + b^{-1} + a^3 + b^2 + 2"
+        ]
+    },
+    "scores": {
+        "a^{-2} + b^{-1} + a^3 + b^2 + 2": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "a^{-2} + b^{-1} + a^3 + b^2 + 2": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

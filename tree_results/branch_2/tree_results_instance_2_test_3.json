@@ -1,0 +1,112 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "((1/x)/(1/y))^2 + ((1/a)/(1/b))^3",
+                "expression2": "(y/x)^2 + (b/a)^3",
+                "result": "passed"
+            },
+            {
+                "expression1": "((1/x^2)/(1/y^3))^2 + ((1/a^2)/(1/b^3))^3",
+                "expression2": "(y^3/x^2)^2 + (b^3/a^2)^3",
+                "result": "passed"
+            },
+            {
+                "expression1": "((1/x)/(1/y))^3 + ((1/a)/(1/b))^4",
+                "expression2": "(y/x)^3 + (b/a)^4",
+                "result": "passed"
+            },
+            {
+                "expression1": "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4",
+                "expression2": "(y^4/x^3)^3 + (b^4/a^3)^4",
+                "result": "passed"
+            },
+            {
+                "expression1": "((1/x)/(1/y^2))^3 + ((1/a)/(1/b^2))^2",
+                "expression2": "(y^2/x)^3 + (b^2/a)^2",
+                "result": "passed"
+            }
+        ],
+        "description": "Expand out complex fractions/Simplify powers of powers\n((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4 -> (y^4/x^3)^3 + (b^4/a^3)^4"
+    },
+    "test_index": 3,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4"
+        ],
+        "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4": [
+            "((y^4/x^3)^3+(b^4/a^3)^4)"
+        ],
+        "((y^4/x^3)^3+(b^4/a^3)^4)": [
+            "((x^3/y^4)^(-3)+(a^3/b^4)^(-4))",
+            "((x^3/y^4)^-3+(a^3/b^4)^-4)"
+        ],
+        "((x^3/y^4)^-3+(a^3/b^4)^-4)": [
+            "(y^4/x^3)^3+(b^4/a^3)^4"
+        ]
+    },
+    "scores": {
+        "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4": [
+            1,
+            1
+        ],
+        "((y^4/x^3)^3+(b^4/a^3)^4)": [
+            4,
+            4
+        ],
+        "((x^3/y^4)^(-3)+(a^3/b^4)^(-4))": [
+            2,
+            4
+        ],
+        "((x^3/y^4)^-3+(a^3/b^4)^-4)": [
+            5,
+            5
+        ],
+        "(y^4/x^3)^3+(b^4/a^3)^4": [
+            5,
+            5
+        ]
+    },
+    "averages": {
+        "((1/x^3)/(1/y^4))^3 + ((1/a^3)/(1/b^4))^4": 1.0,
+        "((y^4/x^3)^3+(b^4/a^3)^4)": 4.0,
+        "((x^3/y^4)^(-3)+(a^3/b^4)^(-4))": 3.0,
+        "((x^3/y^4)^-3+(a^3/b^4)^-4)": 5.0,
+        "(y^4/x^3)^3+(b^4/a^3)^4": 5.0
+    },
+    "tree_stats": {
+        "total_nodes": 5,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 5.0,
+        "average_pi_score": 3.4,
+        "average_h_score": 3.8,
+        "average_avg_score": 3.6,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 2,
+            "3": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 4.0,
+            "3": 5.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 3.5,
+            "3": 5.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 4.5,
+            "3": 5.0
+        }
+    }
+}

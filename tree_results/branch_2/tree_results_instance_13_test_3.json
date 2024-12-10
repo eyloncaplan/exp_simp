@@ -1,0 +1,108 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "1/(x^{-1} + y^{-1})",
+                "expression2": "xy/(x + y)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1/2} + y^{-1/2})",
+                "expression2": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1} + y^{-1} + z^{-1})",
+                "expression2": "xyz/(xy + yz + xz)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(a^{-1} + b^{-1} + c^{-1})",
+                "expression2": "abc/(ab + bc + ac)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-3/2} + y^{-1})",
+                "expression2": "x^{3/2}y/(x^{3/2} + y)",
+                "result": "passed"
+            }
+        ],
+        "description": "Remove negative exponents/Keep expressions rationalized\n1/(a^{-1} + b^{-1} + c^{-1}) -> abc/(ab + bc + ac)"
+    },
+    "test_index": 3,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "1/(a^{-1} + b^{-1} + c^{-1})"
+        ],
+        "1/(a^{-1} + b^{-1} + c^{-1})": [
+            "1/((b*c+a*c+a*b)/(a*b*c))",
+            "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))"
+        ],
+        "1/((b*c+a*c+a*b)/(a*b*c))": [
+            "1/((b*c+a*c+a*b)/(a*b*c))*(a*b*c)/(a*b*c)"
+        ],
+        "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))": [
+            "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))*(a*b*c)/(a*b*c)"
+        ]
+    },
+    "scores": {
+        "1/(a^{-1} + b^{-1} + c^{-1})": [
+            1,
+            1
+        ],
+        "1/((b*c+a*c+a*b)/(a*b*c))": [
+            4,
+            4
+        ],
+        "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))": [
+            1,
+            4
+        ],
+        "1/((b*c+a*c+a*b)/(a*b*c))*(a*b*c)/(a*b*c)": [
+            1,
+            3
+        ],
+        "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))*(a*b*c)/(a*b*c)": [
+            1,
+            3
+        ]
+    },
+    "averages": {
+        "1/(a^{-1} + b^{-1} + c^{-1})": 1.0,
+        "1/((b*c+a*c+a*b)/(a*b*c))": 4.0,
+        "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))": 2.5,
+        "1/((b*c+a*c+a*b)/(a*b*c))*(a*b*c)/(a*b*c)": 2.0,
+        "1/((b*c)/(b*c*a)+(a*c)/(a*c*b)+(a*b)/(a*b*c))*(a*b*c)/(a*b*c)": 2.0
+    },
+    "tree_stats": {
+        "total_nodes": 5,
+        "max_pi_score": 4,
+        "max_h_score": 4,
+        "max_avg_score": 4.0,
+        "average_pi_score": 1.6,
+        "average_h_score": 3.0,
+        "average_avg_score": 2.3,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.25,
+            "2": 2.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 2.5,
+            "2": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 3.0
+        }
+    }
+}

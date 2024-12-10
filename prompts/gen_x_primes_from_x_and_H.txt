@@ -6,5 +6,5 @@ Here is my expression:
 
 {exp}
 
-Now, perform just the first small step to convert this expression using the guiding principles. Output just the converted expression (one small step toward the correct form). Do not output any text or explanation, only the expression after one small step.
+Now, using only the symbols {{+, -, *, /, ^, (, )}} and any numbers, perform just a singular small step to convert this expression using the guiding principles. Output just the converted expression (one singular step toward the correct form). Do not output any text or explanation, only the expression after one singular small step. Do not do more than one small step.
 """

@@ -1,0 +1,70 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "1/(x^{-1} + y^{-1})",
+                "expression2": "xy/(x + y)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1/2} + y^{-1/2})",
+                "expression2": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-1} + y^{-1} + z^{-1})",
+                "expression2": "xyz/(xy + yz + xz)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(a^{-1} + b^{-1} + c^{-1})",
+                "expression2": "abc/(ab + bc + ac)",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x^{-3/2} + y^{-1})",
+                "expression2": "x^{3/2}y/(x^{3/2} + y)",
+                "result": "passed"
+            }
+        ],
+        "description": "Remove negative exponents/Keep expressions rationalized\n1/(x^{-1} + y^{-1}) -> xy/(x + y)"
+    },
+    "test_index": 0,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "1/(x^{-1} + y^{-1})"
+        ]
+    },
+    "scores": {
+        "1/(x^{-1} + y^{-1})": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "1/(x^{-1} + y^{-1})": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

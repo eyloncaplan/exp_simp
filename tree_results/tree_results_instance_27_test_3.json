@@ -1,0 +1,113 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-3}",
+                "expression2": "(x^{-1})^3"
+            },
+            {
+                "expression1": "a^{-2}",
+                "expression2": "(a^{-1})^2"
+            },
+            {
+                "expression1": "x^{-4}",
+                "expression2": "(x^{-1})^4"
+            },
+            {
+                "expression1": "b^{-3}",
+                "expression2": "(b^{-1})^3"
+            },
+            {
+                "expression1": "y^{-5}",
+                "expression2": "(y^{-1})^5"
+            }
+        ],
+        "description": "(REVERSE) Write reciprocal as x^{-1}/Simplify powers of powers\nb^{-3} -> (b^{-1})^3"
+    },
+    "test_index": 3,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "b^{-3}"
+        ],
+        "b^{-3}": [
+            "1/b^3",
+            "1/b^{3}"
+        ],
+        "1/b^3": [
+            "b^(-3)",
+            "b^-3"
+        ],
+        "b^(-3)": [
+            "1/b^(3)"
+        ]
+    },
+    "scores": {
+        "b^{-3}": [
+            1,
+            1
+        ],
+        "1/b^3": [
+            2,
+            2
+        ],
+        "1/b^{3}": [
+            1,
+            3
+        ],
+        "b^(-3)": [
+            2,
+            4
+        ],
+        "b^-3": [
+            2,
+            3
+        ],
+        "1/b^(3)": [
+            2,
+            2
+        ]
+    },
+    "averages": {
+        "b^{-3}": 1.0,
+        "1/b^3": 2.0,
+        "1/b^{3}": 2.0,
+        "b^(-3)": 3.0,
+        "b^-3": 2.5,
+        "1/b^(3)": 2.0
+    },
+    "tree_stats": {
+        "total_nodes": 6,
+        "max_pi_score": 2,
+        "max_h_score": 4,
+        "max_avg_score": 3.0,
+        "average_pi_score": 1.6666666666666667,
+        "average_h_score": 2.5,
+        "average_avg_score": 2.0833333333333335,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 2,
+            "3": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.75,
+            "3": 2.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.5,
+            "2": 2.0,
+            "3": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 2.5,
+            "2": 3.5,
+            "3": 2.0
+        }
+    }
+}

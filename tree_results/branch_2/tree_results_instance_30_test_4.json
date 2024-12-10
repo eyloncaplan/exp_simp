@@ -1,0 +1,65 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(a + b)^{-1} + (x + y)^{-1}",
+                "expression2": "(1/(a + b)) + (1/(x + y))"
+            },
+            {
+                "expression1": "x^{-1} * (y + z)^{-1}",
+                "expression2": "1/(x * (y + z))"
+            },
+            {
+                "expression1": "(a + b)^{-1} * (x + y)^{-1}",
+                "expression2": "1/((a + b) * (x + y))"
+            },
+            {
+                "expression1": "(a + 1)^{-1} + (b + 1)^{-1}",
+                "expression2": "(1/(a + 1) + (1/(b + 1)))"
+            },
+            {
+                "expression1": "(x + 1)^{-1} + (y + z) + (x + y)^{-1}",
+                "expression2": "1/(x + 1) + (y + z) + (1/(x + y))"
+            }
+        ],
+        "description": "(REVERSE) Reduce the number of parentheses/Write reciprocal as x^{-1}\n(x + 1)^{-1} + (y + z) + (x + y)^{-1} -> 1/(x + 1) + (y + z) + (1/(x + y))"
+    },
+    "test_index": 4,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "(x + 1)^{-1} + (y + z) + (x + y)^{-1}"
+        ]
+    },
+    "scores": {
+        "(x + 1)^{-1} + (y + z) + (x + y)^{-1}": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "(x + 1)^{-1} + (y + z) + (x + y)^{-1}": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 1,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 0,
+        "nodes_per_depth": {
+            "0": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0
+        }
+    }
+}

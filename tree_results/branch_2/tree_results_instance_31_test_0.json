@@ -1,0 +1,107 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^6 + x^6 + x^4 + x",
+                "expression2": "(x^2)^3 + (x^3)^2 + x + x^4"
+            },
+            {
+                "expression1": "y^6 + y^6 + y^4 + y",
+                "expression2": "(y^2)^3 + (y^3)^2 + y + y^4"
+            },
+            {
+                "expression1": "x^8 + x^6 + x^3 + x",
+                "expression2": "(x^4)^2 + (x^2)^3 + x + x^3"
+            },
+            {
+                "expression1": "a^6 + a^6 + a^4 + a",
+                "expression2": "(a^3)^2 + (a^2)^3 + a + a^4"
+            },
+            {
+                "expression1": "b^8 + b^6 + b^5 + b",
+                "expression2": "(b^2)^4 + (b^3)^2 + b + b^5"
+            }
+        ],
+        "description": "(REVERSE) Use standard form for polynomials/Simplify powers of powers\nx^6 + x^6 + x^4 + x -> (x^2)^3 + (x^3)^2 + x + x^4"
+    },
+    "test_index": 0,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "x^6 + x^6 + x^4 + x"
+        ],
+        "x^6 + x^6 + x^4 + x": [
+            "2*x^6+x^4+x"
+        ],
+        "2*x^6+x^4+x": [
+            "x^4*(2*x^2+1)+x",
+            "x^4+2*x^6+x"
+        ],
+        "x^4*(2*x^2+1)+x": [
+            "x^4*2*x^2+x^4*1+x"
+        ]
+    },
+    "scores": {
+        "x^6 + x^6 + x^4 + x": [
+            1,
+            1
+        ],
+        "2*x^6+x^4+x": [
+            2,
+            2
+        ],
+        "x^4*(2*x^2+1)+x": [
+            2,
+            4
+        ],
+        "x^4+2*x^6+x": [
+            1,
+            2
+        ],
+        "x^4*2*x^2+x^4*1+x": [
+            2,
+            3
+        ]
+    },
+    "averages": {
+        "x^6 + x^6 + x^4 + x": 1.0,
+        "2*x^6+x^4+x": 2.0,
+        "x^4*(2*x^2+1)+x": 3.0,
+        "x^4+2*x^6+x": 1.5,
+        "x^4*2*x^2+x^4*1+x": 2.5
+    },
+    "tree_stats": {
+        "total_nodes": 5,
+        "max_pi_score": 2,
+        "max_h_score": 4,
+        "max_avg_score": 3.0,
+        "average_pi_score": 1.6,
+        "average_h_score": 2.4,
+        "average_avg_score": 2.0,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 2,
+            "3": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.25,
+            "3": 2.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 1.5,
+            "3": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 3.0,
+            "3": 3.0
+        }
+    }
+}

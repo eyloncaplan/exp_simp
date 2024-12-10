@@ -1,0 +1,95 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "xy/(x + y)",
+                "expression2": "1/(x^{-1} + y^{-1})"
+            },
+            {
+                "expression1": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "expression2": "1/(x^{-1/2} + y^{-1/2})"
+            },
+            {
+                "expression1": "xyz/(xy + yz + xz)",
+                "expression2": "1/(x^{-1} + y^{-1} + z^{-1})"
+            },
+            {
+                "expression1": "abc/(ab + bc + ac)",
+                "expression2": "1/(a^{-1} + b^{-1} + c^{-1})"
+            },
+            {
+                "expression1": "x^{3/2}y/(x^{3/2} + y)",
+                "expression2": "1/(x^{-3/2} + y^{-1})"
+            }
+        ],
+        "description": "(REVERSE) Remove negative exponents/Keep expressions rationalized\nx^{1/2}y^{1/2}/(x^{1/2} + y^{1/2}) -> 1/(x^{-1/2} + y^{-1/2})"
+    },
+    "test_index": 1,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})"
+        ],
+        "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})": [
+            "1/(x^{-1/2}+y^{-1/2})"
+        ],
+        "1/(x^{-1/2}+y^{-1/2})": [
+            "1/(x^{1/2}*x^{-1}+y^{1/2}*y^{-1})",
+            "1/((x^{-1/2})+(y^{-1/2}))"
+        ]
+    },
+    "scores": {
+        "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})": [
+            1,
+            1
+        ],
+        "1/(x^{-1/2}+y^{-1/2})": [
+            5,
+            5
+        ],
+        "1/(x^{1/2}*x^{-1}+y^{1/2}*y^{-1})": [
+            5,
+            3
+        ],
+        "1/((x^{-1/2})+(y^{-1/2}))": [
+            5,
+            4
+        ]
+    },
+    "averages": {
+        "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})": 1.0,
+        "1/(x^{-1/2}+y^{-1/2})": 5.0,
+        "1/(x^{1/2}*x^{-1}+y^{1/2}*y^{-1})": 4.0,
+        "1/((x^{-1/2})+(y^{-1/2}))": 4.5
+    },
+    "tree_stats": {
+        "total_nodes": 4,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 5.0,
+        "average_pi_score": 4.0,
+        "average_h_score": 3.25,
+        "average_avg_score": 3.625,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 5.0,
+            "2": 4.25
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 5.0,
+            "2": 5.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 5.0,
+            "2": 3.5
+        }
+    }
+}

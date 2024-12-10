@@ -1,0 +1,126 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "1/x + 1/x^2",
+                "expression2": "x^{-1}(1 + x^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/a + 1/a^2",
+                "expression2": "a^{-1}(1 + a^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/x + 1/x^3",
+                "expression2": "x^{-1}(1 + x^{-2})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/b + 1/b^2",
+                "expression2": "b^{-1}(1 + b^{-1})",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/z + 1/z^2",
+                "expression2": "z^{-1}(1 + z^{-1})",
+                "result": "passed"
+            }
+        ],
+        "description": "Write reciprocal as x^{-1}/Factor out terms\n1/x + 1/x^2 -> x^{-1}(1 + x^{-1})"
+    },
+    "test_index": 0,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "1/x + 1/x^2"
+        ],
+        "1/x + 1/x^2": [
+            "1/x*(1+1/x)",
+            "(1/x)(1+1/x)"
+        ],
+        "1/x*(1+1/x)": [
+            "1/x*(1+x^(-1))"
+        ],
+        "(1/x)(1+1/x)": [
+            "(1/x)(1+x^(-1))"
+        ],
+        "1/x*(1+x^(-1))": [
+            "(1+x^(-1))/x",
+            "(1/x)*(1+x^(-1))"
+        ]
+    },
+    "scores": {
+        "1/x + 1/x^2": [
+            1,
+            1
+        ],
+        "1/x*(1+1/x)": [
+            3,
+            4
+        ],
+        "(1/x)(1+1/x)": [
+            3,
+            5
+        ],
+        "1/x*(1+x^(-1))": [
+            4,
+            5
+        ],
+        "(1/x)(1+x^(-1))": [
+            5,
+            3
+        ],
+        "(1+x^(-1))/x": [
+            2,
+            4
+        ],
+        "(1/x)*(1+x^(-1))": [
+            4,
+            5
+        ]
+    },
+    "averages": {
+        "1/x + 1/x^2": 1.0,
+        "1/x*(1+1/x)": 3.5,
+        "(1/x)(1+1/x)": 4.0,
+        "1/x*(1+x^(-1))": 4.5,
+        "(1/x)(1+x^(-1))": 4.0,
+        "(1+x^(-1))/x": 3.0,
+        "(1/x)*(1+x^(-1))": 4.5
+    },
+    "tree_stats": {
+        "total_nodes": 7,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 4.5,
+        "average_pi_score": 3.142857142857143,
+        "average_h_score": 3.857142857142857,
+        "average_avg_score": 3.5,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 2,
+            "3": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.75,
+            "2": 4.25,
+            "3": 3.75
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 4.5,
+            "3": 3.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.5,
+            "2": 4.0,
+            "3": 4.5
+        }
+    }
+}

@@ -1,0 +1,130 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-3} + x^2 + x^{-1} + 4x + 3",
+                "expression2": "1/x^3 + x^2 + 1/x + 4x + 3",
+                "result": "passed"
+            },
+            {
+                "expression1": "a^{-1} + a^2 + b^{-3} + 2b + 5",
+                "expression2": "1/a + a^2 + 1/b^3 + 2b + 5",
+                "result": "passed"
+            },
+            {
+                "expression1": "x^{-2} + x + x^3 + 3x^4 + x^{-1}",
+                "expression2": "1/x^2 + x + x^3 + 3x^4 + 1/x",
+                "result": "passed"
+            },
+            {
+                "expression1": "x^{-1} + x + x^2 + 3x^3 + 7",
+                "expression2": "1/x + x + x^2 + 3x^3 + 7",
+                "result": "passed"
+            },
+            {
+                "expression1": "a^{-2} + b^{-1} + a^3 + b^2 + 2",
+                "expression2": "1/a^2 + 1/b + a^3 + b^2 + 2",
+                "result": "passed"
+            }
+        ],
+        "description": "Remove negative exponents/Use standard form for polynomials\nx^{-2} + x + x^3 + 3x^4 + x^{-1} -> 1/x^2 + x + x^3 + 3x^4 + 1/x"
+    },
+    "test_index": 2,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "x^{-2} + x + x^3 + 3x^4 + x^{-1}"
+        ],
+        "x^{-2} + x + x^3 + 3x^4 + x^{-1}": [
+            "x^{-2}+x+x^3+3x^4+1/x"
+        ],
+        "x^{-2}+x+x^3+3x^4+1/x": [
+            "x^{-2}+x+x^3+3x^4+x^{-1}",
+            "1/x^2+x+x^3+3x^4+1/x",
+            "x^{-2}+x+x^3+3x^4+1*x^{-1}"
+        ],
+        "1/x^2+x+x^3+3x^4+1/x": [
+            "1/x^2+x+x^3+3x^4+x^(-1)",
+            "x^(-2)+x+x^3+3x^4+1/x",
+            "x^-2+x+x^3+3x^4+1/x"
+        ]
+    },
+    "scores": {
+        "x^{-2} + x + x^3 + 3x^4 + x^{-1}": [
+            1,
+            1
+        ],
+        "x^{-2}+x+x^3+3x^4+1/x": [
+            2,
+            4
+        ],
+        "x^{-2}+x+x^3+3x^4+x^{-1}": [
+            2,
+            3
+        ],
+        "1/x^2+x+x^3+3x^4+1/x": [
+            5,
+            5
+        ],
+        "x^{-2}+x+x^3+3x^4+1*x^{-1}": [
+            3,
+            4
+        ],
+        "1/x^2+x+x^3+3x^4+x^(-1)": [
+            4,
+            3
+        ],
+        "x^(-2)+x+x^3+3x^4+1/x": [
+            4,
+            3
+        ],
+        "x^-2+x+x^3+3x^4+1/x": [
+            2,
+            3
+        ]
+    },
+    "averages": {
+        "x^{-2} + x + x^3 + 3x^4 + x^{-1}": 1.0,
+        "x^{-2}+x+x^3+3x^4+1/x": 3.0,
+        "x^{-2}+x+x^3+3x^4+x^{-1}": 2.5,
+        "1/x^2+x+x^3+3x^4+1/x": 5.0,
+        "x^{-2}+x+x^3+3x^4+1*x^{-1}": 3.5,
+        "1/x^2+x+x^3+3x^4+x^(-1)": 3.5,
+        "x^(-2)+x+x^3+3x^4+1/x": 3.5,
+        "x^-2+x+x^3+3x^4+1/x": 2.5
+    },
+    "tree_stats": {
+        "total_nodes": 8,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 5.0,
+        "average_pi_score": 2.875,
+        "average_h_score": 3.25,
+        "average_avg_score": 3.0625,
+        "max_depth": 3,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 3,
+            "3": 3
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 3.6666666666666665,
+            "3": 3.1666666666666665
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 3.3333333333333335,
+            "3": 3.3333333333333335
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 4.0,
+            "3": 3.0
+        }
+    }
+}

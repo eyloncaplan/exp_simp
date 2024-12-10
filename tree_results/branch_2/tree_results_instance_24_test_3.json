@@ -1,0 +1,115 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^5 + y^6",
+                "expression2": "x^2 * x^3 + y^2 * y^4"
+            },
+            {
+                "expression1": "a^7 + b^5",
+                "expression2": "a^3 * a^4 + b^2 * b^3"
+            },
+            {
+                "expression1": "x^7 + y^5",
+                "expression2": "x^2 * x^5 + y^3 * y^2"
+            },
+            {
+                "expression1": "a^7 + b^7",
+                "expression2": "a^4 * a^3 + b^5 * b^2"
+            },
+            {
+                "expression1": "x^7 + y^5",
+                "expression2": "x^3 * x^4 + y^2 * y^3"
+            }
+        ],
+        "description": "(REVERSE) Reduce the number of terms/Simplify powers of powers\na^7 + b^7 -> a^4 * a^3 + b^5 * b^2"
+    },
+    "test_index": 3,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "a^7 + b^7"
+        ],
+        "a^7 + b^7": [
+            "a^6*a+b^6*b",
+            "(a^3*a^4)+(b^3*b^4)"
+        ],
+        "a^6*a+b^6*b": [
+            "a^(5+1)*a+b^(5+1)*b",
+            "a^6*a+b^6*b^1"
+        ],
+        "(a^3*a^4)+(b^3*b^4)": [
+            "(a^(3+0)*a^(0+4))+(b^(3+0)*b^(0+4))",
+            "(a^(3+0)*a^4)+(b^(3+0)*b^4)"
+        ]
+    },
+    "scores": {
+        "a^7 + b^7": [
+            1,
+            1
+        ],
+        "a^6*a+b^6*b": [
+            3,
+            5
+        ],
+        "(a^3*a^4)+(b^3*b^4)": [
+            5,
+            4
+        ],
+        "a^(5+1)*a+b^(5+1)*b": [
+            1,
+            5
+        ],
+        "a^6*a+b^6*b^1": [
+            2,
+            2
+        ],
+        "(a^(3+0)*a^(0+4))+(b^(3+0)*b^(0+4))": [
+            3,
+            5
+        ],
+        "(a^(3+0)*a^4)+(b^(3+0)*b^4)": [
+            4,
+            4
+        ]
+    },
+    "averages": {
+        "a^7 + b^7": 1.0,
+        "a^6*a+b^6*b": 4.0,
+        "(a^3*a^4)+(b^3*b^4)": 4.5,
+        "a^(5+1)*a+b^(5+1)*b": 3.0,
+        "a^6*a+b^6*b^1": 2.0,
+        "(a^(3+0)*a^(0+4))+(b^(3+0)*b^(0+4))": 4.0,
+        "(a^(3+0)*a^4)+(b^(3+0)*b^4)": 4.0
+    },
+    "tree_stats": {
+        "total_nodes": 7,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 4.5,
+        "average_pi_score": 2.7142857142857144,
+        "average_h_score": 3.7142857142857144,
+        "average_avg_score": 3.2142857142857144,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 4
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 4.25,
+            "2": 3.25
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 2.5
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.5,
+            "2": 4.0
+        }
+    }
+}

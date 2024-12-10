@@ -1,6 +1,7 @@
 import openai
 import os
 from gpt_suite import gpt_mp_handler  # Make sure to import your concurrent handling module
+import sys
 
 class OpenAIWrapper:
     def __init__(self, max_tokens=1500, temperature=0.1):
@@ -11,9 +12,6 @@ class OpenAIWrapper:
         openai.api_key = self.api_key
 
     def infer(self, prompts, engine='gpt-4o-mini', max_tokens=None, num_workers=1):
-        # # CHANGE THIS LATER BRO
-        # num_workers = 1
-        # print(f"infer input: {prompts}")
         if max_tokens is None:
             max_tokens = self.max_tokens
 
@@ -28,9 +26,9 @@ class OpenAIWrapper:
                     'model_name': engine
                 }
                 batch.append(ins)
+
             handler.add_batch(batch)
             outs = handler.process()
-            print("outs: ", outs)
             responses = [list(d.values())[0] for d in outs]
             # print(f"infer (multiprocess) output: {responses}")
             return responses

@@ -1,0 +1,1122 @@
+[
+    {
+        "problem_instance": 0,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 1,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 2,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 3,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 4,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 5,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 6,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 7,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 8,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 9,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 10,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 11,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 12,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 13,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 14,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 15,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 16,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 17,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 18,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 19,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 20,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 21,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 22,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 23,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 24,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 25,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 26,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 27,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 28,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 29,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 30,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 31,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 32,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 33,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 34,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 35,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 36,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 37,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 38,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 39,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 40,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 41,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 42,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 43,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 44,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 45,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 46,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 47,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 48,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 49,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 50,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 51,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 52,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 53,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 54,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 55,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 56,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 57,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 58,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 59,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 60,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 61,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 62,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 63,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 64,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 65,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 66,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 67,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 68,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 69,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 70,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 71,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 72,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 73,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 74,
+        "test_index": 4,
+        "pi_score": 2,
+        "h_score": 1,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 75,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 76,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 77,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 78,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 79,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 80,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 81,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 82,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 83,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 84,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 85,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 86,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 87,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 88,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 89,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 90,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 91,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 92,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 93,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 94,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 95,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 96,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 97,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 98,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 99,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 100,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 101,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 102,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 103,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 104,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 105,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 106,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 107,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 108,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 109,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 110,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 111,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 112,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 113,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 114,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 115,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 116,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 117,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 118,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 119,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 120,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 121,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 122,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 123,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 124,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 125,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 126,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 127,
+        "test_index": 2,
+        "pi_score": 3,
+        "h_score": 4,
+        "avg_score": 3.5
+    },
+    {
+        "problem_instance": 128,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 129,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 130,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 131,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 132,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 133,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 134,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 135,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 136,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 137,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 138,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 139,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 140,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 141,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 142,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 143,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 144,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 145,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 146,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 147,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 148,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 149,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 1,
+        "avg_score": 1.0
+    },
+    {
+        "problem_instance": 150,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 151,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 152,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 153,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 5,
+        "avg_score": 3.0
+    },
+    {
+        "problem_instance": 154,
+        "test_index": 4,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 155,
+        "test_index": 0,
+        "pi_score": 1,
+        "h_score": 3,
+        "avg_score": 2.0
+    },
+    {
+        "problem_instance": 156,
+        "test_index": 1,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 157,
+        "test_index": 2,
+        "pi_score": 1,
+        "h_score": 2,
+        "avg_score": 1.5
+    },
+    {
+        "problem_instance": 158,
+        "test_index": 3,
+        "pi_score": 1,
+        "h_score": 4,
+        "avg_score": 2.5
+    },
+    {
+        "problem_instance": 159,
+        "test_index": 4,
+        "pi_score": 2,
+        "h_score": 3,
+        "avg_score": 2.5
+    }
+]

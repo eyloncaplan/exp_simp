@@ -1,0 +1,82 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(1/(a + b)) + (1/(x + y))",
+                "expression2": "(a + b)^{-1} + (x + y)^{-1}",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x * (y + z))",
+                "expression2": "x^{-1} * (y + z)^{-1}",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/((a + b) * (x + y))",
+                "expression2": "(a + b)^{-1} * (x + y)^{-1}",
+                "result": "passed"
+            },
+            {
+                "expression1": "(1/(a + 1) + (1/(b + 1)))",
+                "expression2": "(a + 1)^{-1} + (b + 1)^{-1}",
+                "result": "passed"
+            },
+            {
+                "expression1": "1/(x + 1) + (y + z) + (1/(x + y))",
+                "expression2": "(x + 1)^{-1} + (y + z) + (x + y)^{-1}",
+                "result": "passed"
+            }
+        ],
+        "description": "Reduce the number of parentheses/Write reciprocal as x^{-1}\n1/(x * (y + z)) -> x^{-1} * (y + z)^{-1}"
+    },
+    "test_index": 1,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "1/(x * (y + z))"
+        ],
+        "1/(x * (y + z))": [
+            "x^(-1)*(y+z)^(-1)"
+        ]
+    },
+    "scores": {
+        "1/(x * (y + z))": [
+            1,
+            1
+        ],
+        "x^(-1)*(y+z)^(-1)": [
+            5,
+            4
+        ]
+    },
+    "averages": {
+        "1/(x * (y + z))": 1.0,
+        "x^(-1)*(y+z)^(-1)": 4.5
+    },
+    "tree_stats": {
+        "total_nodes": 2,
+        "max_pi_score": 5,
+        "max_h_score": 4,
+        "max_avg_score": 4.5,
+        "average_pi_score": 3.0,
+        "average_h_score": 2.5,
+        "average_avg_score": 2.75,
+        "max_depth": 1,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 4.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 5.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0
+        }
+    }
+}

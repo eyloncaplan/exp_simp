@@ -1,0 +1,114 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(x^2)^3 + (x^3)^2 + x + x^4",
+                "expression2": "x^6 + x^6 + x^4 + x",
+                "result": "passed"
+            },
+            {
+                "expression1": "(y^2)^3 + (y^3)^2 + y + y^4",
+                "expression2": "y^6 + y^6 + y^4 + y",
+                "result": "passed"
+            },
+            {
+                "expression1": "(x^4)^2 + (x^2)^3 + x + x^3",
+                "expression2": "x^8 + x^6 + x^3 + x",
+                "result": "passed"
+            },
+            {
+                "expression1": "(a^3)^2 + (a^2)^3 + a + a^4",
+                "expression2": "a^6 + a^6 + a^4 + a",
+                "result": "passed"
+            },
+            {
+                "expression1": "(b^2)^4 + (b^3)^2 + b + b^5",
+                "expression2": "b^8 + b^6 + b^5 + b",
+                "result": "passed"
+            }
+        ],
+        "description": "Use standard form for polynomials/Simplify powers of powers\n(b^2)^4 + (b^3)^2 + b + b^5 -> b^8 + b^6 + b^5 + b"
+    },
+    "test_index": 4,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "(b^2)^4 + (b^3)^2 + b + b^5"
+        ],
+        "(b^2)^4 + (b^3)^2 + b + b^5": [
+            "b^8+b^6+b+b^5",
+            "b^8+(b^3)^2+b+b^5"
+        ],
+        "b^8+b^6+b+b^5": [
+            "b^8+b^6+b^5+b"
+        ],
+        "b^8+(b^3)^2+b+b^5": [
+            "b^8+(b^(3*2))+b+b^5",
+            "b^8+(b^{3*2})+b+b^5"
+        ]
+    },
+    "scores": {
+        "(b^2)^4 + (b^3)^2 + b + b^5": [
+            1,
+            1
+        ],
+        "b^8+b^6+b+b^5": [
+            5,
+            3
+        ],
+        "b^8+(b^3)^2+b+b^5": [
+            3,
+            5
+        ],
+        "b^8+b^6+b^5+b": [
+            4,
+            3
+        ],
+        "b^8+(b^(3*2))+b+b^5": [
+            3,
+            4
+        ],
+        "b^8+(b^{3*2})+b+b^5": [
+            3,
+            5
+        ]
+    },
+    "averages": {
+        "(b^2)^4 + (b^3)^2 + b + b^5": 1.0,
+        "b^8+b^6+b+b^5": 4.0,
+        "b^8+(b^3)^2+b+b^5": 4.0,
+        "b^8+b^6+b^5+b": 3.5,
+        "b^8+(b^(3*2))+b+b^5": 3.5,
+        "b^8+(b^{3*2})+b+b^5": 4.0
+    },
+    "tree_stats": {
+        "total_nodes": 6,
+        "max_pi_score": 5,
+        "max_h_score": 5,
+        "max_avg_score": 4.0,
+        "average_pi_score": 3.1666666666666665,
+        "average_h_score": 3.5,
+        "average_avg_score": 3.3333333333333335,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 2,
+            "2": 3
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 3.6666666666666665
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 3.3333333333333335
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0,
+            "2": 4.0
+        }
+    }
+}

@@ -1,0 +1,125 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^6 + x^6 + x^4 + x",
+                "expression2": "(x^2)^3 + (x^3)^2 + x + x^4"
+            },
+            {
+                "expression1": "y^6 + y^6 + y^4 + y",
+                "expression2": "(y^2)^3 + (y^3)^2 + y + y^4"
+            },
+            {
+                "expression1": "x^8 + x^6 + x^3 + x",
+                "expression2": "(x^4)^2 + (x^2)^3 + x + x^3"
+            },
+            {
+                "expression1": "a^6 + a^6 + a^4 + a",
+                "expression2": "(a^3)^2 + (a^2)^3 + a + a^4"
+            },
+            {
+                "expression1": "b^8 + b^6 + b^5 + b",
+                "expression2": "(b^2)^4 + (b^3)^2 + b + b^5"
+            }
+        ],
+        "description": "(REVERSE) Use standard form for polynomials/Simplify powers of powers\na^6 + a^6 + a^4 + a -> (a^3)^2 + (a^2)^3 + a + a^4"
+    },
+    "test_index": 3,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "a^6 + a^6 + a^4 + a"
+        ],
+        "a^6 + a^6 + a^4 + a": [
+            "2*a^6+a^4+a"
+        ],
+        "2*a^6+a^4+a": [
+            "2*(a^3)^2+a^4+a",
+            "2*(a^6)+a^4+a",
+            "2*(a^2)^3+a^4+a"
+        ],
+        "2*(a^6)+a^4+a": [
+            "2*(a^6)+(a^2)^2+a"
+        ],
+        "2*(a^6)+(a^2)^2+a": [
+            "2*(a^6)+(a^4)+a"
+        ]
+    },
+    "scores": {
+        "a^6 + a^6 + a^4 + a": [
+            1,
+            1
+        ],
+        "2*a^6+a^4+a": [
+            1,
+            3
+        ],
+        "2*(a^3)^2+a^4+a": [
+            4,
+            4
+        ],
+        "2*(a^6)+a^4+a": [
+            2,
+            3
+        ],
+        "2*(a^2)^3+a^4+a": [
+            5,
+            4
+        ],
+        "2*(a^6)+(a^2)^2+a": [
+            2,
+            4
+        ],
+        "2*(a^6)+(a^4)+a": [
+            3,
+            3
+        ]
+    },
+    "averages": {
+        "a^6 + a^6 + a^4 + a": 1.0,
+        "2*a^6+a^4+a": 2.0,
+        "2*(a^3)^2+a^4+a": 4.0,
+        "2*(a^6)+a^4+a": 2.5,
+        "2*(a^2)^3+a^4+a": 4.5,
+        "2*(a^6)+(a^2)^2+a": 3.0,
+        "2*(a^6)+(a^4)+a": 3.0
+    },
+    "tree_stats": {
+        "total_nodes": 7,
+        "max_pi_score": 5,
+        "max_h_score": 4,
+        "max_avg_score": 4.5,
+        "average_pi_score": 2.5714285714285716,
+        "average_h_score": 3.142857142857143,
+        "average_avg_score": 2.857142857142857,
+        "max_depth": 4,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 3,
+            "3": 1,
+            "4": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 3.6666666666666665,
+            "3": 3.0,
+            "4": 3.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.0,
+            "2": 3.6666666666666665,
+            "3": 2.0,
+            "4": 3.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0,
+            "2": 3.6666666666666665,
+            "3": 4.0,
+            "4": 3.0
+        }
+    }
+}

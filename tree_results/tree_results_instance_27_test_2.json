@@ -1,0 +1,95 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "x^{-3}",
+                "expression2": "(x^{-1})^3"
+            },
+            {
+                "expression1": "a^{-2}",
+                "expression2": "(a^{-1})^2"
+            },
+            {
+                "expression1": "x^{-4}",
+                "expression2": "(x^{-1})^4"
+            },
+            {
+                "expression1": "b^{-3}",
+                "expression2": "(b^{-1})^3"
+            },
+            {
+                "expression1": "y^{-5}",
+                "expression2": "(y^{-1})^5"
+            }
+        ],
+        "description": "(REVERSE) Write reciprocal as x^{-1}/Simplify powers of powers\nx^{-4} -> (x^{-1})^4"
+    },
+    "test_index": 2,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "x^{-4}"
+        ],
+        "x^{-4}": [
+            "1/x^4"
+        ],
+        "1/x^4": [
+            "x^(-4)",
+            "x^-4"
+        ]
+    },
+    "scores": {
+        "x^{-4}": [
+            1,
+            1
+        ],
+        "1/x^4": [
+            2,
+            2
+        ],
+        "x^(-4)": [
+            2,
+            2
+        ],
+        "x^-4": [
+            2,
+            4
+        ]
+    },
+    "averages": {
+        "x^{-4}": 1.0,
+        "1/x^4": 2.0,
+        "x^(-4)": 2.0,
+        "x^-4": 3.0
+    },
+    "tree_stats": {
+        "total_nodes": 4,
+        "max_pi_score": 2,
+        "max_h_score": 4,
+        "max_avg_score": 3.0,
+        "average_pi_score": 1.75,
+        "average_h_score": 2.25,
+        "average_avg_score": 2.0,
+        "max_depth": 2,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1,
+            "2": 2
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 2.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 2.0,
+            "2": 3.0
+        }
+    }
+}

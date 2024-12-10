@@ -1,0 +1,82 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "(x^2 + 2x)/x + (y^2 + 3y)/y",
+                "expression2": "(x + 2) + (y + 3)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(a^2 + 2a)/a + (b^2 + 3b)/b",
+                "expression2": "(a + 2) + (b + 3)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(2x^2 + 4x)/x + (y^2 + 5y)/y",
+                "expression2": "2(x + 2) + (y + 5)",
+                "result": "passed"
+            },
+            {
+                "expression1": "(a^3 + 3a^2)/a + (b^2 + 2b)/b",
+                "expression2": "a^2 + 3a + b + 2",
+                "result": "passed"
+            },
+            {
+                "expression1": "(2x^2 + 6x)/x + (y^3 + 4y^2)/y",
+                "expression2": "2(x + 3) + (y^2 + 4y)",
+                "result": "passed"
+            }
+        ],
+        "description": "Factor out terms/Reduce the number of fractions\n(x^2 + 2x)/x + (y^2 + 3y)/y -> (x + 2) + (y + 3)"
+    },
+    "test_index": 0,
+    "branching_factor": 2,
+    "tree": {
+        "null": [
+            "(x^2 + 2x)/x + (y^2 + 3y)/y"
+        ],
+        "(x^2 + 2x)/x + (y^2 + 3y)/y": [
+            "(x(x+2))/x+(y(y+3))/y"
+        ]
+    },
+    "scores": {
+        "(x^2 + 2x)/x + (y^2 + 3y)/y": [
+            1,
+            1
+        ],
+        "(x(x+2))/x+(y(y+3))/y": [
+            3,
+            4
+        ]
+    },
+    "averages": {
+        "(x^2 + 2x)/x + (y^2 + 3y)/y": 1.0,
+        "(x(x+2))/x+(y(y+3))/y": 3.5
+    },
+    "tree_stats": {
+        "total_nodes": 2,
+        "max_pi_score": 3,
+        "max_h_score": 4,
+        "max_avg_score": 3.5,
+        "average_pi_score": 2.0,
+        "average_h_score": 2.5,
+        "average_avg_score": 2.25,
+        "max_depth": 1,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 1
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 3.5
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 3.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 4.0
+        }
+    }
+}

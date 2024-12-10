@@ -1,0 +1,101 @@
+{
+    "problem_instance": {
+        "examples": [
+            {
+                "expression1": "xy/(x + y)",
+                "expression2": "1/(x^{-1} + y^{-1})"
+            },
+            {
+                "expression1": "x^{1/2}y^{1/2}/(x^{1/2} + y^{1/2})",
+                "expression2": "1/(x^{-1/2} + y^{-1/2})"
+            },
+            {
+                "expression1": "xyz/(xy + yz + xz)",
+                "expression2": "1/(x^{-1} + y^{-1} + z^{-1})"
+            },
+            {
+                "expression1": "abc/(ab + bc + ac)",
+                "expression2": "1/(a^{-1} + b^{-1} + c^{-1})"
+            },
+            {
+                "expression1": "x^{3/2}y/(x^{3/2} + y)",
+                "expression2": "1/(x^{-3/2} + y^{-1})"
+            }
+        ],
+        "description": "(REVERSE) Remove negative exponents/Keep expressions rationalized\nxy/(x + y) -> 1/(x^{-1} + y^{-1})"
+    },
+    "test_index": 0,
+    "branching_factor": 5,
+    "tree": {
+        "null": [
+            "xy/(x + y)"
+        ],
+        "xy/(x + y)": [
+            "(xy)/(1*(x+y))",
+            "(x*y)/(1*(x+y))",
+            "xy/(1*(x+y))",
+            "(xy)/(y+x)",
+            "(xy)/(x+y)"
+        ]
+    },
+    "scores": {
+        "xy/(x + y)": [
+            1,
+            1
+        ],
+        "(xy)/(1*(x+y))": [
+            1,
+            1
+        ],
+        "(x*y)/(1*(x+y))": [
+            1,
+            1
+        ],
+        "xy/(1*(x+y))": [
+            1,
+            1
+        ],
+        "(xy)/(y+x)": [
+            1,
+            1
+        ],
+        "(xy)/(x+y)": [
+            1,
+            1
+        ]
+    },
+    "averages": {
+        "xy/(x + y)": 1.0,
+        "(xy)/(1*(x+y))": 1.0,
+        "(x*y)/(1*(x+y))": 1.0,
+        "xy/(1*(x+y))": 1.0,
+        "(xy)/(y+x)": 1.0,
+        "(xy)/(x+y)": 1.0
+    },
+    "tree_stats": {
+        "total_nodes": 6,
+        "max_pi_score": 1,
+        "max_h_score": 1,
+        "max_avg_score": 1.0,
+        "average_pi_score": 1.0,
+        "average_h_score": 1.0,
+        "average_avg_score": 1.0,
+        "max_depth": 1,
+        "nodes_per_depth": {
+            "0": 1,
+            "1": 5
+        },
+        "average_score_per_depth": {
+            "0": 1.0,
+            "1": 1.0
+        },
+        "average_pi_score_per_depth": {
+            "0": 1.0,
+            "1": 1.0
+        },
+        "average_h_score_per_depth": {
+            "0": 1.0,
+            "1": 1.0
+        }
+    }
+}
