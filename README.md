@@ -60,8 +60,7 @@ x^2 + 6x + 9 + y^3 - 12y^2 + 48y - 64 + z
 1. **Example Induction**: Provide the LLM with N−1 input ⟶ output pairs.  
 2. **BFS over Style Rewrites**: At each node, propose a single-step stylistic rewrite via the LLM and verify equivalence with a CAS.  
 3. **Scoring**: Each candidate receives a Pi score and an H score; we track the average.  
-4. **Selection**: Continue expanding until a candidate matches the target style exactly, or until a depth limit is reached.
-
+4. **Selection**: Continue expanding until the average score decreases.
 ---
 
 ## 📊 Visualizations
